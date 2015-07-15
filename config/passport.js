@@ -32,7 +32,7 @@ module.exports.passport = {
       consumerSecret: 'your-consumer-secret'
     }
   },
-
+/*
   github: {
     name: 'GitHub',
     protocol: 'oauth2',
@@ -42,7 +42,7 @@ module.exports.passport = {
       clientSecret: 'your-client-secret'
     }
   },
-
+*/
   facebook: {
     name: 'Facebook',
     protocol: 'oauth2',
@@ -62,8 +62,8 @@ module.exports.passport = {
       clientID: 'your-client-id',
       clientSecret: 'your-client-secret'
     }
-  },
-
+  }
+/*,
   cas: {
     name: 'CAS',
     protocol: 'cas',
@@ -74,4 +74,5 @@ module.exports.passport = {
       serviceURL: 'http://localhost:1337/auth/cas/callback'
     }
   }
+*/
 };
