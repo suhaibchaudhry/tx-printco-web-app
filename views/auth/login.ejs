@@ -14,6 +14,8 @@
   <h4>You can also use one of these...</h4>
 
   <% Object.keys(providers).forEach(function (key) { %>
-    <a href="/auth/<%= providers[key].slug %>" role="button"><%= providers[key].name %></a>
+    <% if(typeof providers[key].name !== "undefined") { %>
+      <a href="/auth/<%= providers[key].slug %>" role="button"><%= providers[key].name %></a>
+    <% } %>
   <% }) %>
 <% } %>
