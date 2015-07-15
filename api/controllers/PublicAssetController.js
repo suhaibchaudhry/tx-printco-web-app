@@ -6,6 +6,10 @@
  */
 
 module.exports = {
-	
+  homepage: function (req, res) {
+    res.view({
+      errors: req.flash('error')
+    });
+  }
 };
 
