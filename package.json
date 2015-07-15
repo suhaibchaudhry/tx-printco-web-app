@@ -5,6 +5,11 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    //Custom Dependencies
+    "passport": ">=0.2.2",
+    "bycryptjs": ">=2.2.0",
+    "validator": ">=3.41.2",
+    //Sails Dependencies
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
     "grunt-contrib-clean": "~0.5.0",
@@ -30,8 +35,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/digerpaji/txprintco-app.git"
+    "url": "git://git@bitbucket.org:uitouxteam/tx-printco-web-app.git"
   },
-  "author": "digerpaji",
+  "author": "Asad Hasan",
   "license": ""
 }
