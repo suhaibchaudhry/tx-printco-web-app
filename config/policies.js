@@ -20,6 +20,9 @@
 module.exports.policies = {
 
   '*': ['passport', 'sessionAuth'],
+  'public': {
+    '*': ['passport']
+  },
   'auth': {
     '*': ['passport']
   }
