@@ -1,5 +1,14 @@
+var host = 'localhost';
+var port = '5984';
+var dbname = 'txprintco_dev_stage14';
+
+var nano = require("nano")('http://'+host+':'+port);
+var db = nano.db.use(dbname);
+
 module.exports.txprintco = {
-    host: 'localhost',
-    port: '5984',
-    database: 'txprintco_dev_stage14'
+    host: host,
+    port: port,
+    database: db,
+    client: nano,
+    db: db
 };
