@@ -40,7 +40,7 @@ module.exports.connections = {
   * Run: npm install sails-mysql                                             *
   *                                                                          *
   ***************************************************************************/
-  MySQLBackend: {
+  mySQLBackend: {
     adapter: 'sails-mysql',
     host: 'localhost',
     user: 'txprintco-sails',
