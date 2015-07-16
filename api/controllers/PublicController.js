@@ -1,7 +1,7 @@
 /**
  * AppController
  *
- * @description :: Server-side logic for managing Apps
+ * @description :: Server-side logic for managing Public assets
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 

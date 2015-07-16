@@ -44,7 +44,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'get /':  'PublicController.homepage'
+  'get /':  'PublicController.homepage',
+  'get /profile':  'ProfileController.profile'
 
   /***************************************************************************
   *                                                                          *
