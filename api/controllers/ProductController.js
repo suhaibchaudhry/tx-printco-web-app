@@ -7,6 +7,11 @@
 
 module.exports = {
 	productList: function (req, res) {
+		var db = sails.config.txprintco.db;
+		db.view('txprintco', categories, function(err, body) {
+			console.log(body);
+		});
+
     res.view({
       errors: req.flash('error')
     });
