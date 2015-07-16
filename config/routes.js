@@ -45,7 +45,11 @@ module.exports.routes = {
   ***************************************************************************/
 
   'get /':  'PublicController.homepage',
-  'get /profile':  'ProfileController.profile'
+
+  'get /profile':  'ProfileController.profile',
+
+  'get /product': 'ProductController.productList',
+  'get /product/*': 'ProductController.product'
 
   /***************************************************************************
   *                                                                          *
