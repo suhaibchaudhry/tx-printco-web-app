@@ -1,1 +1,4 @@
 <h1>Product List</h1>
+<% data["rows"].forEach(function(category) { %>
+     <p><a href="product/<%= category['key'] %>"><%= category['value'] %></a></p>
+<% }); %>

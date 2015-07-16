@@ -9,14 +9,15 @@ module.exports = {
 	productList: function (req, res) {
 		var db = sails.config.txprintco.db;
 		db.view('txprintco', 'categories', {group: true}, function(err, body) {
-			//if(err) {
+			if(err) {
 				return res.serverError("We were unable to recieve data from the server at this moment, please try again later.");
-			//}
+			} else {
+				res.view({
+		      errors: req.flash('error'),
+					data: body
+		    });
+			}
 		});
-
-    /*res.view({
-      errors: req.flash('error')
-    });*/
   },
 	product: function (req, res) {
     res.view({
