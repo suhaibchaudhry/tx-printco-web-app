@@ -50,5 +50,8 @@ module.exports = {
 		} else {
 			res.notFound();
 		}
+	},
+	productFilteredList: function(req, res) {
+		
 	}
 };
