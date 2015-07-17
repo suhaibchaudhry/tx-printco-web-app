@@ -6,7 +6,9 @@
     "test",
     "tests"
   ],
-  "dependencies": {},
+  "dependencies": {
+	"jquery": "1.x.x"
+  },
   "name": "txprintco-app",
   "version": "0.0.1",
   "author": "Asad Hasan",
