@@ -1,8 +1,8 @@
 {
   "name": "txprintco-app",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
+  "version": "0.0.1",
+  "description": "TX Printco public facing application.",
   "keywords": [],
   "dependencies": {
     "passport": ">=0.2.2",
