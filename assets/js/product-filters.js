@@ -12,5 +12,5 @@
     }
   });
 
-  var view = App.View.Bootstrap(productFilters, 'div.app-wrap');
+  var view = App.View.Bootstrap(productFilters, 'div.product-view');
 })(jQuery);
