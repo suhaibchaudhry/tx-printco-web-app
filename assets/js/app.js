@@ -1,20 +1,34 @@
 (function($) {
   App = {
       basePath: '/',
-      makeRequest: function(resource, requestType, contextObj, sucessCB, errorCB, data) {
+      selectParamsExtract: function(element) {
+        var data = {};
+        $.each(element, function(i, e) {
+          data[e.name] = e.value;
+        });
+
+        return data;
+      },
+      makeRequest: function(resource, requestType, contextObj, data, successCB, errorCB) {
         var request = {
           type: requestType,
-          url: this.basePath+resource,
-          success: _.bind(successCB, contextObj),
-          error: _.bind(errorCB, contextObj)
+          url: this.basePath+resource
         };
 
-        if(typeof success == 'function') {
+        if(typeof successCB == 'function') {
           request['success'] =  _.bind(successCB, contextObj);
+        } else {
+          request['success'] =  _.bind(function(res, status, xhr) {
+            console.log(res);
+          }, contextObj);
         }
 
-        if(typeof error == 'function') {
+        if(typeof errorCB == 'function') {
           request['error'] =  _.bind(errorCB, contextObj);
+        } else {
+          request['error'] =  _.bind(function(xhr, errorType, error) {
+            alert("Could not connect to server. Please try again.");
+          }, contextObj);
         }
 
         if(typeof data == 'object') {

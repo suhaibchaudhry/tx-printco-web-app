@@ -52,6 +52,6 @@ module.exports = {
 		}
 	},
 	productFilteredList: function(req, res) {
-		
+		res.json(req.body);
 	}
 };

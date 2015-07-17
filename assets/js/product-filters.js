@@ -2,7 +2,7 @@
   var productFilters = Backbone.View.extend({
     tagName: 'div',
     events: {
-      "change .product-filters select": 'lookupProduct'
+      "change .product-filters select": 'productFilterChange'
     },
     initialize: function() {
       console.log("Initialized");
@@ -10,20 +10,16 @@
     render: function() {
       console.log("Rendered");
     },
-    lookupProduct: function(e) {
-      console.log(this.$('.product-filters select').val());
-      $.ajax({
-        type: 'POST',
-        url: App.basePath+'rpc/product/filter',
-
-        timeout: 1500,
-        success: function(res, status, xhr) {
-
-        },
-        error: function() {
-
-        }
-      });
+    productFilterChange: function(e) {
+      App.makeRequest('rpc/product/filter',
+                      'POST',
+                      this,
+                      App.selectParamsExtract(this.$('.product-filters select')),
+                      this.productFilterSuccess);
+    },
+    productFilterSuccess: function(res, status, xhr) {
+      console.log('%c Product Filtered', 'font-size: 20px; color: red');
+      console.log(res);
     }
   });
 
