@@ -20,8 +20,19 @@ module.exports = {
 		});
   },
 	product: function (req, res) {
-    res.view({
-      errors: req.flash('error')
-    });
+		var category = req._parsedUrl.pathname.split('/')[2];
+		var db = sails.config.txprintco.db;
+
+		db.view('txprintco', 'filters-vocabularies', {key: category}, function(err, data) {
+			req.flash('error', JSON.stringify(data));
+			if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
+				res.view({
+		      errors: req.flash('error'),
+					category: category
+		    });
+			} else {
+				return res.notFound();
+			}
+		});
   }
 };
