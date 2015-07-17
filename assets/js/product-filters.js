@@ -11,10 +11,15 @@
       console.log("Rendered");
     },
     productFilterChange: function(e) {
+      var $filters = this.$('.product-filters');
+
       App.makeRequest('rpc/product/filter',
                       'POST',
                       this,
-                      App.selectParamsExtract(this.$('.product-filters select')),
+                      {
+                        category: $filters.data('category-id'),
+                        filters: App.selectParamsExtract($filters.find('select'))
+                      },
                       this.productFilterSuccess);
     },
     productFilterSuccess: function(res, status, xhr) {

@@ -52,6 +52,13 @@ module.exports = {
 		}
 	},
 	productFilteredList: function(req, res) {
-		res.json(req.body);
+		/*_.each(req.body, function(e) {
+			console.log(e);
+		});*/
+		if(_.has(req.body, 'category') && _.has(req.body, 'filters') && _.isObject(req.body.filters) && req.body.filters.length > 0) {
+			res.json(req.body);
+		} else {
+			res.notFound();
+		}
 	}
 };

@@ -5,7 +5,7 @@
   <% }) %>
 <% } %>
 <h1 class="title product-title" id="<%= category %>"><%= category_en %></h1>
-<div class="product-filters">
+<div class="product-filters" data-category-id="<%= category %>">
 <% vocabularies.forEach(function(vocabulary) { %>
   <label for="<%= vocabulary.vocabulary_machine_name %>"><%= vocabulary.vocabulary_en_name %></label>
   <select id="<%= vocabulary.vocabulary_machine_name %>" name="<%= vocabulary.vocabulary_machine_name %>">

@@ -15,7 +15,7 @@
           url: this.basePath+resource
         };
 
-        if(typeof successCB == 'function') {
+        if(_.isFunction(successCB)) {
           request['success'] =  _.bind(successCB, contextObj);
         } else {
           request['success'] =  _.bind(function(res, status, xhr) {
@@ -23,7 +23,7 @@
           }, contextObj);
         }
 
-        if(typeof errorCB == 'function') {
+        if(_.isFunction(errorCB)) {
           request['error'] =  _.bind(errorCB, contextObj);
         } else {
           request['error'] =  _.bind(function(xhr, errorType, error) {
@@ -31,7 +31,7 @@
           }, contextObj);
         }
 
-        if(typeof data == 'object') {
+        if(_.isObject(data)) {
           request['data'] = data;
         }
 
