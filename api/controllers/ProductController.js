@@ -27,7 +27,7 @@ module.exports = {
 
 		db.view('txprintco', 'categories', {key: category, group: true}, function(err, data) {
 			if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
-				req.flash('error', JSON.stringify(data));
+				//req.flash('error', JSON.stringify(data));
 				var category_en = data["rows"][0]["value"];
 				var dispatch = _.bind(function(err, data) {
 					that.productFilters(req, res, err, data, category_en, category);
@@ -39,12 +39,13 @@ module.exports = {
 		});
   },
 	productFilters: function(req, res, err, data, category_en, category) {
-		req.flash('error', JSON.stringify(data));
+		//req.flash('error', JSON.stringify(data));
 		if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
 			res.view({
 				errors: req.flash('error'),
 				category_en: category_en,
-				category: category
+				category: category,
+				vocabularies: data["rows"][0]["value"]
 			});
 		} else {
 			res.notFound();

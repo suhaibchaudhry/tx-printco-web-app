@@ -4,3 +4,12 @@
   <% }) %>
 <% } %>
 <h1 id="<%= category %>"><%= category_en %></h1>
+<% vocabularies.forEach(function(vocabulary) { %>
+  <label for="<%= vocabulary.vocabulary_machine_name %>"><%= vocabulary.vocabulary_en_name %></label>
+  <select id="<%= vocabulary.vocabulary_machine_name %>" name="<%= vocabulary.vocabulary_machine_name %>">
+    <option value="none">-- Choose <%= vocabulary.vocabulary_en_name %> --</option>
+    <% vocabulary.terms.forEach(function(term) { %>
+      <option value="<%= term %>"><%= term %></option>
+    <% }); %>
+  </select>
+<% }); %>
