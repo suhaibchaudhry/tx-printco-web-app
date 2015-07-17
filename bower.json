@@ -1,0 +1,14 @@
+{
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "name": "txprintco-app",
+  "version": "0.0.1",
+  "author": "Asad Hasan",
+  "private": true
+}
