@@ -1,4 +1,17 @@
 (function($) {
+  App = {};
+  App.View = {
+      collection: [],
+      Bootstrap: function(viewClass, selector) {
+        var view = new viewClass({
+          el: $(selector).get(0)
+        });
+
+        App.View.collection.push(view);
+        return view;
+      }
+  };
+
   var applicationFrame = Backbone.View.extend({
     tagName: 'div',
     events: {
@@ -12,13 +25,5 @@
     }
   });
 
-  var appBootstrap = function() {
-  	var app = new applicationFrame({
-  		el: $('div.app-wrap').get(0)
-  	});
-
-    return app;
-  };
-
-  var app = appBootstrap();
+  var view = App.View.Bootstrap(applicationFrame, 'div.app-wrap');
 })(jQuery);
