@@ -52,12 +52,22 @@ module.exports = {
 		}
 	},
 	productFilteredList: function(req, res) {
-		/*_.each(req.body, function(e) {
-			console.log(e);
-		});*/
-		console.log(req.body);
-		if(_.has(req.body, 'category') && _.has(req.body, 'filters') && _.isObject(req.body.filters) && _.keys(req.body.filters).length > 0) {
-			res.json(req.body);
+		var db = sails.config.txprintco.db;
+
+		if(_.has(req.body, 'category') && _.has(req.body, 'filters') && _.isObject(req.body.filters)) {
+			var filter_keys = _.keys(req.body.filters);
+			if(filter_keys.length > 0) {
+				var filterKeys = [];
+				_.each(filter_keys, function(key) {
+					filterKeys.push([req.body.category,key,req.body.filters[key]]);
+				});
+
+				db.view('txprintco', 'filters-product-map', {keys: filterKeys}, function(err, data) {
+					res.json(data);
+				});
+			} else {
+				res.notFound();
+			}
 		} else {
 			res.notFound();
 		}
