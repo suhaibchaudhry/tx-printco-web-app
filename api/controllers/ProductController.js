@@ -52,6 +52,7 @@ module.exports = {
 		}
 	},
 	productFilteredList: function(req, res) {
+		//Possibly cache controller due to heavy lifting.
 		var db = sails.config.txprintco.db;
 
 		if(_.has(req.body, 'category') && _.has(req.body, 'filters') && _.isObject(req.body.filters)) {
@@ -63,7 +64,17 @@ module.exports = {
 				});
 
 				db.view('txprintco', 'filters-product-map', {keys: filterKeys}, function(err, data) {
-					res.json(data);
+					if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
+						var uniq = data["rows"][0]["value"];
+
+						_.each(data["rows"], function(row) {
+							uniq = _.intersection(uniq, row["value"]);
+						});
+
+						res.json(uniq);
+					} else {
+						res.notFound();
+					}
 				});
 			} else {
 				res.notFound();
