@@ -73,7 +73,7 @@ module.exports = {
 
 						db.view('txprintco', 'vendor_product_id_map', {keys: uniq}, function(err, data) {
 							if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
-								//Remove Duplicates
+								//Remove duplicates by selecting first, later crawl description for each ?idc flag and figure out something to do with it.
 								var products_marked = [];
 								var products = [];
 								_.each(data["rows"], function(row) {
