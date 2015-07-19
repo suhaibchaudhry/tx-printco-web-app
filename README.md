@@ -13,7 +13,7 @@
 
 - Get facility again for options before calculating shipping, default facility will be used for shipping estimates.
 
-- Crawl should not cache products/ index pages.
+- Crawler should not cache products/ index pages.
 
 - Implement quantity discounts and other run size prices later.
 
