@@ -1,6 +1,6 @@
 # TX Print Co. - Web App
 
-![TX Print Co][http://www.dadesigners.com/sites/dadesigners.com/files/tpcologo.png]
+![TX Print Co](http://www.dadesigners.com/sites/dadesigners.com/files/tpcologo.png)
 
 ## Crawl Notes
 - Compute option total using "Add $X.YY" context clues via linear superposition.
