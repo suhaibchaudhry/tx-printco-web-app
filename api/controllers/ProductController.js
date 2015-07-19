@@ -71,7 +71,29 @@ module.exports = {
 							uniq = _.intersection(uniq, row["value"]);
 						});
 
-						res.json(uniq);
+						db.view('txprintco', 'vendor_product_id_map', {keys: uniq}, function(err, data) {
+							if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
+								var products_marked = [];
+								var products = [];
+								_.each(data["rows"], function(row) {
+									if(_.indexOf(products_marked, row["key"]) == -1) {
+										products.push(row["value"]);
+										products_marked.push(row["key"]);
+									}
+								});
+
+								res.json({
+									status: true,
+									products: products,
+									uniq: uniq
+								});
+							} else {
+								res.json({
+									status: false,
+									message: 'Could not find any products.'
+								});
+							}
+						});
 					} else {
 						res.notFound();
 					}
