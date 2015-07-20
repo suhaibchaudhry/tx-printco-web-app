@@ -8,14 +8,14 @@
 module.exports = {
 	productList: function (req, res) {
 		var db = sails.config.txprintco.db;
-		db.view('txprintco', 'categories_ordered', {group: true}, function(err, body) {
-			if(err) {
-				return res.serverError("We were unable to recieve data from the server at this moment, please try again later.");
-			} else {
+		db.view('txprintco', 'categories_ordered', {group: true}, function(err, data) {
+			if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
 				res.view({
-		      errors: req.flash('error'),
-					data: body
-		    });
+		      		errors: req.flash('error'),
+					data: data["rows"]
+		    	});
+			} else {
+				return res.serverError("We were unable to recieve data from the server at this moment, please try again later.");
 			}
 		});
   },

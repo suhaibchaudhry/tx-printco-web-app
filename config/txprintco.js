@@ -10,5 +10,6 @@ module.exports.txprintco = {
     port: port,
     database: db,
     client: nano,
-    db: db
+    db: db,
+    design_doc: 'txprintco'
 };
