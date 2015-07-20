@@ -9,7 +9,7 @@ var txprintcoData = {
 	},
 	handleCouchResponse: function(successCB, errorCB, err, data) {
 		if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
-			successCB(data["rows"]);
+			successCB(err, data["rows"]);
 		} else {
 			errorCB();
 		}
