@@ -55,7 +55,7 @@ module.exports = {
 				vocabularies: data[0]["value"]
 			});
 	},
-	getProductsByVendorID: function(req, res, err, data) {
+	getProductsByVendorID: function(req, res, uniq, err, data) {
 		//Remove duplicates by selecting first, later crawl description for each ?idc flag and figure out something to do with it.
 		var products_marked = [];
 		var products = [];
@@ -81,7 +81,7 @@ module.exports = {
 
 		txprintcoData.makeDataRequest('vendor_product_id_map',
 										{keys: uniq},
-										_.bind(this.getProductsByVendorID, this, req, res),
+										_.bind(this.getProductsByVendorID, this, req, res, uniq),
 										_.bind(this.JSONNotFoundResponse, this, req, res));
 	},
 	productFilteredList: function(req, res) {
