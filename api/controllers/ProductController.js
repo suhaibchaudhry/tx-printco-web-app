@@ -1,11 +1,12 @@
 /**
  * ProductController
- *
- * @description :: Server-side logic for managing Products
+ * @author			:: Asad Hasan
+ * @description :: Provide product loading and management operations using the TXPrintCo data service layer.
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
 module.exports = {
+	//Resource URI: /product
 	productList: function (req, res) {
 		txprintcoData.makeDataRequest('categories_ordered',
 										{group: true},
@@ -30,6 +31,7 @@ module.exports = {
 			message: 'Could not find any products.'
 		});
 	},
+	//Resource URI: /product/*
 	product: function (req, res) {
 		var that = this;
 		var category = req._parsedUrl.pathname.split('/')[2];
@@ -44,16 +46,50 @@ module.exports = {
 
 		txprintcoData.makeDataRequest('filters-vocabularies',
 										{key: category},
-										_.bind(this.productFilters, this, req, res, category_en, category),
+										_.bind(this.productRenderFilters, this, req, res, category_en, category),
 										_.bind(this.serverNotFoundResponse, this, req, res));
 	},
-	productFilters: function(req, res, category_en, category, err, data) {
+	productRenderFilters: function(req, res, category_en, category, err, data) {
 			res.view({
 				errors: req.flash('error'),
 				category_en: category_en,
 				category: category,
 				vocabularies: data[0]["value"]
 			});
+	},
+	//Resource URI: /rpc/product/filter
+	productFilteredList: function(req, res) {
+		//Possibly cache controller due to heavy lifting.
+		if(_.has(req.body, 'category') && _.has(req.body, 'filters') && _.isObject(req.body.filters)) {
+			var filter_keys = _.keys(req.body.filters);
+			if(filter_keys.length > 0) {
+				var filterKeys = [];
+				_.each(filter_keys, function(key) {
+					filterKeys.push([req.body.category,key,req.body.filters[key]]);
+				});
+
+				txprintcoData.makeDataRequest('filters-product-map',
+												{keys: filterKeys},
+												_.bind(this.getFilteredProducts, this, req, res),
+												_.bind(this.serverNotFoundResponse, this, req, res));
+			} else {
+				res.notFound();
+			}
+		} else {
+			res.notFound();
+		}
+	},
+	getFilteredProducts: function(req, res, err, data) {
+		var uniq = data[0]["value"];
+
+		_.each(data, function(row) {
+			uniq = _.intersection(uniq, row["value"]);
+		});
+
+		txprintcoData.makeDataRequest('vendor_product_id_map',
+										{keys: uniq},
+										_.bind(this.getProductsByVendorID, this, req, res, uniq),
+										_.bind(this.JSONNotFoundResponse, this, req, res));
 	},
 	getProductsByVendorID: function(req, res, uniq, err, data) {
 		//Remove duplicates by selecting first, later crawl description for each ?idc flag and figure out something to do with it.
@@ -71,38 +107,5 @@ module.exports = {
 			products: products,
 			uniq: uniq
 		});
-	},
-	getFilterCategoryProducts: function(req, res, err, data) {
-		var uniq = data[0]["value"];
-
-		_.each(data, function(row) {
-			uniq = _.intersection(uniq, row["value"]);
-		});
-
-		txprintcoData.makeDataRequest('vendor_product_id_map',
-										{keys: uniq},
-										_.bind(this.getProductsByVendorID, this, req, res, uniq),
-										_.bind(this.JSONNotFoundResponse, this, req, res));
-	},
-	productFilteredList: function(req, res) {
-		//Possibly cache controller due to heavy lifting.
-		if(_.has(req.body, 'category') && _.has(req.body, 'filters') && _.isObject(req.body.filters)) {
-			var filter_keys = _.keys(req.body.filters);
-			if(filter_keys.length > 0) {
-				var filterKeys = [];
-				_.each(filter_keys, function(key) {
-					filterKeys.push([req.body.category,key,req.body.filters[key]]);
-				});
-
-				txprintcoData.makeDataRequest('filters-product-map',
-												{keys: filterKeys},
-												_.bind(this.getFilterCategoryProducts, this, req, res),
-												_.bind(this.serverNotFoundResponse, this, req, res));
-			} else {
-				res.notFound();
-			}
-		} else {
-			res.notFound();
-		}
 	}
 };
