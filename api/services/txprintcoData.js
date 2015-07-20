@@ -1,15 +1,13 @@
 //TX Print Co. data service layer.
 
-var txprintco = {
+var txprintcoData = {
 	design_doc: sails.config.txprintco.design_doc,
 	db: sails.config.txprintco.db,
 	makeDataRequest: function(view, params, successCB, errorCB) {
 		var that = this;
-		db.view(this.design_doc, view, params, function(err, data) {
-			that.handleCouchResponse(err, data, successCB, errorCB);
-		});
+		this.db.view(this.design_doc, view, params, _.bind(this.handleCouchResponse, this, successCB, errorCB));
 	},
-	handleCouchResponse: function(err, data, successCB, errorCB) {
+	handleCouchResponse: function(successCB, errorCB, err, data) {
 		if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
 			successCB(data["rows"]);
 		} else {
@@ -18,4 +16,4 @@ var txprintco = {
 	}
 };
 
-module.export = txprintco;
+module.exports = txprintcoData;

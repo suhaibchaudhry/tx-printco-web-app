@@ -7,18 +7,20 @@
 
 module.exports = {
 	productList: function (req, res) {
-		var db = sails.config.txprintco.db;
-		db.view('txprintco', 'categories_ordered', {group: true}, function(err, data) {
-			if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
-				res.view({
-		      		errors: req.flash('error'),
-					data: data["rows"]
-		    	});
-			} else {
-				return res.serverError("We were unable to recieve data from the server at this moment, please try again later.");
-			}
+		txprintcoData.makeDataRequest('categories_ordered',
+										{group: true},
+										_.bind(this.drawCategoryTree, this, req, res),
+										_.bind(this.serverErrorResponse, this, req, res));
+	},
+	drawCategoryTree: function(req, res, data) {
+		res.view({
+		    errors: req.flash('error'),
+			data: data
 		});
-  },
+	},
+	serverErrorResponse: function() {
+		res.serverError("We were unable to recieve data from the server at this moment, please try again later.");
+	},
 	product: function (req, res) {
 		var that = this;
 		var db = sails.config.txprintco.db;
@@ -37,7 +39,7 @@ module.exports = {
 				res.notFound();
 			}
 		});
-  },
+	},
 	productFilters: function(req, res, err, data, category_en, category) {
 		//req.flash('error', JSON.stringify(data));
 		if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
