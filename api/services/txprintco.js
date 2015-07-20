@@ -18,4 +18,4 @@ var txprintco = {
 	}
 };
 
-modules.export = txprintco;
+module.export = txprintco;
