@@ -1,0 +1,21 @@
+<div class="product-summary">
+  <% if(status) {
+    var index = 0;
+    %>
+    <% products.forEach(function(product) {
+       var multiItemClass = '';
+       if(products.length > 1) {
+         multiItemClass = ' multipleResultChild';
+       }
+      %>
+      <div data-product-index="<%= index %>" class="product-selection<%= multiItemClass %>">
+        <div class="product-title"><%= product.title %></div>
+        <div class="product-price"><%= product.base_price %></div>
+      </div>
+    <% index++;
+    }); %>
+    <div class="product-options"></div>
+  <% } else { %>
+    <div class="status-message"><%= message %></div>
+  <% } %>
+</div>
