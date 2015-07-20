@@ -26,9 +26,14 @@
     },
     productFilterSuccess: function(res, status, xhr) {
       this.activeResult = res;
-      this.$('.product-data').html(this.productSummaryTemplate(this.activeResult));
-      if(res.status && res.products.length == 1) {
+      this.$('.product-data').html(
+        this.productSummaryTemplate(
+          this.activeResult
+          )
+        );
 
+      if(res.status && res.products.length == 1) {
+        
       }
       console.log('%c Product Filtered', 'font-size: 20px; color: red');
       console.log(res);
