@@ -123,5 +123,21 @@ module.exports = {
 			status: true,
 			colors: data[0]["value"]
 		});
+	},
+	getTATForColors: function(req, res) {
+		if(_.has(req.body, 'product_id') && _.has(req.body, 'runsize') && _.has(req.body, 'color')) {
+			txprintcoData.makeDataRequest('tat',
+											{key: [req.body.product_id,req.body.runsize,req.body.color]},
+											_.bind(this.productTATOptions, this, req, res),
+											_.bind(this.JSONNotFoundResponse, this, req, res));
+		} else {
+			res.notFound();
+		}
+	},
+	productTATOptions: function(req, res, err, data) {
+		res.json({
+			status: true,
+			tats: data[0]["value"]
+		});
 	}
 };

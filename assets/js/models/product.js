@@ -15,13 +15,28 @@
 											this.productColorsLoaded);
 		},
 		selectedColor: function(product, color, options) {
-			console.log(color);
+			App.makeRequest('rpc/product/tats',
+                      'POST',
+                      this,
+                      {
+                        product_id: this.get("product_id"),
+                        runsize: this.get('runsize'),
+												color: color
+                      },
+											this.productTATLoaded);
 		},
 		productColorsLoaded: function(res, status, xhr) {
 			if(res.status) {
 				this.set("colors", res.colors);
 			} else {
 				this.set("colors", false);
+			}
+		},
+		productTATLoaded: function(res, status, xhr) {
+			if(res.status) {
+				this.set("tats", res.tats);
+			} else {
+				this.set("tats", false);
 			}
 		}
 	});

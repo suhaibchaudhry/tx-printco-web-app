@@ -1,0 +1,13 @@
+<div class="product-tats product-attribute">
+  <% if(_.isArray(colors) || _.isObject(colors)) { %>
+  <label for="tats">Turn Around Time:</label>
+  <select name="tats" id="tats">
+    <% _.each(_.keys(tats), function(key) { %>
+    <option value="<%= key %>"><%= tats[key] %></option>
+    <% }); %>
+  </select>
+  <% } else { %>
+    <div class="message">Could not load product turn around times.</div>
+  <% } %>
+</div>
+<div class="product-opt-choose product-chain"></div>

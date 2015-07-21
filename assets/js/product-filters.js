@@ -4,6 +4,7 @@
     productSummaryTemplate: this.window.JST["assets/templates/product-summary.html"],
     productNewFormTemplate: this.window.JST["assets/templates/product-form.html"],
     productColorTemplate: this.window.JST["assets/templates/product-colors.html"],
+    productTATTemplate: this.window.JST["assets/templates/product-tats.html"],
     activeResult: {},
     activeProduct: new App.Model.Product(),
     events: {
@@ -16,6 +17,7 @@
       console.log("Initialized");
       this.listenTo(this.activeProduct, "change:product_id", this.productChange);
       this.listenTo(this.activeProduct, "change:colors", this.productColorsLoaded);
+      this.listenTo(this.activeProduct, "change:tats", this.productTATLoaded);
     },
     render: function() {
       console.log("Rendered");
@@ -65,6 +67,11 @@
         this.$('.product-colors-choose').html(this.productColorTemplate({
             colors: colors
         }));
+    },
+    productTATLoaded: function(product, tats, options) {
+      this.$('.product-tat-choose').html(this.productTATTemplate({
+        tats: tats
+      }));
     }
   });
 
