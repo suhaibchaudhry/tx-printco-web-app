@@ -1,0 +1,13 @@
+<div class="product-colors product-attribute">
+  <% if(_.isArray(colors) || _.isObject(colors)) { %>
+  <label for="colors">Color:</label>
+  <select name="colors" id="colors">
+    <% _.each(_.keys(colors), function(key) { %>
+    <option values="<%= key %>"><%= colors[key] %></option>
+    <% }); %>
+  </select>
+  <% } else { %>
+    <div class="message">Could not load product colors.</div>
+  <% } %>
+</div>
+<div class="product-tat-choose product-chain"></div>

@@ -3,6 +3,7 @@
     tagName: 'div',
     productSummaryTemplate: this.window.JST["assets/templates/product-summary.html"],
     productNewFormTemplate: this.window.JST["assets/templates/product-form.html"],
+    productColorTemplate: this.window.JST["assets/templates/product-colors.html"],
     activeResult: {},
     activeProduct: new App.Model.Product(),
     events: {
@@ -13,6 +14,7 @@
     initialize: function() {
       console.log("Initialized");
       this.listenTo(this.activeProduct, "change:product_id", this.productChange);
+      this.listenTo(this.activeProduct, "change:colors", this.productColorsLoaded);
     },
     render: function() {
       console.log("Rendered");
@@ -21,8 +23,6 @@
       this.$('.product-options').html(this.productNewFormTemplate({
         runsizes: product.get('runsizes')
       }));
-
-
     },
     selectProduct: function(e) {
       this.activeProduct.set(this.activeResult.products[e.currentTarget.dataset.productIndex]);
@@ -40,7 +40,7 @@
                       this.productFilterSuccess);
     },
     selectRunsize: function(e) {
-      console.log(e);
+      this.activeProduct.set('runsize', e.currentTarget.value);
     },
     productFilterSuccess: function(res, status, xhr) {
       this.activeResult = res;
@@ -55,6 +55,12 @@
       }
       console.log('%c Product Filtered', 'font-size: 20px; color: red');
       console.log(res);
+    },
+    productColorsLoaded: function(product, colors, options) {
+      console.log(colors);
+        this.$('.product-colors-choose').html(this.productColorTemplate({
+            colors: colors
+        }));
     }
   });
 

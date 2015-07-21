@@ -107,5 +107,21 @@ module.exports = {
 			products: products,
 			uniq: uniq
 		});
+	},
+	getColorsForQty: function(req, res) {
+		if(_.has(req.body, 'product_id') && _.has(req.body, 'runsize')) {
+			txprintcoData.makeDataRequest('colors',
+											{key: [req.body.product_id,req.body.runsize]},
+											_.bind(this.productColorOptions, this, req, res),
+											_.bind(this.JSONNotFoundResponse, this, req, res));
+		} else {
+			res.notFound();
+		}
+	},
+	productColorOptions: function(req, res, err, data) {
+		res.json({
+			status: true,
+			colors: data[0]["value"]
+		});
 	}
 };

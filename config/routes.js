@@ -51,7 +51,8 @@ module.exports.routes = {
   'get /product': 'ProductController.productList',
   'get /product/*': 'ProductController.parentProduct',
 
-  'post /rpc/product/filter': 'ProductController.productFilteredList'
+  'post /rpc/product/filter': 'ProductController.productFilteredList',
+  'post /rpc/product/colors': 'ProductController.getColorsForQty'
 
   /***************************************************************************
   *                                                                          *
