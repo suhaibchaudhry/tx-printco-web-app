@@ -139,5 +139,36 @@ module.exports = {
 			status: true,
 			tats: data[0]["value"]
 		});
+	},
+	getOptionsForTAT: function(req, res) {
+		if(_.has(req.body, 'product_id') && _.has(req.body, 'runsize') && _.has(req.body, 'color') && _.has(req.body, 'tat')) {
+			var key = [req.body.product_id,req.body.runsize,req.body.color,req.body.tat];
+			txprintcoData.makeDataRequest('options',
+											{key: key},
+											_.bind(this.productPrepareOptions, this, req, res, key),
+											_.bind(this.JSONNotFoundResponse, this, req, res));
+		} else {
+			res.notFound();
+		}
+	},
+	productPrepareOptions: function(req, res, baseKey, err, data) {
+		if(_.isArray(data[0]["value"]) && data[0]["value"].length > 0) {
+			var keys = [];
+			_.each(data[0]["value"], function(option) {
+				keys.push(_.flatten([baseKey, option]));
+			});
+			txprintcoData.makeDataRequest('options-object',
+											{keys: keys},
+											_.bind(this.productAdditionalOptions, this, req, res),
+											_.bind(this.JSONNotFoundResponse, this, req, res));
+		} else {
+			this.JSONNotFoundResponse(req, res);
+		}
+	},
+	productAdditionalOptions: function(req, res, err, data) {
+		res.json({
+			status: true,
+			options: data
+		});
 	}
 };

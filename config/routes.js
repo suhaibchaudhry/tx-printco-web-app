@@ -53,7 +53,8 @@ module.exports.routes = {
 
   'post /rpc/product/filter': 'ProductController.productFilteredList',
   'post /rpc/product/colors': 'ProductController.getColorsForQty',
-  'post /rpc/product/tats': 'ProductController.getTATForColors'
+  'post /rpc/product/tats': 'ProductController.getTATForColors',
+  'post /rpc/product/options': 'ProductController.getOptionsForTAT'
 
   /***************************************************************************
   *                                                                          *

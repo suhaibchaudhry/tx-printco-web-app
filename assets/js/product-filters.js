@@ -11,6 +11,7 @@
       "change .product-filters select": 'productFilterChange',
       "change .product-runsizes select": 'selectRunsize',
       "change .product-colors select": 'selectColor',
+      "change .product-tats select": 'selectTAT',
       "click .product-data .multipleResultChild": 'selectProduct'
     },
     initialize: function() {
@@ -47,6 +48,9 @@
     },
     selectColor: function(e) {
       this.activeProduct.set('color', e.currentTarget.value);
+    },
+    selectTAT: function(e) {
+      this.activeProduct.set('tat', e.currentTarget.value);
     },
     productFilterSuccess: function(res, status, xhr) {
       this.activeResult = res;
