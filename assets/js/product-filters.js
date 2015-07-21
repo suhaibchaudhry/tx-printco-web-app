@@ -8,23 +8,23 @@
     events: {
       "change .product-filters select": 'productFilterChange',
       "change .product-runsizes select": 'selectRunsize',
-      "click .product-data .multipleResultChild": 'selectSubProduct'
+      "click .product-data .multipleResultChild": 'selectProduct'
     },
     initialize: function() {
       console.log("Initialized");
-      this.listenTo(this.activeProduct, "change:product_id", this.subProductChange);
+      this.listenTo(this.activeProduct, "change:product_id", this.productChange);
     },
     render: function() {
       console.log("Rendered");
     },
-    subProductChange: function(product, value, options) {
+    productChange: function(product, value, options) {
       this.$('.product-options').html(this.productNewFormTemplate({
         runsizes: product.get('runsizes')
       }));
 
 
     },
-    selectSubProduct: function(e) {
+    selectProduct: function(e) {
       this.activeProduct.set(this.activeResult.products[e.currentTarget.dataset.productIndex]);
     },
     productFilterChange: function(e) {
