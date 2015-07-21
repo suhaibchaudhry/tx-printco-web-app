@@ -2,6 +2,7 @@
 	var product = Backbone.Model.extend({
 		initialize: function(attribute, options) {
 			this.listenTo(this, 'change:runsize', this.selectedRunsize);
+			this.listenTo(this, 'change:color', this.selectedColor);
 		},
 		selectedRunsize: function(product, runsize, options) {
 			App.makeRequest('rpc/product/colors',
@@ -12,6 +13,9 @@
                         runsize: runsize
                       },
 											this.productColorsLoaded);
+		},
+		selectedColor: function(product, color, options) {
+			console.log(color);
 		},
 		productColorsLoaded: function(res, status, xhr) {
 			if(res.status) {

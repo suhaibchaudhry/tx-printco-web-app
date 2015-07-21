@@ -3,7 +3,7 @@
   <label for="colors">Color:</label>
   <select name="colors" id="colors">
     <% _.each(_.keys(colors), function(key) { %>
-    <option values="<%= key %>"><%= colors[key] %></option>
+    <option value="<%= key %>"><%= colors[key] %></option>
     <% }); %>
   </select>
   <% } else { %>

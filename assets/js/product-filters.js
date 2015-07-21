@@ -9,6 +9,7 @@
     events: {
       "change .product-filters select": 'productFilterChange',
       "change .product-runsizes select": 'selectRunsize',
+      "change .product-colors select": 'selectColor',
       "click .product-data .multipleResultChild": 'selectProduct'
     },
     initialize: function() {
@@ -41,6 +42,9 @@
     },
     selectRunsize: function(e) {
       this.activeProduct.set('runsize', e.currentTarget.value);
+    },
+    selectColor: function(e) {
+      this.activeProduct.set('color', e.currentTarget.value);
     },
     productFilterSuccess: function(res, status, xhr) {
       this.activeResult = res;
