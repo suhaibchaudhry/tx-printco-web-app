@@ -2,11 +2,13 @@
   var productFilters = Backbone.View.extend({
     tagName: 'div',
     productSummaryTemplate: this.window.JST["assets/templates/product-summary.html"],
+    productNewFormTemplate: this.window.JST["assets/templates/product-form.html"],
     activeResult: {},
     activeProduct: new App.Model.Product(),
     events: {
       "change .product-filters select": 'productFilterChange',
-      "click .product-data .multipleResultChild": 'selectSubProduct',
+      "change .product-runsizes select": 'selectRunsize',
+      "click .product-data .multipleResultChild": 'selectSubProduct'
     },
     initialize: function() {
       console.log("Initialized");
@@ -15,10 +17,12 @@
     render: function() {
       console.log("Rendered");
     },
-    subProductChange: function(model, value, options) {
-      console.log(model.attributes);
-      console.log(value);
-      console.log(options);
+    subProductChange: function(product, value, options) {
+      this.$('.product-options').html(this.productNewFormTemplate({
+        runsizes: product.get('runsizes')
+      }));
+
+
     },
     selectSubProduct: function(e) {
       this.activeProduct.set(this.activeResult.products[e.currentTarget.dataset.productIndex]);
@@ -34,6 +38,9 @@
                         filters: App.selectParamsExtract($filters.find('select'))
                       },
                       this.productFilterSuccess);
+    },
+    selectRunsize: function(e) {
+      console.log(e);
     },
     productFilterSuccess: function(res, status, xhr) {
       this.activeResult = res;

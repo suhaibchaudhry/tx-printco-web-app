@@ -1,0 +1,11 @@
+<div class="product-form form">
+	<div class="product-runsizes product-attribute">
+		<label for="runsizes">Run Size:</label>
+		<select name="runsizes" id="runsizes">
+		<%= _.map(runsizes, function(size) {
+			return '<option values="'+size+'">'+size+'</option>';
+		}).join('') %>
+		</select>
+	</div>
+	<div class="product-coloring product-attribute"></div>
+</div>
