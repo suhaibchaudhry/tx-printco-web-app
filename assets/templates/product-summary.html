@@ -9,12 +9,12 @@
        }
       %>
       <div data-product-index="<%= index %>" class="product-selection<%= multiItemClass %>">
-        <div class="product-title"><%= product.title %></div>
-        <div class="product-price"><%= product.base_price %></div>
+        <div class="product-title title"><%= product.title %></div>
+        <div class="product-price price"><%= product.base_price %></div>
       </div>
     <% index++;
     }); %>
-    <div class="product-options"></div>
+    <div class="product-options options"></div>
   <% } else { %>
     <div class="status-message"><%= message %></div>
   <% } %>
