@@ -47,6 +47,11 @@
             App.View.collection.push(view);
             return view;
           }
+      },
+      Model: {
+        Attach: function(className, modelClassObj) {
+          this[className] = modelClassObj;
+        }
       }
   };
 })(jQuery);
