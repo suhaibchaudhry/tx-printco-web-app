@@ -32,7 +32,7 @@ module.exports = {
 		});
 	},
 	//Resource URI: /product/*
-	product: function (req, res) {
+	parentProduct: function (req, res) {
 		var that = this;
 		var category = req._parsedUrl.pathname.split('/')[2];
 

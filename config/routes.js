@@ -49,7 +49,7 @@ module.exports.routes = {
   'get /profile':  'ProfileController.profile',
 
   'get /product': 'ProductController.productList',
-  'get /product/*': 'ProductController.product',
+  'get /product/*': 'ProductController.parentProduct',
 
   'post /rpc/product/filter': 'ProductController.productFilteredList'
 
