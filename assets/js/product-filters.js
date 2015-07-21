@@ -53,11 +53,11 @@
       if(res.status && res.products.length == 1) {
         this.activeProduct.set(res.products[0]);
       }
-      console.log('%c Product Filtered', 'font-size: 20px; color: red');
-      console.log(res);
+      //console.log('%c Product Filtered', 'font-size: 20px; color: red');
+      //console.log(res);
     },
     productColorsLoaded: function(product, colors, options) {
-      console.log(colors);
+        //console.log(colors);
         this.$('.product-colors-choose').html(this.productColorTemplate({
             colors: colors
         }));
