@@ -5,6 +5,7 @@
     productNewFormTemplate: this.window.JST["assets/templates/product-form.html"],
     productColorTemplate: this.window.JST["assets/templates/product-colors.html"],
     productTATTemplate: this.window.JST["assets/templates/product-tats.html"],
+    productOptionsTemplate: this.window.JST["assets/templates/product-options.html"],
     activeResult: {},
     activeProduct: new App.Model.Product(),
     events: {
@@ -12,6 +13,7 @@
       "change .product-runsizes select": 'selectRunsize',
       "change .product-colors select": 'selectColor',
       "change .product-tats select": 'selectTAT',
+      "change .product-options select": 'selectOption',
       "click .product-data .multipleResultChild": 'selectProduct'
     },
     initialize: function() {
@@ -19,6 +21,7 @@
       this.listenTo(this.activeProduct, "change:product_id", this.productChange);
       this.listenTo(this.activeProduct, "change:colors", this.productColorsLoaded);
       this.listenTo(this.activeProduct, "change:tats", this.productTATLoaded);
+      this.listenTo(this.activeProduct, "change:vocabularies", this.productOptionsLoaded);
     },
     render: function() {
       console.log("Rendered");
@@ -52,13 +55,19 @@
       }
     },
     selectRunsize: function(e) {
+      this.activeProduct.set('runsize', false, {silent: true});
       this.activeProduct.set('runsize', e.currentTarget.value);
     },
     selectColor: function(e) {
+      this.activeProduct.set('color', false, {silent: true});
       this.activeProduct.set('color', e.currentTarget.value);
     },
     selectTAT: function(e) {
+      this.activeProduct.set('tat', false, {silent: true});
       this.activeProduct.set('tat', e.currentTarget.value);
+    },
+    selectOption: function(e) {
+      
     },
     productFilterSuccess: function(res, status, xhr) {
       this.activeResult = res;
@@ -85,6 +94,11 @@
     productTATLoaded: function(product, tats, options) {
       this.$('.product-tat-choose').html(this.productTATTemplate({
         tats: tats
+      }));
+    },
+    productOptionsLoaded: function(product, vocabularies, options) {
+      this.$('.product-opt-choose').html(this.productOptionsTemplate({
+        vocabularies: vocabularies
       }));
     }
   });

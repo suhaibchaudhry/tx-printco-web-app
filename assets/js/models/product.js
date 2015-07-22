@@ -27,6 +27,7 @@
 											this.productTATLoaded);
 		},
 		selectedTAT: function(product, tat, options) {
+				console.log('Request Made');
 				App.makeRequest('rpc/product/options',
 	                      'POST',
 	                      this,
@@ -55,7 +56,12 @@
 			}
 		},
 		productOptionsLoaded: function(res, status, xhr) {
-			console.log(res);
+			if(res.status) {
+				this.set("vocabularies", false, {silent: true});
+				this.set("vocabularies", res.options);
+			} else {
+				this.set("vocabularies", false);
+			}
 		}
 	});
 

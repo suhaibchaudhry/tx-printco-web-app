@@ -170,6 +170,7 @@ module.exports = {
 		_.each(data, function(option) {
 			var vocab = {
 				name: option['key'][4],
+				machine_name: option['key'][4].toLowerCase().replace(/[_\W]+/g, '-'), 
 				values: option['value']
 			};
 

@@ -1,0 +1,19 @@
+<div class="product-options product-attribute">
+  <% if(_.isArray(vocabularies) || _.isObject(vocabularies)) { %>
+    <% _.each(vocabularies, function(vocabulary) { %>
+      <label for="<%= vocabulary.machine_name %>"><%= vocabulary.name %></label>
+      <select name="<%= vocabulary.machine_name %>" id="<%= vocabulary.machine_name %>">
+        <%= _.map(vocabulary.values, function(option) {
+          if(option.option_fee != "0.00") {
+            option.option_text += ' (Add $'+option.option_fee+')';
+          }
+
+          return '<option data-option-fee="'+option.option_fee+'" value="'+option.option_id+'">'+option.option_text+'</option>';
+        }).join('') %>
+      </select>
+    <% }); %>
+  <% } else { %>
+    <div class="message">Could not load product options.</div>
+  <% } %>
+</div>
+<div class="product-ship-choose product-chain"></div>
