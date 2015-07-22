@@ -2,6 +2,7 @@
   <% if(_.isArray(colors) || _.isObject(colors)) { %>
   <label for="colors">Color:</label>
   <select name="colors" id="colors">
+    <option value="0">-- Please Choose Color --</option>
     <% _.each(_.keys(colors), function(key) { %>
     <option value="<%= key %>"><%= colors[key] %></option>
     <% }); %>
