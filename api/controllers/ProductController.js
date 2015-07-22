@@ -166,9 +166,19 @@ module.exports = {
 		}
 	},
 	productAdditionalOptions: function(req, res, err, data) {
+		var options = [];
+		_.each(data, function(option) {
+			var vocab = {
+				name: option['key'][4],
+				values: option['value']
+			};
+
+			options.push(vocab);
+		});
+
 		res.json({
 			status: true,
-			options: data
+			options: options
 		});
 	}
 };
