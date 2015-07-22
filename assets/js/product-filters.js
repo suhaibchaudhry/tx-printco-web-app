@@ -29,6 +29,7 @@
       }));
     },
     selectProduct: function(e) {
+      this.activeProduct.clear({silent: true});
       this.activeProduct.set(this.activeResult.products[e.currentTarget.dataset.productIndex]);
     },
     productFilterChange: function(e) {
@@ -59,6 +60,7 @@
     },
     productFilterSuccess: function(res, status, xhr) {
       this.activeResult = res;
+
       this.$('.product-data').html(
         this.productSummaryTemplate(
           this.activeResult
@@ -66,6 +68,7 @@
         );
 
       if(res.status && res.products.length == 1) {
+        this.activeProduct.clear({silent: true});
         this.activeProduct.set(res.products[0]);
       }
       //console.log('%c Product Filtered', 'font-size: 20px; color: red');
