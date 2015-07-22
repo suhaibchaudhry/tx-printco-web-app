@@ -63,8 +63,12 @@
       this.activeProduct.set('color', e.currentTarget.value);
     },
     selectTAT: function(e) {
-      this.activeProduct.set('tat', false, {silent: true});
-      this.activeProduct.set('tat', e.currentTarget.value);
+      if(e.currentTarget.value == "0") {
+        this.activeProduct.set('tats', false);
+      } else {
+        this.activeProduct.set('tat', false, {silent: true});
+        this.activeProduct.set('tat', e.currentTarget.value);
+      }
     },
     selectOption: function(e) {
       
@@ -92,9 +96,13 @@
         }));
     },
     productTATLoaded: function(product, tats, options) {
-      this.$('.product-tat-choose').html(this.productTATTemplate({
-        tats: tats
-      }));
+      if(tats) {
+        this.$('.product-tat-choose').html(this.productTATTemplate({
+          tats: tats
+        }));
+      } else {
+        this.$('.product-tat-choose').empty();
+      }
     },
     productOptionsLoaded: function(product, vocabularies, options) {
       this.$('.product-opt-choose').html(this.productOptionsTemplate({
