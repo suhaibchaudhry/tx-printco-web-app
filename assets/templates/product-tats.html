@@ -2,6 +2,7 @@
   <% if(_.isArray(colors) || _.isObject(colors)) { %>
   <label for="tats">Turn Around Time:</label>
   <select name="tats" id="tats">
+    <option value="0">-- Please Choose Processing Time --</option>
     <% _.each(_.keys(tats), function(key) { %>
     <option value="<%= key %>"><%= tats[key] %></option>
     <% }); %>

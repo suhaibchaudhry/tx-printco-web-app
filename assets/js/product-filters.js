@@ -59,12 +59,16 @@
       this.activeProduct.set('runsize', e.currentTarget.value);
     },
     selectColor: function(e) {
-      this.activeProduct.set('color', false, {silent: true});
-      this.activeProduct.set('color', e.currentTarget.value);
+      if(e.currentTarget.value == "0") {
+        this.activeProduct.set('tats', false);
+      } else {
+        this.activeProduct.set('color', false, {silent: true});
+        this.activeProduct.set('color', e.currentTarget.value);
+      }
     },
     selectTAT: function(e) {
       if(e.currentTarget.value == "0") {
-        this.activeProduct.set('tats', false);
+        this.activeProduct.set('vocabularies', false);
       } else {
         this.activeProduct.set('tat', false, {silent: true});
         this.activeProduct.set('tat', e.currentTarget.value);
@@ -105,9 +109,13 @@
       }
     },
     productOptionsLoaded: function(product, vocabularies, options) {
-      this.$('.product-opt-choose').html(this.productOptionsTemplate({
-        vocabularies: vocabularies
-      }));
+      if(vocabularies) {
+        this.$('.product-opt-choose').html(this.productOptionsTemplate({
+          vocabularies: vocabularies
+        }));
+      } else {
+        this.$('.product-opt-choose').empty();
+      }
     }
   });
 
