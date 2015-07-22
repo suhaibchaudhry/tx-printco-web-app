@@ -40,6 +40,7 @@
 		},
 		productColorsLoaded: function(res, status, xhr) {
 			if(res.status) {
+				this.set("colors", false, {silent: true});
 				this.set("colors", res.colors);
 			} else {
 				this.set("colors", false);
@@ -47,6 +48,7 @@
 		},
 		productTATLoaded: function(res, status, xhr) {
 			if(res.status) {
+				this.set("tats", false, {silent: true});
 				this.set("tats", res.tats);
 			} else {
 				this.set("tats", false);
