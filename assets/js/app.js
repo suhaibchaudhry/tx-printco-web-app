@@ -3,7 +3,7 @@
       basePath: '/',
       selectParamsExtract: function(element) {
         var data = {};
-        $.each(element, function(i, e) {
+        element.each(function(i, e) {
           if(e.value != "0") {
             data[e.name] = e.value;
           }
@@ -47,6 +47,7 @@
             });
 
             App.View.collection.push(view);
+            view.render();
             return view;
           }
       },

@@ -22,6 +22,8 @@
     },
     render: function() {
       console.log("Rendered");
+      //Takes too long
+      this.productFilterChange(false);
     },
     productChange: function(product, value, options) {
       this.$('.product-options').html(this.productNewFormTemplate({
