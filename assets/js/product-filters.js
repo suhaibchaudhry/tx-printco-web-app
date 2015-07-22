@@ -55,8 +55,12 @@
       }
     },
     selectRunsize: function(e) {
-      this.activeProduct.set('runsize', false, {silent: true});
-      this.activeProduct.set('runsize', e.currentTarget.value);
+      if(e.currentTarget.value == "0") {
+        this.activeProduct.set('colors', false);
+      } else {
+        this.activeProduct.set('runsize', false, {silent: true});
+        this.activeProduct.set('runsize', e.currentTarget.value);
+      }
     },
     selectColor: function(e) {
       if(e.currentTarget.value == "0") {
@@ -95,9 +99,13 @@
     },
     productColorsLoaded: function(product, colors, options) {
         //console.log(colors);
-        this.$('.product-colors-choose').html(this.productColorTemplate({
-            colors: colors
-        }));
+        if(colors) {
+          this.$('.product-colors-choose').html(this.productColorTemplate({
+              colors: colors
+          }));
+        } else {
+          this.$('.product-colors-choose').empty();
+        }
     },
     productTATLoaded: function(product, tats, options) {
       if(tats) {

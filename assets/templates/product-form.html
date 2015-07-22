@@ -2,6 +2,7 @@
 	<div class="product-runsizes product-attribute">
 		<label for="runsizes">Run Size:</label>
 		<select name="runsizes" id="runsizes">
+		<option value="0">-- Please Choose Run Size --</option>
 		<%= _.map(runsizes, function(size) {
 			return '<option value="'+size+'">'+size+'</option>';
 		}).join('') %>
