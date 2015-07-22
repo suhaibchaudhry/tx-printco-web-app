@@ -47,8 +47,13 @@
             });
 
             App.View.collection.push(view);
-            view.render();
             return view;
+          },
+          RenderAll: function() {
+            _.each(this.collection, this.Render);
+          },
+          Render: function(view) {
+            view.render();
           }
       },
       Model: {
@@ -57,4 +62,8 @@
         }
       }
   };
+
+  $(document).ready(function() {
+    App.View.RenderAll();
+  });
 })(jQuery);
