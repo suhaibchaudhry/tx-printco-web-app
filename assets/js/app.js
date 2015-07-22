@@ -4,7 +4,9 @@
       selectParamsExtract: function(element) {
         var data = {};
         $.each(element, function(i, e) {
-          data[e.name] = e.value;
+          if(e.value != "0") {
+            data[e.name] = e.value;
+          }
         });
 
         return data;

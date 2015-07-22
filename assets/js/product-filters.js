@@ -33,15 +33,20 @@
     },
     productFilterChange: function(e) {
       var $filters = this.$('.product-filters');
+      var filters = App.selectParamsExtract($filters.find('select'));
 
-      App.makeRequest('rpc/product/filter',
-                      'POST',
-                      this,
-                      {
-                        category: $filters.data('category-id'),
-                        filters: App.selectParamsExtract($filters.find('select'))
-                      },
-                      this.productFilterSuccess);
+      if(_.isEmpty(filters)) {
+        this.$('.product-data').html('Please select an option');
+      } else {
+        App.makeRequest('rpc/product/filter',
+                        'POST',
+                        this,
+                        {
+                          category: $filters.data('category-id'),
+                          filters: filters
+                        },
+                        this.productFilterSuccess);
+      }
     },
     selectRunsize: function(e) {
       this.activeProduct.set('runsize', e.currentTarget.value);

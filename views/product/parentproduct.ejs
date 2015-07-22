@@ -9,6 +9,7 @@
 <% vocabularies.forEach(function(vocabulary) { %>
   <label for="<%= vocabulary.vocabulary_machine_name %>"><%= vocabulary.vocabulary_en_name %></label>
   <select id="<%= vocabulary.vocabulary_machine_name %>" name="<%= vocabulary.vocabulary_machine_name %>">
+  	  <option value="0">-- Any --</option>
     <% vocabulary.terms.forEach(function(term) { %>
       <option value="<%= term %>"><%= term %></option>
     <% }); %>
