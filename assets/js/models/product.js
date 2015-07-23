@@ -31,16 +31,6 @@
 													color: color
 	                      },
 												this.productTATLoaded);
-
-				App.makeRequest('rpc/product/best-price',
-	                      'POST',
-	                      this,
-	                      {
-	                        product_id: this.get("product_id"),
-	                        runsize: this.get('runsize'),
-													color: color
-	                      },
-												this.productTotalLoaded);
 			} else {
 				this.set("subtotal", this.get("base_price"));
 			}
@@ -80,6 +70,7 @@
 		},
 		productTATLoaded: function(res, status, xhr) {
 			if(res.status) {
+				this.set("subtotal", res.price);
 				this.set("tats", false, {silent: true});
 				this.set("tats", res.tats);
 			} else {

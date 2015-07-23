@@ -135,10 +135,11 @@ module.exports = {
 		}
 	},
 	productTATOptions: function(req, res, err, data) {
-		res.json({
-			status: true,
-			tats: data[0]["value"]
-		});
+		this.getProductBestPrice(req, res, data);
+		//res.json({
+		//	status: true,
+		//	tats: data[0]["value"]
+		//});
 	},
 	getOptionsForTAT: function(req, res) {
 		if(_.has(req.body, 'product_id') && _.has(req.body, 'runsize') && _.has(req.body, 'color') && _.has(req.body, 'tat')) {
@@ -182,20 +183,27 @@ module.exports = {
 			options: options
 		});
 	},
-	getProductBestPrice: function(req, res) {
+	getProductBestPrice: function(req, res, tat_data) {
 		if(_.has(req.body, 'product_id') && _.has(req.body, 'runsize') && _.has(req.body, 'color')) {
 			txprintcoData.makeDataRequest('best_price',
 											{key: [req.body.product_id,req.body.runsize,req.body.color]},
-											_.bind(this.productBestPrice, this, req, res),
+											_.bind(this.productBestPrice, this, req, res, tat_data),
 											_.bind(this.JSONNotFoundResponse, this, req, res));
 		} else {
 			res.notFound();
 		}
 	},
-	productBestPrice: function(req, res, err, data) {
-		res.json({
+	productBestPrice: function(req, res, tat_data, err, data) {
+		var response = {
+			status: true,
 			price: data[0]["value"]
-		});
+		};
+
+		if(_.isArray(tat_data)) {
+			response["tats"] = tat_data[0]["value"];
+		}
+
+		res.json(response);
 	},
 	getProductPrice: function(req, res) {
 		if(_.has(req.body, 'product_id') && _.has(req.body, 'runsize') && _.has(req.body, 'color') && _.has(req.body, 'tat')) {
