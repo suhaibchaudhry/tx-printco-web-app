@@ -8,6 +8,7 @@
   ],
   "dependencies": {
 	"jquery": "1.x.x",
+  "underscore": "1.x.x",
 	"backbone": "1.x.x"
   },
   "name": "txprintco-app",
