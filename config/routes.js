@@ -51,11 +51,6 @@ module.exports.routes = {
   'get /product': 'ProductController.productList',
   'get /product/*': 'ProductController.parentProduct',
 
-  'post /rpc/product/filter': 'ProductController.productFilteredList',
-  'post /rpc/product/colors': 'ProductController.getColorsForQty',
-  'post /rpc/product/tats': 'ProductController.getTATForColors',
-  'post /rpc/product/options': 'ProductController.getOptionsForTAT'
-
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
@@ -66,4 +61,9 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  'post /rpc/product/filter': 'ProductController.productFilteredList',
+  'post /rpc/product/colors': 'ProductController.getColorsForQty',
+  'post /rpc/product/tats': 'ProductController.getTATForColors',
+  'post /rpc/product/options': 'ProductController.getOptionsForTAT',
+  'post /rpc/product/best-price': 'ProductController.getProductBestPrice'
 };
