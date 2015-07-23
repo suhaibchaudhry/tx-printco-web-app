@@ -196,5 +196,20 @@ module.exports = {
 		res.json({
 			price: data[0]["value"]
 		});
+	},
+	getProductPrice: function(req, res) {
+		if(_.has(req.body, 'product_id') && _.has(req.body, 'runsize') && _.has(req.body, 'color') && _.has(req.body, 'tat')) {
+			txprintcoData.makeDataRequest('price',
+											{key: [req.body.product_id,req.body.runsize,req.body.color,req.body.tat]},
+											_.bind(this.productPrice, this, req, res),
+											_.bind(this.JSONNotFoundResponse, this, req, res));
+		} else {
+			res.notFound();
+		}
+	},
+	productPrice: function(req, res, err, data) {
+		res.json({
+			price: data[0]["value"]["base_price"]
+		});
 	}
 };
