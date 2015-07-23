@@ -53,10 +53,21 @@
 	                      {
 	                        product_id: this.get("product_id"),
 	                        runsize: this.get('runsize'),
-													color: this.get('color'),
-													tat: tat
+							color: this.get('color'),
+							tat: tat
 	                      },
 												this.productOptionsLoaded);
+
+				App.makeRequest('rpc/product/price',
+	                      'POST',
+	                      this,
+	                      {
+	                        product_id: this.get("product_id"),
+	                        runsize: this.get('runsize'),
+							color: this.get('color'),
+							tat: tat
+	                      },
+												this.productTotalLoaded);
 			}
 		},
 		productColorsLoaded: function(res, status, xhr) {
