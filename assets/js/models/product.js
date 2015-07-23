@@ -50,6 +50,8 @@
 							tat: tat
 	                      },
 												this.productOptionsLoaded);
+			} else {
+				this.set("subtotal", this.get("best_total"));
 			}
 		},
 		productColorsLoaded: function(res, status, xhr) {
@@ -62,7 +64,7 @@
 		},
 		productTATLoaded: function(res, status, xhr) {
 			if(res.status) {
-				this.set("subtotal", res.price);
+				this.set({subtotal: res.price, best_total: res.price});
 				this.set("tats", false, {silent: true});
 				this.set("tats", res.tats);
 			} else {
