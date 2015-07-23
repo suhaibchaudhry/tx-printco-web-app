@@ -60,8 +60,8 @@
     },
     selectRunsize: function(e) {
       if(e.currentTarget.value == "0") {
-        this.activeProduct.set('runsize', false);
-        this.activeProduct.set('colors', false);
+        this.activeProduct.set({tat: false, color: false}, {silent: true});
+        this.activeProduct.set({runsize: false, colors: false});
       } else {
         this.activeProduct.set('runsize', false, {silent: true});
         this.activeProduct.set('runsize', e.currentTarget.value);
@@ -69,8 +69,8 @@
     },
     selectColor: function(e) {
       if(e.currentTarget.value == "0") {
-        this.activeProduct.set('color', false);
-        this.activeProduct.set('tats', false);
+        this.activeProduct.set('tat', false, {silent: true});
+        this.activeProduct.set({color: false, tats: false});
       } else {
         this.activeProduct.set('color', false, {silent: true});
         this.activeProduct.set('color', e.currentTarget.value);
@@ -78,8 +78,7 @@
     },
     selectTAT: function(e) {
       if(e.currentTarget.value == "0") {
-        this.activeProduct.set('tat', false);
-        this.activeProduct.set('vocabularies', false);
+        this.activeProduct.set({tat: false, vocabularies: false});
       } else {
         this.activeProduct.set('tat', false, {silent: true});
         this.activeProduct.set('tat', e.currentTarget.value);
