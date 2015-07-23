@@ -23,6 +23,7 @@
       this.listenTo(this.activeProduct, "change:tats", this.productTATLoaded);
       this.listenTo(this.activeProduct, "change:vocabularies", this.productOptionsLoaded);
       this.listenTo(this.activeProduct, "change:subtotal", this.subtotalChanged);
+      this.listenTo(this.activeProduct, "change:opttotal", this.subtotalChanged);
     },
     render: function() {
       console.log("Rendered");
@@ -33,9 +34,6 @@
       this.$('.product-options').html(this.productNewFormTemplate({
         runsizes: product.get('runsizes')
       }));
-    },
-    subtotalChanged: function(product, subtotal, options) {
-      this.$('.product-form .subtotal span.value').text(subtotal);
     },
     productFilterChange: function(e) {
       var $filters = this.$('.product-filters');
@@ -56,6 +54,7 @@
     },
     selectProduct: function(e) {
       this.activeProduct.clear({silent: true});
+      //To be made cross browser
       this.activeProduct.set(this.activeResult.products[e.currentTarget.dataset.productIndex]);
     },
     selectRunsize: function(e) {
@@ -85,7 +84,16 @@
       }
     },
     selectOption: function(e) {
-      
+      //To be made cross browser
+      var total = 0;
+      this.$(".product-options > select > option:selected").each(function(i, e) {
+        total += parseFloat(e.dataset.optionFee);
+      });
+      this.activeProduct.set("opttotal", total);
+    },
+    subtotalChanged: function(product, subtotal, options) {
+      subtotal = parseFloat(product.get("subtotal"))+parseFloat(product.get("opttotal"));
+      this.$('.product-form .subtotal span.value').text(subtotal.toFixed(2));
     },
     productFilterSuccess: function(res, status, xhr) {
       this.activeResult = res;

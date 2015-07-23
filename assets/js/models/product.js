@@ -6,6 +6,7 @@
 			this.listenTo(this, 'change:tat', this.selectedTAT);
 		},
 		selectedRunsize: function(product, runsize, options) {
+			this.set("opttotal", "0.00", {silent: true});
 			if(runsize) {
 				App.makeRequest('rpc/product/colors',
 	                      'POST',
@@ -21,6 +22,7 @@
 			}
 		},
 		selectedColor: function(product, color, options) {
+			this.set("opttotal", "0.00", {silent: true});
 			if(color) {
 				App.makeRequest('rpc/product/tats',
 	                      'POST',
@@ -36,6 +38,7 @@
 			}
 		},
 		selectedTAT: function(product, tat, options) {
+			this.set("opttotal", "0.00", {silent: true});
 			if(tat) {
 				App.makeRequest('rpc/product/options',
 	                      'POST',

@@ -1,6 +1,6 @@
 /**
  * ProductController
- * @author			:: Asad Hasan
+ * @author	    :: Asad Hasan
  * @description :: Provide product loading and management operations using the TXPrintCo data service layer.
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
