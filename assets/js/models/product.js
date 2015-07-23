@@ -6,28 +6,35 @@
 			this.listenTo(this, 'change:tat', this.selectedTAT);
 		},
 		selectedRunsize: function(product, runsize, options) {
-			App.makeRequest('rpc/product/colors',
-                      'POST',
-                      this,
-                      {
-                        product_id: this.get("product_id"),
-                        runsize: runsize
-                      },
-											this.productColorsLoaded);
+			if(runsize) {
+				App.makeRequest('rpc/product/colors',
+	                      'POST',
+	                      this,
+	                      {
+	                        product_id: this.get("product_id"),
+	                        runsize: runsize
+	                      },
+												this.productColorsLoaded);
+				this.set("subtotal", this.get("base_price"));
+			} else {
+				this.set("subtotal", "0.00");
+			}
 		},
 		selectedColor: function(product, color, options) {
-			App.makeRequest('rpc/product/tats',
-                      'POST',
-                      this,
-                      {
-                        product_id: this.get("product_id"),
-                        runsize: this.get('runsize'),
-												color: color
-                      },
-											this.productTATLoaded);
+			if(color) {
+				App.makeRequest('rpc/product/tats',
+	                      'POST',
+	                      this,
+	                      {
+	                        product_id: this.get("product_id"),
+	                        runsize: this.get('runsize'),
+													color: color
+	                      },
+												this.productTATLoaded);
+			}
 		},
 		selectedTAT: function(product, tat, options) {
-				console.log('Request Made');
+			if(tat) {
 				App.makeRequest('rpc/product/options',
 	                      'POST',
 	                      this,
@@ -38,6 +45,7 @@
 													tat: tat
 	                      },
 												this.productOptionsLoaded);
+			}
 		},
 		productColorsLoaded: function(res, status, xhr) {
 			if(res.status) {

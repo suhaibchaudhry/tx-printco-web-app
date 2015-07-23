@@ -22,6 +22,7 @@
       this.listenTo(this.activeProduct, "change:colors", this.productColorsLoaded);
       this.listenTo(this.activeProduct, "change:tats", this.productTATLoaded);
       this.listenTo(this.activeProduct, "change:vocabularies", this.productOptionsLoaded);
+      this.listenTo(this.activeProduct, "change:subtotal", this.subtotalChanged);
     },
     render: function() {
       console.log("Rendered");
@@ -33,9 +34,8 @@
         runsizes: product.get('runsizes')
       }));
     },
-    selectProduct: function(e) {
-      this.activeProduct.clear({silent: true});
-      this.activeProduct.set(this.activeResult.products[e.currentTarget.dataset.productIndex]);
+    subtotalChanged: function(product, subtotal, options) {
+      this.$('.product-form .subtotal span.value').text(subtotal);
     },
     productFilterChange: function(e) {
       var $filters = this.$('.product-filters');
@@ -54,8 +54,13 @@
                         this.productFilterSuccess);
       }
     },
+    selectProduct: function(e) {
+      this.activeProduct.clear({silent: true});
+      this.activeProduct.set(this.activeResult.products[e.currentTarget.dataset.productIndex]);
+    },
     selectRunsize: function(e) {
       if(e.currentTarget.value == "0") {
+        this.activeProduct.set('runsize', false);
         this.activeProduct.set('colors', false);
       } else {
         this.activeProduct.set('runsize', false, {silent: true});
@@ -64,6 +69,7 @@
     },
     selectColor: function(e) {
       if(e.currentTarget.value == "0") {
+        this.activeProduct.set('color', false);
         this.activeProduct.set('tats', false);
       } else {
         this.activeProduct.set('color', false, {silent: true});
@@ -72,6 +78,7 @@
     },
     selectTAT: function(e) {
       if(e.currentTarget.value == "0") {
+        this.activeProduct.set('tat', false);
         this.activeProduct.set('vocabularies', false);
       } else {
         this.activeProduct.set('tat', false, {silent: true});
