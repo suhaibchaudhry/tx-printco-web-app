@@ -178,10 +178,11 @@ module.exports = {
 			options.push(vocab);
 		});
 
-		res.json({
-			status: true,
-			options: options
-		});
+		this.getProductPrice(req, res, options);
+		//res.json({
+		//	status: true,
+		//	options: options
+		//});
 	},
 	getProductBestPrice: function(req, res, tat_data) {
 		if(_.has(req.body, 'product_id') && _.has(req.body, 'runsize') && _.has(req.body, 'color')) {
@@ -205,19 +206,26 @@ module.exports = {
 
 		res.json(response);
 	},
-	getProductPrice: function(req, res) {
+	getProductPrice: function(req, res, opt_data) {
 		if(_.has(req.body, 'product_id') && _.has(req.body, 'runsize') && _.has(req.body, 'color') && _.has(req.body, 'tat')) {
 			txprintcoData.makeDataRequest('price',
 											{key: [req.body.product_id,req.body.runsize,req.body.color,req.body.tat]},
-											_.bind(this.productPrice, this, req, res),
+											_.bind(this.productPrice, this, req, res, opt_data),
 											_.bind(this.JSONNotFoundResponse, this, req, res));
 		} else {
 			res.notFound();
 		}
 	},
-	productPrice: function(req, res, err, data) {
-		res.json({
+	productPrice: function(req, res, opt_data, err, data) {
+		var response = {
+			status: true,
 			price: data[0]["value"]["base_price"]
-		});
+		};
+
+		if(_.isArray(opt_data)) {
+			response["options"] = opt_data;
+		}
+
+		res.json(response);
 	}
 };
