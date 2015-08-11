@@ -9,28 +9,30 @@
 
 .middle-content {
 	padding: 10px;
-    background: #eaeaea;
-    	h2, h3 {
-    		text-align: center;
-    	}
-    	.block {
-    		float: left;
- 		   	width: 50%;
- 		   		.need-help-designing, .take-me-to-the-designs {
- 		   			text-align: center;
-	 		   	}
-    	}
+  background: #eaeaea;
+  float: left;
+  width: 100%;
+    h2, h3 {
+    	text-align: center;
+    }
+    .block {
+    	float: left;
+ 		  width: 50%;
+ 		   	.need-help-designing, .take-me-to-the-designs {
+ 		   		text-align: center;
+	 		   }
+    }
 }
 
 .footer {
 	background: #414042;
-    padding: 10px;
-    	.footer-one {
-    		.menu {
-    			float: left;
-    			width: 25%;
-    			li {
-    				color: #fff;
+  padding: 10px;
+    .footer-one {
+    	.menu {
+    		float: left;
+    		width: 25%;
+    		  li {
+    			     color: #fff;
     			}
     			.customer-support-menu {
     				h5 {
@@ -54,9 +56,8 @@
     			}
     		}
     	}
-    }
-
+}
 .footer-bottom {
 	background: #414042;
-    padding: 10px;
+  padding: 10px;
 }
