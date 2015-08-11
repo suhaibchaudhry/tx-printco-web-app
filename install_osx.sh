@@ -19,5 +19,6 @@ sudo gem install compass
 sudo npm -g install bower
 sudo npm -g install sails
 
-bower install
+npm update
+bower update
 sails lift
