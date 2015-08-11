@@ -17,6 +17,7 @@ module.exports = function(grunt) {
 			options: {
 				imagesDir: 'assets/images/sprite-pieces',
 				httpImagesPath: this.httpPath+'images/sprite-pieces',
+				httpGeneratedImagesPath: this.httpPath+'images/sprite-pieces',
 				sassDir: 'assets/styles',
         			cssDir: '.tmp/public/styles',
       				outputStyle: 'compressed' //Set your prefered style for development here.
