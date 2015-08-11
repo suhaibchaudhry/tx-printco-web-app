@@ -15,15 +15,10 @@ module.exports = function(grunt) {
 	grunt.config.set('compass', {
 		dev: {
 			options: {
+				sassDir: 'assets/styles',
+        			cssDir: '.tmp/public/styles',
       				outputStyle: 'compressed' //Set your prefered style for development here.
-    			},
-			files: [{
-				expand: true,
-				cwd: 'assets/styles/',
-				src: ['*.scss'],
-				dest: '.tmp/public/styles/',
-				ext: '.css'
-			}]
+    			}
 		}
 	});
 
