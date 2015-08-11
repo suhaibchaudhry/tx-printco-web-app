@@ -1,11 +1,11 @@
 @mixin social-media-button($image) {
   //@extend .social_media-#{$spriteName};
-  @include social_media-sprite($image, true);
+  @include social-sprite($image, true);
   text-indent: -9999px;
 
   &:hover {
     //@extend .social_media-#{$spriteName}-h;
-    @include social_media-sprite(#{$image}-h);
+    @include social-sprite(#{$image}-h);
   }
 }
 
