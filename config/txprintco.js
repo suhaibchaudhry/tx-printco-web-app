@@ -1,4 +1,4 @@
-var host = 'root:xyz786@localhost';
+var host = 'root:xyz786@office.uitoux.com';
 var port = '5988';
 var dbname = 'txprintco_dev_stage15';
 
