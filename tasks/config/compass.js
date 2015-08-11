@@ -15,6 +15,7 @@ module.exports = function(grunt) {
 	grunt.config.set('compass', {
 		dev: {
 			options: {
+				imagesDir: 'assets/images/sprite-pieces',
 				sassDir: 'assets/styles',
         			cssDir: '.tmp/public/styles',
       				outputStyle: 'compressed' //Set your prefered style for development here.
