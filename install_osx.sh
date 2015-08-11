@@ -16,8 +16,8 @@ sudo mysql.server restart
 echo "Default MySQL Password is: 123456"
 
 #Create Project Database
-echo "CREATE DATABASE IF NOT EXISTS \`txprintco-sails\`" | mysql -uroot -p
-echo "GRANT ALL ON \`txprintco-sails\`.* to 'txprintco-sails'@'localhost' identified by 'xyz786';" | mysql -uroot -p
+echo "CREATE DATABASE IF NOT EXISTS \`txprintco-sails\`" | mysql -uroot -p123456
+echo "GRANT ALL ON \`txprintco-sails\`.* to 'txprintco-sails'@'localhost' identified by 'xyz786';" | mysql -uroot -p123456
 
 #Install Ruby
 sudo brew install ruby
