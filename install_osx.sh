@@ -7,15 +7,17 @@ then
    sudo chown -R _mysql:_mysql /usr/local/var/mysql
 
    #Reset Password
-   echo "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('xyz786');" | mysql -uroot
+   echo "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('123456');" | mysql -uroot
 fi
 
 #Start MySQL
 sudo mysql.server restart
 
+echo "Default MySQL Password is: 123456"
+
 #Create Project Database
-echo "CREATE DATABASE IF NOT EXISTS \`txprintco-sails\`" | mysql -uroot -pxyz786
-echo "GRANT ALL ON \`txprintco-sails\`.* to 'txprintco-sails'@'localhost' identified by 'xyz786';" | mysql -uroot -pxyz786
+echo "CREATE DATABASE IF NOT EXISTS \`txprintco-sails\`" | mysql -uroot -p
+echo "GRANT ALL ON \`txprintco-sails\`.* to 'txprintco-sails'@'localhost' identified by 'xyz786';" | mysql -uroot -p
 
 #Install Ruby
 sudo brew install ruby
