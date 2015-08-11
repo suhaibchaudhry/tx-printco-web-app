@@ -27,5 +27,5 @@ sudo npm -g install bower
 sudo npm -g install sails
 
 npm update
-bower update
+echo "Y" | bower update
 sails lift
