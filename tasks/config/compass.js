@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 	grunt.config.set('compass', {
 		dev: {
 			options: {
-      				style: 'compressed' //Set your prefered style for development here.
+      				outputStyle: 'compressed' //Set your prefered style for development here.
     			},
 			files: [{
 				expand: true,
