@@ -6,3 +6,58 @@
 .sample {
    background: image-url("fbook.png");
 }
+
+.middle-content {
+	padding: 10px;
+    background: #eaeaea;
+    	h2, h3 {
+    		text-align: center;
+    	}
+    	.block {
+    		float: left;
+ 		   	width: 50%;
+ 		   		.need-help-designing, .take-me-to-the-designs {
+ 		   			text-align: center;
+	 		   	}
+    	}
+}
+
+.footer {
+	background: #414042;
+    padding: 10px;
+    	.footer-one {
+    		.menu {
+    			float: left;
+    			width: 25%;
+    			li {
+    				color: #fff;
+    			}
+    			.customer-support-menu {
+    				h5 {
+    					color: #EE2A7B;
+    				}
+    			}
+    			.about-txprintco-menu {
+					h5 {
+    					color: #F7941E;
+    				}
+    			}
+    			.legal-stuff-menu {
+    				h5 {
+    					color: #E8DC63F;
+    				}
+    			}
+    			.social-media-icons {
+    				h5 {
+    					color: #00AEEF;
+    				}
+    			}
+    		}
+    	}
+    }
+}
+
+.footer-bottom {
+	background: #414042;
+    padding: 10px;
+}
