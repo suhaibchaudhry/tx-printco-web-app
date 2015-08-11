@@ -12,7 +12,7 @@
  */
 module.exports = function(grunt) {
 
-	grunt.config.set('sass', {
+	grunt.config.set('compass', {
 		dev: {
 			options: {
       				style: 'compressed' //Set your prefered style for development here.
@@ -27,5 +27,5 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-compass');
 };
