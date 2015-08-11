@@ -1,9 +1,9 @@
 /**
- * Compiles LESS files into CSS.
+ * Compiles SASS files into CSS.
  *
  * ---------------------------------------------------------------
  *
- * Only the `assets/styles/importer.less` is compiled.
+ * Files like `assets/styles/base.scss` are compiled.
  * This allows you to control the ordering yourself, i.e. import your
  * dependencies, mixins, variables, resets, etc. before other stylesheets)
  *
