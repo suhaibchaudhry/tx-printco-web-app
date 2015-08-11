@@ -1,5 +1,5 @@
-var host = 'localhost';
-var port = '5984';
+var host = 'root:xyz786@localhost';
+var port = '5988';
 var dbname = 'txprintco_dev_stage15';
 
 var nano = require("nano")('http://'+host+':'+port);
