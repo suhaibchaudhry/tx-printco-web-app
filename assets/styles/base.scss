@@ -1,3 +1,6 @@
+@import "compass/utilities/sprites";
+@import "misc/*.png";
+
 @import url(http://fonts.googleapis.com/css?family=Montserrat|Open+Sans:400,300,700);
 
 .product-data .multipleResultChild {
@@ -5,13 +8,9 @@
   cursor: pointer;
 }
 
-.sample {
-   background: image-url("fbook.png");
-   float: left
-}
-
 .call-us-icon {
-  background: image-url('call-icon.png');
+  @include misc-sprite(call-icon, true);
+  text-indent: -9999px;
   float: left;
 }
 
