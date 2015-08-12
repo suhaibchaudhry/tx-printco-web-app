@@ -2,6 +2,8 @@
 
 # TX Print Co. - Web App
 
+## Front End Notes
+
 ## Crawl Notes
 - Compute option total using "Add $X.YY" context clues via linear superposition.
 
