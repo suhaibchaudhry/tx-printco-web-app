@@ -8,6 +8,11 @@
    float: left
 }
 
+.call-us-icon {
+  background: image-url('call-icon.png');
+  float: left;
+}
+
 .middle-content {
 	padding: 10px;
   background: #eaeaea;
@@ -30,14 +35,14 @@
   width: 100%;
 	background: #414042;
   padding: 10px;
-        .footer-one, .footer-two, .footer-three, #legal-stuff-menu {
+        .menu {
     		float: left;
     		width: 25%;
-    		  li {
-    			     color: #fff;
-    			}
+        li {
+          color: #fff;
+            }
     			#customer-support-menu {
-    				h5 {
+    			h5 {
     					color: #EE2A7B;
     				}
     			}
@@ -48,7 +53,7 @@
     			}
     			#legal-stuff-menu {
     				h5 {
-    					color: #E8DC63;
+    					color: #8DC63F;
     				}
     			}
     			#social-media-icons {
@@ -61,4 +66,20 @@
 .footer-bottom {
 	background: #414042;
   padding: 10px;
+  width: 100%;
+  color: #fff;
+  float: left;
+  .footer-one {
+    float: left;
+    width: 50%;
+  }
+  .footer-two {
+    float: left;
+    width: 50%;
+    #payment-options {
+      li {
+        float: left;
+      }
+    }
+  }
 }
