@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat|Open+Sans:400,300,700);
+
 .product-data .multipleResultChild {
   color: #002FFD;
   cursor: pointer;
@@ -13,11 +15,32 @@
   float: left;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-size: 20px;
+}
+
 .middle-content {
 	padding: 10px;
-  background: #eaeaea;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7c0d4c+0,9d1e62+50,7c0d4c+100 */
+  background: #7c0d4c; /* Old browsers */
+  background: -moz-linear-gradient(left,  #7c0d4c 0%, #9d1e62 50%, #7c0d4c 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#7c0d4c), color-stop(50%,#9d1e62), color-stop(100%,#7c0d4c)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  #7c0d4c 0%,#9d1e62 50%,#7c0d4c 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #7c0d4c 0%,#9d1e62 50%,#7c0d4c 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #7c0d4c 0%,#9d1e62 50%,#7c0d4c 100%); /* IE10+ */
+  background: linear-gradient(to right,  #7c0d4c 0%,#9d1e62 50%,#7c0d4c 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7c0d4c', endColorstr='#7c0d4c',GradientType=1 ); /* IE6-9 */
   float: left;
   width: 100%;
+  color: #fff;
     h2, h3 {
     	text-align: center;
     }
