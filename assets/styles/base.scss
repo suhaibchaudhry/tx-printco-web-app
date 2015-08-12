@@ -5,6 +5,7 @@
 
 .sample {
    background: image-url("fbook.png");
+   float: left
 }
 
 .middle-content {
@@ -29,36 +30,34 @@
   width: 100%;
 	background: #414042;
   padding: 10px;
-    .footer-one {
-    	.menu {
+        .footer-one, .footer-two, .footer-three, #legal-stuff-menu {
     		float: left;
     		width: 25%;
     		  li {
     			     color: #fff;
     			}
-    			.customer-support-menu {
+    			#customer-support-menu {
     				h5 {
     					color: #EE2A7B;
     				}
     			}
-    			.about-txprintco-menu {
+    			#about-txprintco-menu {
 					h5 {
     					color: #F7941E;
     				}
     			}
-    			.legal-stuff-menu {
+    			#legal-stuff-menu {
     				h5 {
     					color: #E8DC63;
     				}
     			}
-    			.social-media-icons {
+    			#social-media-icons {
     				h5 {
     					color: #00AEEF;
     				}
     			}
     		}
     	}
-}
 .footer-bottom {
 	background: #414042;
   padding: 10px;
