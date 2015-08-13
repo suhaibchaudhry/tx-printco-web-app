@@ -1,53 +1,51 @@
 @import "compass/css3/images";
 @import "compass/utilities/sprites";
-
-$misc-layout:smart;
+$misc-layout: smart;
 @import "misc/*.png";
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300|Open+Sans:400,600);
 
 .product-data .multipleResultChild {
-  color: #002FFD;
+  color: #002ffd;
   cursor: pointer;
 }
-
 .call-us-icon {
   @include misc-sprite(call-icon, true);
   text-indent: -9999px;
   float: left;
   margin: 0 4px 0 0;
 }
-
 .logo a {
   display: block;
-  @include misc-sprite(logo, true);
   text-indent: -9999px;
+  @include misc-sprite(logo, true);
 }
-
 body {
   font-family: 'Open Sans', sans-serif;
   line-height: normal;
 }
-
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   text-transform: lowercase;
   line-height: normal;
 }
-
 h2 {
   font-size: 35px;
 }
-
 h3 {
   font-size: 27px;
 }
-
 .middle-content {
+
   //Start Gradient
   background: #7c0d4c;
   @include background-image(linear-gradient(to right, #7c0d4c 0%, #9d1e62 50%, #7c0d4c 100%));
+
   //End Gradient
   width: 100%;
   float: left;
@@ -62,88 +60,86 @@ h3 {
       border-right: 1px solid #fff;
       .sub-header {
         text-align: center;
-        color:#ED3293;
+        color: #ed3293;
         font-size: 20px;
       }
     }
-  ul li {
-    list-style: disc inside none;
-  }
-	padding: 10px;
-  color: #fff;
-    h2, h3 {
-    	text-align: center;
+    ul li {
+      list-style: disc inside none;
+    }
+    padding: 10px;
+    color: #fff;
+    h2,
+    h3 {
+      text-align: center;
     }
     .block {
-    	float: left;
- 		  width: 50%;
+      float: left;
+      width: 50%;
       padding: 0 25px 80px;
       margin: 25px 0;
       position: relative;
- 		   	.need-help-designing {
- 		   		text-align: center;
-	 		   }
-         .flat-button {
-           position: absolute;
-           bottom: 0;
-           right: 0;
-           left: 0;
-           background: #fff;
-           color: #EC008C;
-           padding: 10px;
-           text-align: center;
-           border-radius: 3px;
-           margin: 0 90px;
-         }
+      .need-help-designing {
+        text-align: center;
+      }
+      .flat-button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: #fff;
+        color: #ec008c;
+        padding: 10px;
+        text-align: center;
+        border-radius: 3px;
+        margin: 0 90px;
+      }
     }
   }
 }
-
 .footer {
   float: left;
   width: 100%;
-	background: #414042;
+  background: #414042;
   padding: 10px;
   .menu {
-    		float: left;
-    		width: 25%;
-        padding: 10px;
-        border-right: 1px solid #eaeaea;
-        ul li {
-          color: #DCDCDC;
-          font-size: 14px;
-        }
+    float: left;
+    width: 25%;
+    padding: 10px;
+    border-right: 1px solid #eaeaea;
+    ul li {
+      color: #dcdcdc;
+      font-size: 14px;
+    }
   }
-
   h5 {
     font-size: 22px;
-    margin: 0 0 10px 0;
+    margin: 0 0 10px;
   }
-
   .footer-one {
-  h5 {
-      color: #EE2A7B;
+    h5 {
+      color: #ee2a7b;
     }
   }
   .footer-two {
-  h5 {
-      color: #F7941E;
+    h5 {
+      color: #f7941e;
     }
   }
   .footer-three {
     h5 {
-      color: #8DC63F;
+      color: #8dc63f;
     }
   }
   .footer-four {
     border-right: none;
     h5 {
-      color: #00AEEF;
+      color: #00aeef;
     }
   }
 }
 .footer-bottom {
-	background: #414042;
+  background: #414042;
   width: 100%;
   color: #fff;
   float: left;
