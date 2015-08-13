@@ -1,5 +1,7 @@
 @import "compass/css3/images";
 @import "compass/utilities/sprites";
+
+$misc-layout:smart;
 @import "misc/*.png";
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300|Open+Sans:400,600);
