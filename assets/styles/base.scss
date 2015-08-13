@@ -31,6 +31,7 @@ h1, h2, h3, h4, h5 {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   text-transform: lowercase;
+  line-height: normal;
 }
 
 h2 {
@@ -44,7 +45,7 @@ h3 {
 .middle-content {
   //Start Gradient
   background: #7c0d4c;
-  @include background-image(linear-gradient(#7c0d4c 0%, #9d1e62 50%, #7c0d4c 100%));
+  @include background-image(linear-gradient(to right, #7c0d4c 0%, #9d1e62 50%, #7c0d4c 100%));
   //End Gradient
   width: 100%;
   float: left;
