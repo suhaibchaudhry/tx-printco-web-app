@@ -41,12 +41,11 @@ h3 {
   font-size: 27px;
 }
 .middle-content {
-
   //Start Gradient
   background: #7c0d4c;
   @include background-image(linear-gradient(to right, #7c0d4c 0%, #9d1e62 50%, #7c0d4c 100%));
-
   //End Gradient
+
   width: 100%;
   float: left;
   padding: 7px 0;
