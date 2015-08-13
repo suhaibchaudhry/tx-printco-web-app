@@ -40,6 +40,27 @@ h2 {
 h3 {
   font-size: 27px;
 }
+
+.featured-products {
+  h2 {
+    text-align: center;
+  }
+  ul li {
+    width: 25%;
+    float: left;
+    .product-image {
+    background: #eaeaea;
+    border-radius: 100%;
+    text-align: center;
+    padding: 55px 0;
+    width: 60%;
+    margin: 0 auto;
+    }
+    .product-name {
+    text-align: center;
+    }
+  }
+}
 .middle-content {
   //Start Gradient
   background: #7c0d4c;
