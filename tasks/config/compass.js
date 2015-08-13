@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 				httpGeneratedImagesPath: '/images/sprites',
 				sassDir: 'assets/styles',
         			cssDir: '.tmp/public/styles',
-      				outputStyle: 'compressed' //Set your prefered style for development here.
+      				outputStyle: 'nested' //Set your prefered style for development here.
     			}
 		}
 	});
