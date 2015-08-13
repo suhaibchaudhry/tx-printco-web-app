@@ -53,7 +53,7 @@ h3 {
     width: 960px;
     margin: 0 auto;
     .inside-body {
-      margin: 0 90px;
+      margin: 5px 90px 0;
     }
     .middle-content-one {
       border-right: 1px solid #fff;
@@ -61,6 +61,7 @@ h3 {
         text-align: center;
         color:#ED3293;
         margin: 0 0 14px 0;
+        font-size: 22px;
       }
     }
   ul li {
@@ -74,7 +75,7 @@ h3 {
     .block {
     	float: left;
  		  width: 50%;
-      padding: 0 24px;
+      padding: 0 25px;
       margin: 25px 0;
  		   	.need-help-designing {
  		   		text-align: center;
@@ -84,7 +85,7 @@ h3 {
            color: #EC008C;
            padding: 10px;
            text-align: center;
-           margin: 11px;
+           margin: 26px 0 0;
            border-radius: 3px;
          }
     }
