@@ -99,40 +99,43 @@ h3 {
   width: 100%;
 	background: #414042;
   padding: 10px;
-      h5 {
-        font-size: 22px;
-        margin: 0 0 10px 0;
-        }
-        .menu {
+
+  h5 {
+    font-size: 22px;
+    margin: 0 0 10px 0;
+  }
+
+  .footer-one {
+  h5 {
+      color: #EE2A7B;
+    }
+  }
+  .footer-two {
+  h5 {
+      color: #F7941E;
+    }
+  }
+  .footer-three {
+    h5 {
+      color: #8DC63F;
+    }
+  }
+  .footer-four {
+    h5 {
+      color: #00AEEF;
+    }
+  }
+
+  .menu {
     		float: left;
     		width: 25%;
         padding: 10px;
-        li {
+        ul li {
           color: #DCDCDC;
           font-size: 14px;
-            }
-    			#customer-support-menu {
-    			h5 {
-    					color: #EE2A7B;
-    				}
-    			}
-    			#about-txprintco-menu {
-					h5 {
-    					color: #F7941E;
-    				}
-    			}
-    			#legal-stuff-menu {
-    				h5 {
-    					color: #8DC63F;
-    				}
-    			}
-    			#social-media-icons {
-    				h5 {
-    					color: #00AEEF;
-    				}
-    			}
-    		}
-    	}
+        }
+  }
+}
 .footer-bottom {
 	background: #414042;
   width: 100%;
