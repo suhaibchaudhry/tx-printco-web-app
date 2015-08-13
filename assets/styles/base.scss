@@ -16,6 +16,12 @@
   margin: 0 4px 0 0;
 }
 
+.logo a {
+  display: block;
+  @include misc-sprite(logo, true);
+  text-indent: -9999px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
