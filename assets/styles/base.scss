@@ -99,6 +99,16 @@ h3 {
   width: 100%;
 	background: #414042;
   padding: 10px;
+  .menu {
+    		float: left;
+    		width: 25%;
+        padding: 10px;
+        border-right: 1px solid #eaeaea;
+        ul li {
+          color: #DCDCDC;
+          font-size: 14px;
+        }
+  }
 
   h5 {
     font-size: 22px;
@@ -121,19 +131,10 @@ h3 {
     }
   }
   .footer-four {
+    border-right: none;
     h5 {
       color: #00AEEF;
     }
-  }
-
-  .menu {
-    		float: left;
-    		width: 25%;
-        padding: 10px;
-        ul li {
-          color: #DCDCDC;
-          font-size: 14px;
-        }
   }
 }
 .footer-bottom {
