@@ -3,13 +3,25 @@
 	<div class='featured-products'>
 		<h2 class='header-title'>Featured Products</h2>
 			<ul id='featured-products-items'>
-				<li class='item-1'>
-					<div class="product-circle">
-						<div class="product-image"><img src="/images/products/business-cards.png" alt="Business Cards" height="100" width="150"></div>
-						<div class="product-name">Business Cards<div>
-					</div>
-				</li>
-				<%=
+				<%
+					//Object List
+					[{
+						image: 'business-cards.png',
+						name: 'Business Cards'
+					},
+					{
+						image: 'business-cards.png',
+						name: 'Business Cards'
+					}].map(function(e, i) {
+				%>
+					 <li class='item-<%= i+1 %>'>
+						 <div class="product-image"><img src="/images/products/<%= e.image %>" alt="<%= e.name %>" height="100" width="150"></div>
+ 						 <div class="product-name"><%= e.name %><div>
+					 </li>
+			 <% }) %>
+
+			 <%
+				//Simple List
 				['Flyers & Brochures',
 				 'Posters',
 				 'Stand-Up Banners',
@@ -17,10 +29,10 @@
 				 'Stickers',
 				 'Presentation Folders',
 				 'Plastic Cards'].map(function(e, i) {
-				 	return '<li class="item-2">'+e+'</li>';
-				 }).join('');
-				%>
-			</ul>
+				 	%>
+				 	<li class='item-<%= i+1 %>'><%= e %></li>
+			 <% }) %>
+		</ul>
 	</div>
 </div>
 <div class="middle-content">
