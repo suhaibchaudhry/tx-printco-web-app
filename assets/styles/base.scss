@@ -15,10 +15,44 @@ $misc-layout: smart;
   float: left;
   margin: 0 4px 0 0;
 }
+
+.discover {
+  @include misc-sprite(discovercard, true);
+  text-indent: -9999px;
+  float: left;
+  margin: 0 4px 0 0;
+}
+.visa {
+  @include misc-sprite(visa, true);
+  text-indent: -9999px;
+  float: left;
+  margin: 0 4px 0 0;
+}
+.american-express {
+  @include misc-sprite(american-express, true);
+  text-indent: -9999px;
+  float: left;
+  margin: 0 4px 0 0;
+}
+.mastercard {
+  @include misc-sprite(mastercard, true);
+  text-indent: -9999px;
+  float: left;
+  margin: 0 4px 0 0;
+}
+.paypal {
+  @include misc-sprite(paypal, true);
+  text-indent: -9999px;
+  float: left;
+  margin: 0 4px 0 0;
+}
 .logo a {
   display: block;
   text-indent: -9999px;
   @include misc-sprite(logo, true);
+}
+.lowercase {
+  text-transform: lowercase;
 }
 body {
   font-family: 'Open Sans', sans-serif;
@@ -58,6 +92,8 @@ h3 {
     }
     .product-name {
     text-align: center;
+    margin: 17px 0;
+    font-size: 20px;
     }
   }
 }
@@ -163,6 +199,10 @@ h3 {
   .footer-one {
     float: left;
     width: 50%;
+    .footer-message {
+      font-size: 12px;
+      padding: 0 10px;
+    }
   }
   .footer-two {
     float: left;

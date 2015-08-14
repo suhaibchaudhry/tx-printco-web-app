@@ -1,6 +1,6 @@
 <div class="slideshow"></div>
 <div class="top-content">
-	<div class='featured-products'>
+	<div class='featured-products lowercase'>
 		<h2 class='header-title'>Featured Products</h2>
 			<ul id='featured-products-items'>
 				<%
@@ -10,8 +10,8 @@
 						name: 'Business Cards'
 					},
 					{
-						image: 'business-cards.png',
-						name: 'Business Cards'
+						image: 'flyers-brochures.png',
+						name: 'Flyers & Brochures'
 					}].map(function(e, i) {
 				%>
 					 <li class="item-<%= i+1 %>">
@@ -35,7 +35,7 @@
 		</ul>
 	</div>
 </div>
-<div class="middle-content">
+<div class="middle-content lowercase">
 	<div class='middle-content-container'>
 		<div class='need-help-designing'>
 			<h2 class='header-title'>Need help designing?</h2>
