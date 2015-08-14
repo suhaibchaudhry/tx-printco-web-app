@@ -17,31 +17,31 @@ $misc-layout: smart;
 }
 
 .discover {
- // @include misc-sprite(discovercard, true);
+ @include misc-sprite(discovercard, true);
   text-indent: -9999px;
   float: left;
   margin: 0 4px 0 0;
 }
 .visa {
- // @include misc-sprite(visa, true);
+ @include misc-sprite(visa, true);
   text-indent: -9999px;
   float: left;
   margin: 0 4px 0 0;
 }
 .american-express {
- // @include misc-sprite(american-express, true);
+ @include misc-sprite(american-express, true);
   text-indent: -9999px;
   float: left;
   margin: 0 4px 0 0;
 }
 .mastercard {
- // @include misc-sprite(mastercard, true);
+ @include misc-sprite(mastercard, true);
   text-indent: -9999px;
   float: left;
   margin: 0 4px 0 0;
 }
 .paypal {
- // @include misc-sprite(paypal, true);
+ @include misc-sprite(paypal, true);
   text-indent: -9999px;
   float: left;
   margin: 0 4px 0 0;
