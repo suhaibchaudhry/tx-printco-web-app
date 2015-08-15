@@ -13,7 +13,7 @@ $misc-layout: smart;
   @include misc-sprite(call-icon, true);
   text-indent: -9999px;
   float: left;
-  margin: 0 4px 0 0;
+  margin: 0 11px 0 0;
 }
 
 .discover {
@@ -78,9 +78,43 @@ h3 {
 
 .header {
   width: 100%;
-  .top-header {
+  .bottom-header {
     width: 1220px;
     margin: 0 auto;
+    height: 110px;
+    .bottom-header-one {
+      float:left;
+      .logo {
+      }
+  }
+
+  .bottom-header-two {
+    width: auto;
+    float: right;
+    .main-menu {
+        ul li {
+          float: left;
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+  .top-header {
+    width: 1220px;
+    margin: 10px auto;
+    height: 27px;
+    border-bottom: 1px solid #f05247;
+    padding: 0 0 35px 0;
+    .call-us {
+      float: left;
+      margin:0 10px;
+    }
+    .top-menu {
+      ul li {
+        float: left;
+        margin:0 5px 0 0;
+      }
+    }
   }
 }
 
