@@ -70,30 +70,45 @@ h5 {
 }
 h2 {
   font-size: 35px;
+  margin-bottom: 30px;
 }
 h3 {
   font-size: 27px;
 }
 
-.featured-products {
-  h2 {
-    text-align: center;
-  }
-  ul li {
-    width: 25%;
-    float: left;
-    .product-image {
-    background: #eaeaea;
-    border-radius: 100%;
-    text-align: center;
-    padding: 55px 0;
-    width: 60%;
+.header {
+  width: 100%;
+  .top-header {
+    width: 1220px;
     margin: 0 auto;
+  }
+}
+
+.top-content {
+  width: 100%;
+  .featured-products {
+    width: 1220px;
+    margin: 0 auto;
+    h2 {
+      text-align: center;
     }
-    .product-name {
-    text-align: center;
-    margin: 17px 0;
-    font-size: 20px;
+    ul li {
+      width: 25%;
+      float: left;
+      .product-image {
+        background: #eaeaea;
+        border-radius: 50%;
+        text-align: center;
+        padding: 55px 0;
+        width: 220px;
+        margin: 0 auto;
+        height: 220px;
+      }
+      .product-name {
+        text-align: center;
+        margin: 17px 0;
+        font-size: 20px;
+      }
     }
   }
 }
@@ -154,12 +169,12 @@ h3 {
   float: left;
   width: 100%;
   background: #414042;
-  padding: 10px;
   .menu {
     float: left;
     width: 25%;
     padding: 10px;
     border-right: 1px solid #eaeaea;
+    margin: 10px 0 20px;
     ul li {
       color: #dcdcdc;
       font-size: 14px;
@@ -192,13 +207,15 @@ h3 {
   }
 }
 .footer-bottom {
-  background: #414042;
+  background: #232323;
   width: 100%;
   color: #fff;
   float: left;
+  padding: 10px 0;
   .footer-one {
     float: left;
     width: 50%;
+    margin: 17px 0;
     .footer-message {
       font-size: 12px;
       padding: 0 10px;
@@ -207,7 +224,9 @@ h3 {
   .footer-two {
     float: left;
     width: 50%;
-    #payment-options {
+    .payment-options {
+      float: right;
+      margin: 0 5px 0;
       li {
         float: left;
       }
