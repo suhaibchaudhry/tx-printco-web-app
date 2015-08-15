@@ -130,6 +130,7 @@ h3 {
       width: 25%;
       float: left;
       .product-image {
+        background: #eaeaea;
         border-radius: 50%;
         text-align: center;
         padding: 55px 0;
@@ -150,7 +151,6 @@ h3 {
   background: #7c0d4c;
   @include background-image(linear-gradient(to right, #7c0d4c 0%, #9d1e62 50%, #7c0d4c 100%));
   //End Gradient
-
   width: 100%;
   float: left;
   padding: 7px 0;
