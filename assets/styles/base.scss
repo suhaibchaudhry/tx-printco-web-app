@@ -51,6 +51,7 @@ $misc-layout: smart;
   text-indent: -9999px;
   @include misc-sprite(logo, true);
 }
+
 .lowercase {
   text-transform: lowercase;
 }
@@ -91,6 +92,7 @@ h3 {
   .bottom-header-two {
     width: auto;
     float: right;
+    margin: 30px 0;
     .main-menu {
         ul li {
           float: left;
@@ -115,9 +117,15 @@ h3 {
         margin:0 5px 0 0;
       }
     }
+    .top-header-two {
+      float:right;
+      ul li {
+        float: left;
+        margin: 0 0 0 10px;
+      }
+    }
   }
 }
-
 .top-content {
   width: 100%;
   .featured-products {
@@ -130,7 +138,6 @@ h3 {
       width: 25%;
       float: left;
       .product-image {
-        background: #eaeaea;
         border-radius: 50%;
         text-align: center;
         padding: 55px 0;
@@ -146,6 +153,17 @@ h3 {
     }
   }
 }
+.featured-products {
+  .item-1 {
+    .product-image {
+      //Start Gradient
+      background: #1fbfd3;
+      @include background-image(radial-gradient(ellipse at center, #78cdcf 0%,#1fbfd3 100%));
+      //End Gradient
+    }
+  }
+}
+
 .middle-content {
   //Start Gradient
   background: #7c0d4c;
