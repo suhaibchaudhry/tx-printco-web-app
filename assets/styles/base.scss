@@ -127,6 +127,82 @@ h3 {
   }
 }
 .top-content {
+  .featured-products {
+    .item-1 {
+      .product-image {
+        //Start Gradient
+        background: #1fbfd3;
+        @include background-image(radial-gradient(ellipse at center, #78cdcf 0%,#1fbfd3 100%));
+        //End Gradient
+      }
+    }
+    .item-2 {
+      .product-image {
+        //Start Gradient
+        background: #f7961f;
+        @include background-image(radial-gradient(ellipse at center, #fec247 0%,#f7961f 100%));        //End Gradient
+        padding: 39px 0;
+        //End Gradient
+      }
+    }
+    .item-3 {
+      .product-image {
+      //Start Gradient
+      background: #7cb138;
+      @include background-image(radial-gradient(ellipse at center, #8cc53f 0%,#7cb138 100%));
+      //End Gradient
+      padding: 45px 0;
+      }
+    }
+    .item-4 {
+      .product-image {
+      //Start Gradient
+      background: #1e9cce;
+      @include background-image(radial-gradient(ellipse at center, #00aeee 0%,#1e9cce 100%));
+      //End Gradient
+      padding: 16px 0;
+      }
+    }
+    .item-5 {
+      .product-image {
+      //Start Gradient
+      background: #7d0e4d;
+      @include background-image(radial-gradient(ellipse at center, #9f1f63 0%,#7d0e4d 100%));
+      //End Gradient
+      padding: 19px 0;
+      }
+    }
+    .item-6 {
+      .product-image {
+      //Start Gradient
+      background: #f3cf36;
+      @include background-image(radial-gradient(ellipse at center, #f5ed32 0%,#f3cf36 100%));
+      //End Gradient
+      padding: 75px 0;
+      }
+    }
+    .item-7 {
+      .product-image {
+      //Start Gradient
+      background: #282364;
+      @include background-image(radial-gradient(ellipse at center, #642d8f 0%,#282364 100%));
+      //End Gradient
+      padding: 16px 0;
+      }
+    }
+    .item-8 {
+      .product-image {
+      //Start Gradient
+      background: #b71319;
+      @include background-image(radial-gradient(ellipse at center, #d8565d 0%,#b71319 100%));
+      //End Gradient
+      padding: 60px 39px;
+      }
+    }
+  }
+}
+
+.top-content {
   width: 100%;
   .featured-products {
     width: 1220px;
@@ -150,16 +226,6 @@ h3 {
         margin: 17px 0;
         font-size: 20px;
       }
-    }
-  }
-}
-.featured-products {
-  .item-1 {
-    .product-image {
-      //Start Gradient
-      background: #1fbfd3;
-      @include background-image(radial-gradient(ellipse at center, #78cdcf 0%,#1fbfd3 100%));
-      //End Gradient
     }
   }
 }
