@@ -1,3 +1,11 @@
+//Include Hover Animations base
+@import "../../bower_components/Hover/scss/options";
+@import "../../bower_components/Hover/scss/mixins";
+@import "../../bower_components/Hover/scss/hacks";
+
+//Include dresired Hover Animations effects to be used as mixins.
+@import "../../bower_components/Hover/scss/effects/border-transitions/ripple-out";
+
 @import "compass/css3/images";
 @import "compass/utilities/sprites";
 $misc-layout: smart;
@@ -136,12 +144,24 @@ a {
 }
 .top-content {
   .featured-products {
+    .product-image {
+	@include ripple-out();
+
+	&:before {
+        	//Use cross browser mixin later.
+        	border-radius: 50%;
+    	}
+    }
     .item-1 {
       .product-image {
         //Start Gradient
         background: #1fbfd3;
         @include background-image(radial-gradient(ellipse at center, #78cdcf 0%,#1fbfd3 100%));
         //End Gradient
+
+	&:before {
+		border-color: #1fbfd3;
+	}
       }
     }
     .item-2 {
@@ -151,6 +171,10 @@ a {
         @include background-image(radial-gradient(ellipse at center, #fec247 0%,#f7961f 100%));        //End Gradient
         padding: 39px 0;
         //End Gradient
+
+        &:before {
+      		border-color: #f7961f;
+      	}
       }
     }
     .item-3 {
@@ -160,6 +184,10 @@ a {
       @include background-image(radial-gradient(ellipse at center, #8cc53f 0%,#7cb138 100%));
       //End Gradient
       padding: 45px 0;
+
+      &:before {
+        border-color: #7cb138;
+      }
       }
     }
     .item-4 {
@@ -169,6 +197,10 @@ a {
       @include background-image(radial-gradient(ellipse at center, #00aeee 0%,#1e9cce 100%));
       //End Gradient
       padding: 16px 0;
+
+      &:before {
+        border-color: #1e9cce;
+      }
       }
     }
     .item-5 {
@@ -178,6 +210,9 @@ a {
       @include background-image(radial-gradient(ellipse at center, #9f1f63 0%,#7d0e4d 100%));
       //End Gradient
       padding: 19px 0;
+      &:before {
+        border-color: #7d0e4d;
+      }
       }
     }
     .item-6 {
@@ -187,6 +222,9 @@ a {
       @include background-image(radial-gradient(ellipse at center, #f5ed32 0%,#f3cf36 100%));
       //End Gradient
       padding: 75px 0;
+      &:before {
+        border-color: #f3cf36;
+      }
       }
     }
     .item-7 {
@@ -196,6 +234,9 @@ a {
       @include background-image(radial-gradient(ellipse at center, #642d8f 0%,#282364 100%));
       //End Gradient
       padding: 16px 0;
+      &:before {
+        border-color: #282364;
+      }
       }
     }
     .item-8 {
@@ -205,6 +246,9 @@ a {
       @include background-image(radial-gradient(ellipse at center, #d8565d 0%,#b71319 100%));
       //End Gradient
       padding: 60px 39px;
+      &:before {
+        border-color: #b71319;
+      }
       }
     }
   }
