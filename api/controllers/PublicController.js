@@ -10,6 +10,10 @@ module.exports = {
     res.view({
       errors: req.flash('error')
     });
+  },
+  contact: function (req, res) {
+    res.view({
+      errors: req.flash('error')
+    });
   }
 };
-
