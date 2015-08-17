@@ -150,6 +150,7 @@ a {
 	&:before {
         	//Use cross browser mixin later.
         	border-radius: 50%;
+          border-width: 1px;
     	}
     }
     .item-1 {
@@ -266,6 +267,7 @@ a {
       width: 25%;
       float: left;
       text-align: center;
+      cursor: pointer;
       .product-image {
         display: inline-block;
         border-radius: 50%;
