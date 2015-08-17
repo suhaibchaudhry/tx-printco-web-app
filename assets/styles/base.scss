@@ -141,6 +141,11 @@ a {
     .product-image {
       @include ripple-out();
       &:before {
+        //Smooth out circle by pushing in border 1px, to avoid edge cracks.
+        top: 1px;
+        left: 1px;
+        bottom: 1px;
+        right: 1px;
 
         //Use cross browser mixin later.
         border-radius: 50%;
