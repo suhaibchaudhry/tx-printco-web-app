@@ -265,16 +265,16 @@ a {
     ul li {
       width: 25%;
       float: left;
+      text-align: center;
       .product-image {
+        display: inline-block;
         border-radius: 50%;
-        text-align: center;
         padding: 55px 0;
         width: 220px;
         margin: 0 auto;
         height: 220px;
       }
       .product-name {
-        text-align: center;
         margin: 17px 0;
         font-size: 20px;
       }
