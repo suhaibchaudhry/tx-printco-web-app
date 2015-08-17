@@ -5,14 +5,11 @@
 
 //Include dresired Hover Animations effects to be used as mixins.
 @import "../../bower_components/Hover/scss/effects/border-transitions/ripple-out";
-
 @import "compass/css3/images";
 @import "compass/utilities/sprites";
 $misc-layout: smart;
 @import "misc/*.png";
-
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300|Open+Sans:400,600);
-
 .product-data .multipleResultChild {
   color: #002ffd;
   cursor: pointer;
@@ -23,33 +20,32 @@ $misc-layout: smart;
   float: left;
   margin: 0 11px 0 0;
 }
-
 .discover {
- @include misc-sprite(discovercard, true);
+  @include misc-sprite(discovercard, true);
   text-indent: -9999px;
   float: left;
   margin: 0 4px 0 0;
 }
 .visa {
- @include misc-sprite(visa, true);
+  @include misc-sprite(visa, true);
   text-indent: -9999px;
   float: left;
   margin: 0 4px 0 0;
 }
 .american-express {
- @include misc-sprite(american-express, true);
+  @include misc-sprite(american-express, true);
   text-indent: -9999px;
   float: left;
   margin: 0 4px 0 0;
 }
 .mastercard {
- @include misc-sprite(mastercard, true);
+  @include misc-sprite(mastercard, true);
   text-indent: -9999px;
   float: left;
   margin: 0 4px 0 0;
 }
 .paypal {
- @include misc-sprite(paypal, true);
+  @include misc-sprite(paypal, true);
   text-indent: -9999px;
   float: left;
   margin: 0 4px 0 0;
@@ -59,7 +55,6 @@ $misc-layout: smart;
   text-indent: -9999px;
   @include misc-sprite(logo, true);
 }
-
 .lowercase {
   text-transform: lowercase;
 }
@@ -84,14 +79,13 @@ h2 {
 h3 {
   font-size: 27px;
 }
-
 a {
   color: inherit;
-  text-decoration:inherit;
+  text-decoration: inherit;
 }
-
-.bottom-header .main-menu a:hover, .top-header a:hover {
-  color: #F05237;
+.bottom-header .main-menu a:hover,
+.top-header a:hover {
+  color: #f05237;
 }
 .header {
   width: 100%;
@@ -100,16 +94,16 @@ a {
     margin: 0 auto;
     height: 110px;
     .bottom-header-one {
-      float:left;
+      float: left;
       .logo {
-      }
-  }
 
-  .bottom-header-two {
-    width: auto;
-    float: right;
-    margin: 30px 0;
-    .main-menu {
+      }
+    }
+    .bottom-header-two {
+      width: auto;
+      float: right;
+      margin: 30px 0;
+      .main-menu {
         ul li {
           float: left;
           margin: 0 10px;
@@ -122,19 +116,19 @@ a {
     margin: 10px auto;
     height: 27px;
     border-bottom: 1px solid #f05247;
-    padding: 0 0 35px 0;
+    padding: 0 0 35px;
     .call-us {
       float: left;
-      margin:0 10px;
+      margin: 0 10px;
     }
     .top-menu {
       ul li {
         float: left;
-        margin:0 5px 0 0;
+        margin: 0 5px 0 0;
       }
     }
     .top-header-two {
-      float:right;
+      float: right;
       ul li {
         float: left;
         margin: 0 0 0 10px;
@@ -145,116 +139,127 @@ a {
 .top-content {
   .featured-products {
     .product-image {
-	@include ripple-out();
+      @include ripple-out();
+      &:before {
 
-	&:before {
-        	//Use cross browser mixin later.
-        	border-radius: 50%;
-          border-width: 1px;
-    	}
+        //Use cross browser mixin later.
+        border-radius: 50%;
+        border-width: 1px;
+      }
     }
     .item-1 {
       .product-image {
+
         //Start Gradient
         background: #1fbfd3;
         @include background-image(radial-gradient(ellipse at center, #78cdcf 0%,#1fbfd3 100%));
-        //End Gradient
 
-	&:before {
-		border-color: #1fbfd3;
-	}
+        //End Gradient
+        &:before {
+          border-color: #1fbfd3;
+        }
       }
     }
     .item-2 {
       .product-image {
+
         //Start Gradient
         background: #f7961f;
-        @include background-image(radial-gradient(ellipse at center, #fec247 0%,#f7961f 100%));        //End Gradient
+        @include background-image(radial-gradient(ellipse at center, #fec247 0%,#f7961f 100%)); //End Gradient
         padding: 39px 0;
-        //End Gradient
 
+        //End Gradient
         &:before {
-      		border-color: #f7961f;
-      	}
+          border-color: #f7961f;
+        }
       }
     }
     .item-3 {
       .product-image {
-      //Start Gradient
-      background: #7cb138;
-      @include background-image(radial-gradient(ellipse at center, #8cc53f 0%,#7cb138 100%));
-      //End Gradient
-      padding: 45px 0;
 
-      &:before {
-        border-color: #7cb138;
-      }
+        //Start Gradient
+        background: #7cb138;
+        @include background-image(radial-gradient(ellipse at center, #8cc53f 0%,#7cb138 100%));
+
+        //End Gradient
+        padding: 45px 0;
+        &:before {
+          border-color: #7cb138;
+        }
       }
     }
     .item-4 {
       .product-image {
-      //Start Gradient
-      background: #1e9cce;
-      @include background-image(radial-gradient(ellipse at center, #00aeee 0%,#1e9cce 100%));
-      //End Gradient
-      padding: 16px 0;
 
-      &:before {
-        border-color: #1e9cce;
-      }
+        //Start Gradient
+        background: #1e9cce;
+        @include background-image(radial-gradient(ellipse at center, #00aeee 0%,#1e9cce 100%));
+
+        //End Gradient
+        padding: 16px 0;
+        &:before {
+          border-color: #1e9cce;
+        }
       }
     }
     .item-5 {
       .product-image {
-      //Start Gradient
-      background: #7d0e4d;
-      @include background-image(radial-gradient(ellipse at center, #9f1f63 0%,#7d0e4d 100%));
-      //End Gradient
-      padding: 19px 0;
-      &:before {
-        border-color: #7d0e4d;
-      }
+
+        //Start Gradient
+        background: #7d0e4d;
+        @include background-image(radial-gradient(ellipse at center, #9f1f63 0%,#7d0e4d 100%));
+
+        //End Gradient
+        padding: 19px 0;
+        &:before {
+          border-color: #7d0e4d;
+        }
       }
     }
     .item-6 {
       .product-image {
-      //Start Gradient
-      background: #f3cf36;
-      @include background-image(radial-gradient(ellipse at center, #f5ed32 0%,#f3cf36 100%));
-      //End Gradient
-      padding: 75px 0;
-      &:before {
-        border-color: #f3cf36;
-      }
+
+        //Start Gradient
+        background: #f3cf36;
+        @include background-image(radial-gradient(ellipse at center, #f5ed32 0%,#f3cf36 100%));
+
+        //End Gradient
+        padding: 75px 0;
+        &:before {
+          border-color: #f3cf36;
+        }
       }
     }
     .item-7 {
       .product-image {
-      //Start Gradient
-      background: #282364;
-      @include background-image(radial-gradient(ellipse at center, #642d8f 0%,#282364 100%));
-      //End Gradient
-      padding: 16px 0;
-      &:before {
-        border-color: #282364;
-      }
+
+        //Start Gradient
+        background: #282364;
+        @include background-image(radial-gradient(ellipse at center, #642d8f 0%,#282364 100%));
+
+        //End Gradient
+        padding: 16px 0;
+        &:before {
+          border-color: #282364;
+        }
       }
     }
     .item-8 {
       .product-image {
-      //Start Gradient
-      background: #b71319;
-      @include background-image(radial-gradient(ellipse at center, #d8565d 0%,#b71319 100%));
-      //End Gradient
-      padding: 60px 39px;
-      &:before {
-        border-color: #b71319;
-      }
+
+        //Start Gradient
+        background: #b71319;
+        @include background-image(radial-gradient(ellipse at center, #d8565d 0%,#b71319 100%));
+
+        //End Gradient
+        padding: 60px 39px;
+        &:before {
+          border-color: #b71319;
+        }
       }
     }
   }
 }
-
 .top-content {
   width: 100%;
   .featured-products {
@@ -283,11 +288,12 @@ a {
     }
   }
 }
-
 .middle-content {
+
   //Start Gradient
   background: #7c0d4c;
   @include background-image(linear-gradient(to right, #7c0d4c 0%, #9d1e62 50%, #7c0d4c 100%));
+
   //End Gradient
   width: 100%;
   float: left;
@@ -336,11 +342,9 @@ a {
     }
   }
 }
-
 .footer a:hover {
   color: #fff;
 }
-
 .footer {
   float: left;
   width: 100%;
@@ -402,7 +406,7 @@ a {
     width: 50%;
     .payment-options {
       float: right;
-      margin: 0 5px 0;
+      margin: 0 5px;
       li {
         float: left;
       }
