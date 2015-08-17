@@ -12,6 +12,7 @@
 	"backbone": "1.x.x",
 	"jquery.equalheights": "1.x.x",
 	"big.js": "3.x.x",
+	"Hover": "2.x.x",
 	"accounting.js": "0.x.x"
   },
   "name": "txprintco-app",
