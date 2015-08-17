@@ -136,6 +136,7 @@ a {
     }
   }
 }
+
 .top-content {
   .featured-products {
     .product-image {
@@ -289,6 +290,12 @@ a {
       .product-name {
         margin: 17px 0;
         font-size: 20px;
+      }
+
+      &:hover .product-image:before,
+      &:hover .product-image:before,
+      &:hover .product-image:before {
+      	@include prefixed(animation-name, #{$nameSpace}-ripple-out);
       }
     }
   }
