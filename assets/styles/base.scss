@@ -72,6 +72,11 @@ h5 {
   text-transform: lowercase;
   line-height: normal;
 }
+
+h1 {
+  font-size: 48px;
+}
+
 h2 {
   font-size: 35px;
   margin-bottom: 30px;
@@ -421,6 +426,32 @@ a {
       margin: 0 5px;
       li {
         float: left;
+      }
+    }
+  }
+}
+
+.contact-us-page {
+  width: 100%;
+  .header-title-wrapper {
+    width: 100%;
+    background: #000;
+    .header-title {
+    width: 1220px;
+    margin: 0 auto;
+    padding: 20px 0;
+    color: #fff;
+    }
+  }
+  .contact-info-wrapper {
+    background: #75BA46;
+    height: 80px;
+    .contact-info {
+      width: 1220px;
+      margin: 0 auto;
+      ul li {
+        float: left;
+        width: 25%;
       }
     }
   }

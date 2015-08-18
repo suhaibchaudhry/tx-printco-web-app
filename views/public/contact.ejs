@@ -1,1 +1,48 @@
-<h1>Test</h1>
+<% if (errors) {%>
+  <% errors.forEach(function (error) { %>
+    <%= __(error) %>
+  <% }) %>
+<% } %>
+<div class="contact-us-page">
+<div class="header-title-wrapper">
+<div class="header-title">
+<h1>Contact Us</h1>
+</div>
+</div>
+<div class="contact-info-wrapper">
+  <div class="contact-info">
+  <ul>
+    <li>1.555.555.5555</li>
+    <li>1.555.555.5555</li>
+    <li>info@txprintco.com</li>
+    <li>10701 Corporate Dr<br />
+    Suite 209, Stafford, Tx</li>
+  </ul>
+  </div>
+</div>
+
+<div class="contact-form-buttons">
+  <div class="get-in-touch">Get in touch</div><p>or</p>
+  <div class="order-issue">Order Issues</div>
+</div>
+<div class="form-header">We'd love to hear from you.</div>
+
+<form role="form" action="/auth/local/register" method="post">
+  <input type="text" name="name" placeholder="Name">
+  <input type="text" name="email" placeholder="Email">
+  <input type="text" name="subject" placeholder="Subject">
+  <input type="text" name="message" placeholder="Message">
+  <button type="submit">Submit</button>
+</form>
+
+
+<form role="form" action="/auth/local/register" method="post">
+  <input type="text" name="orderid" placeholder="Order ID">
+  <input type="text" name="username" placeholder="Username">
+  <input type="text" name="contactname" placeholder="Contact Name">
+  <input type="text" name="contactphone" placeholder="Contact Phone">
+  <input type="text" name="contactemail" placeholder="Contact Email">
+  <input type="text" name="issue" placeholder="What seems to be the problem?">
+  <button type="submit">Submit</button>
+</form>
+</div>
