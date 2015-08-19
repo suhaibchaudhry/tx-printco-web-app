@@ -1,0 +1,17 @@
+.slideshow {
+  .slide {
+    .slide-inner {
+      width: 1220px;
+      margin: 0 auto;
+      .region {
+        float: left;
+        .region-left {
+          width: 35%;
+        }
+        .region-right {
+          width: 65%;
+        }
+      }
+    }
+  }
+}
