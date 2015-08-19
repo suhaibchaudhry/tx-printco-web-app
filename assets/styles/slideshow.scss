@@ -1,17 +1,21 @@
 $screen-width: 1220px;
 $slideshow-height: 250px;
 .slideshow {
-  height: $slideshow-height;
-  overflow: hidden;
   clear: both;
   .slide {
     float: left;
     width: 100%;
+    padding: 20px 0 40px;
+    h2 {
+      color: #fff;
+    }
     .slide-inner {
       width: $screen-width;
       margin: 0 auto;
       .region {
         float: left;
+        height: $slideshow-height;
+        overflow: hidden;
       }
       .region-left {
         width: 35%;
@@ -20,7 +24,6 @@ $slideshow-height: 250px;
           text-align: center;
           display: table-cell;
           vertical-align: middle;
-          height: $slideshow-height;
         }
       }
       .region-right {
