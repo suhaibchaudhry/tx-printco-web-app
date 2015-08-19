@@ -1,19 +1,24 @@
+<%
+var slides =
+
+[{
+	name: 'Business Cards',
+	body: "You only get one chance at a first impression.\
+				<br />\
+				Make sure yours is worth keeping.",
+	link: {
+		title: 'Buy Now',
+		href: '#'
+	},
+	image: 'business-cards.png',
+	w: '150',
+	h: '100'
+}];
+%>
+
 <div class="slideshow">
 	<%
-		//Object List
-		[{
-			name: 'Business Cards',
-			body: "You only get one chance at a first impression.\
-						 <br />\
-						 Make sure yours is worth keeping.",
-			link: {
-				title: 'Buy Now',
-				href: '#'
-			},
-			image: 'business-cards.png',
-			w: '150',
-			h: '100'
-		}].map(function(e, i) {
+		slides.map(function(e, i) {
 	%>
 	<div class="slide slide-<%= i+1 %>" id="slide-<%= i+1 %>">
 		<div class="slide-inner">
@@ -30,6 +35,13 @@
 		</div>
 	</div>
 	<% }) %>
+	<div class="menu">
+		<ul>
+			<% slides.map(function(e, i) { %>
+				<li><a class="slide-<%= i+1 %>" href="#slide-<%= i+1 %>"><%= e.name %></a></li>
+			<% }) %>
+		</ul>
+	</div>
 </div>
 
 <div class="top-content">
