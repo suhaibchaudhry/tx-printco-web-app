@@ -1,6 +1,8 @@
 @import "../../bower_components/Hover/scss/options";
 @import "../../bower_components/Hover/scss/mixins";
 
+@import "compass/css3/images";
+
 $screen-width: 1220px;
 $slideshow-height: 280px;
 $slideshow-padding-top: 20px;
@@ -90,19 +92,14 @@ $slideshow-slide-paragraph-color: #FFCF5D;
       }
     }
   }
-}
 
-.region-right, .menu {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  text-transform: lowercase;
-}
+	.region-right, .menu {
+	  font-family: 'Roboto', sans-serif;
+	  font-weight: 100;
+	  text-transform: lowercase;
+	}
 
-.slideshow {
-  .slide-1 {
-    background: #198899;
-  }
-  .slide {
+	.slide {
     display: none;
     background: #198899;
     position: relative;
@@ -115,4 +112,14 @@ $slideshow-slide-paragraph-color: #FFCF5D;
   .shifted-slide {
     @include prefixed(animation-name, slideshow-slide-up);
   }
+}
+
+//Background Colors
+.slideshow {
+	.slide-1 {
+		@include background-image(linear-gradient(to right, #166c84 0%,#198899 50%,#166c84 100%));
+  }
+	.slide-2 {
+		@include background-image(linear-gradient(to right, #7c0d4c 0%, #9d1e62 50%, #7c0d4c 100%));
+	}
 }
