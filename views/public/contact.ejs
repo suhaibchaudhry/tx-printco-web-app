@@ -26,15 +26,17 @@
   <div class="get-in-touch">Get in touch</div><p>or</p>
   <div class="order-issue">Order Issues</div>
 </div>
+<div class="general-contact">
 <form role="form" action="/auth/local/contact" method="post">
   <input type="text" name="name" placeholder="Name">
   <input type="text" name="email" placeholder="Email">
   <input type="text" name="subject" placeholder="Subject">
   <input type="text" name="message" placeholder="Message">
-  <button type="submit">Submit</button>
+  <div class="submit-button">Submit</div>
 </form>
+</div>
 
-
+<div class="order-issue-form">
 <form role="form" action="/auth/local/order-issue" method="post">
   <input type="text" name="orderid" placeholder="Order ID">
   <input type="text" name="username" placeholder="Username">
@@ -42,7 +44,8 @@
   <input type="text" name="contactphone" placeholder="Contact Phone">
   <input type="text" name="contactemail" placeholder="Contact Email">
   <input type="text" name="issue" placeholder="What seems to be the problem?">
-  <button type="submit">Submit</button>
+  <div class="submit-button">Submit</div>
 </form>
+</div>
 </div>
 </div>

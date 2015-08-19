@@ -501,8 +501,14 @@ a {
   background: #eaeaea;
   border: none;
   }
-  button {
-    text-align: center;
+  .submit-button {
+    text-align: Center;
+    width: 52%;
+    margin: 0 auto;
+    background: #ee237c;
+    padding: 13px;
+    border-radius: 3px;
+    color: #fff;
   }
   .contact-form-buttons {
     text-align: center;
