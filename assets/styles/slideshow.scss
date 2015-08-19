@@ -1,17 +1,37 @@
+$screen-width: 1220px;
+$slideshow-height: 250px;
 .slideshow {
+  height: $slideshow-height;
+  overflow: hidden;
+  clear: both;
   .slide {
+    float: left;
+    width: 100%;
     .slide-inner {
-      width: 1220px;
+      width: $screen-width;
       margin: 0 auto;
       .region {
         float: left;
-        .region-left {
-          width: 35%;
-        }
-        .region-right {
-          width: 65%;
+      }
+      .region-left {
+        width: 35%;
+        display: table;
+        .slide-image {
+          text-align: center;
+          display: table-cell;
+          vertical-align: middle;
+          height: $slideshow-height;
         }
       }
+      .region-right {
+        width: 65%;
+      }
     }
+  }
+}
+
+.slideshow {
+  .slide-1 {
+    background: #198899;
   }
 }
