@@ -1,6 +1,35 @@
 $screen-width: 1220px;
 $slideshow-height: 280px;
+$slideshow-height-outer: 340px; //Slideshow height + 60px;
 .slideshow {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: $slideshow-height-outer;
+  overflow: hidden;
+  .menu {
+    width: $screen-width;
+    margin: 0 auto;
+
+    ul {
+      position: absolute;
+      bottom: 11px;
+      color: #fff;
+
+      li {
+        font-size: 14pt;
+        border-bottom: 2px solid #fff;
+        padding: 4px 10px;
+        float: left;
+        margin-right: 20px;
+      }
+
+      li:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
   .slide {
     float: left;
     width: 100%;
@@ -31,9 +60,6 @@ $slideshow-height: 280px;
         }
       }
       .region-right {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 100;
-        text-transform: lowercase;
         position: relative;
         width: 65%;
 
@@ -49,6 +75,12 @@ $slideshow-height: 280px;
       }
     }
   }
+}
+
+.region-right, .menu {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  text-transform: lowercase;
 }
 
 .slideshow {
