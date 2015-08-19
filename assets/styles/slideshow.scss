@@ -7,6 +7,9 @@ $slideshow-padding-top: 20px;
 $slideshow-padding-bottom: 40px;
 $slideshow-height-outer: $slideshow-height + $slideshow-padding-top + $slideshow-padding-bottom; //Slideshow height + 60px;
 
+$slideshow-slide-heading-color: #FFF;
+$slideshow-slide-paragraph-color: #FFCF5D;
+
 @include keyframes(slideshow-slide-up) {
 	100% {
 		top: -$slideshow-height-outer;
@@ -47,11 +50,11 @@ $slideshow-height-outer: $slideshow-height + $slideshow-padding-top + $slideshow
     width: 100%;
     padding: $slideshow-padding-top 0 $slideshow-padding-bottom;
     h2 {
-      color: #fff;
+      color: $slideshow-slide-heading-color;
       font-size: 40pt;
     }
     p {
-      color: #FFCF5D;
+      color: $slideshow-slide-paragraph-color;
       font-size: 16pt;
     }
     .slide-inner {
