@@ -9,10 +9,32 @@
 @import "compass/utilities/sprites";
 $misc-layout: smart;
 @import "misc/*.png";
+@import "contact/*.png";
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300|Open+Sans:400,600);
 .product-data .multipleResultChild {
   color: #002ffd;
   cursor: pointer;
+}
+
+.phone-contact {
+  @include contact-sprite(phone,true);
+  float:left;
+  padding: 16px 78px;
+}
+.fax-contact {
+  @include contact-sprite(fax,true);
+  float:left;
+  padding: 18px 86px;
+}
+.email-contact {
+  @include contact-sprite(email,true);
+  float:left;
+  padding: 16px 85px;
+}
+.address-contact {
+  @include contact-sprite(address,true);
+  float:left;
+  padding: 14px 88px;
 }
 .call-us-icon {
   @include misc-sprite(call-icon, true);
@@ -437,15 +459,65 @@ a {
     }
   }
   .contact-info-wrapper {
-    background: #75ba46;
-    height: 80px;
+    background: #75BA46;
+    height: 100px;
+    padding: 18px 0;
     .contact-info {
       width: 1220px;
       margin: 0 auto;
       ul li {
         float: left;
         width: 25%;
+        color: #fff;
+        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+        text-transform: lowercase;
       }
+      .address-contact {
+        font-size: 14px;
+      }
+    }
+  }
+  .form-header {
+    text-align: center;
+    font-size: 40px;
+    margin: 25px 0 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+  }
+}
+
+
+.contact-forms {
+  width: 1220px;
+  margin: 0 auto;
+  input {
+  width: 50%;
+  display: block;
+  margin: 12px auto;
+  padding: 14px;
+  border-radius: 4px;
+  background: #eaeaea;
+  border: none;
+  }
+  button {
+    text-align: center;
+  }
+  .contact-form-buttons {
+    text-align: center;
+    p {
+        display: inline-block;
+        font-size: 35px;
+      }
+    .get-in-touch, .order-issue {
+      display: inline-block;
+      background: #2d2d2d;
+      padding: 16px 54px;
+      color: #fff;
+      border-radius: 3px;
+      margin: 10px;
+      font-size: 25px;
     }
   }
 }
