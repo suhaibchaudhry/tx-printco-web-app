@@ -3,7 +3,9 @@
 		//Object List
 		[{
 			name: 'Business Cards',
-			body: 'You only get one chance at a first impression. Make sure yours is worth keeping.',
+			body: "You only get one chance at a first impression.\
+						 <br />\
+						 Make sure yours is worth keeping.",
 			link: {
 				title: 'Buy Now',
 				href: '#'
@@ -22,7 +24,7 @@
 			</div>
 			<div class="region region-right">
 				<h2><%= e.name %></h2>
-				<p><%= e.body %></p>
+				<p><%- e.body %></p>
 				<a href="<%= e.link.href %>"><%= e.link.title %></a>
 			</div>
 		</div>
