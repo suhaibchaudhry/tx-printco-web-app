@@ -1,6 +1,16 @@
+@import "../../bower_components/Hover/scss/options";
+@import "../../bower_components/Hover/scss/mixins";
+
 $screen-width: 1220px;
 $slideshow-height: 280px;
 $slideshow-height-outer: 340px; //Slideshow height + 60px;
+
+@include keyframes(#{$nameSpace}-slide-up) {
+	100% {
+		top: -$slideshow-height-outer;
+	}
+}
+
 .slideshow {
   position: relative;
   float: left;
@@ -86,5 +96,18 @@ $slideshow-height-outer: 340px; //Slideshow height + 60px;
 .slideshow {
   .slide-1 {
     background: #198899;
+  }
+  .slide {
+    display: none;
+    background: #198899;
+    position: relative;
+    @include prefixed(animation-duration, 1s);
+    top: 0;
+  }
+  .active-slide {
+    display: block;
+  }
+  .shifted-slide {
+    @include prefixed(animation-name, #{$nameSpace}-slide-up);
   }
 }

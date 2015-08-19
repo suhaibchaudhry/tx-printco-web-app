@@ -15,7 +15,7 @@ var slides =
 	h: '100'
 },
 {
-	name: 'Business Cards',
+	name: 'Business Cards 2',
 	body: "You only get one chance at a first impression.\
 				<br />\
 				Make sure yours is worth keeping.",
@@ -33,7 +33,7 @@ var slides =
 	<%
 		slides.map(function(e, i) {
 	%>
-	<div class="slide slide-<%= i+1 %>" id="slide-<%= i+1 %>">
+	<div class="slide slide-<%= i+1 %><%= (i ==  0) ? ' active-slide' : '' %>" id="slide-<%= i+1 %>">
 		<div class="slide-inner">
 			<div class="region region-left">
 				<div class="slide-image">
