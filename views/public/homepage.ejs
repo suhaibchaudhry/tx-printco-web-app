@@ -1,4 +1,35 @@
-<div class="slideshow"></div>
+<div class="slideshow">
+	<%
+		//Object List
+		[{
+			name: 'Business Cards',
+			body: 'You only get one chance at a first impression. Make sure yours is worth keeping.',
+			link: {
+				title: 'Buy Now',
+				href: '#'
+			},
+			image: 'business-cards.png',
+			w: '150',
+			h: '100'
+		}].map(function(e, i) {
+	%>
+	<div class="slide slide-<%= i+1 %>" id="slide-<%= i+1 %>">
+		<div class="slide-inner">
+			<div class="region region-left">
+				<div class="slide-image">
+					<img src="/images/products/<%= e.image %>" alt="<%= e.name %>" height="<%= e.h %>" width="<%= e.w %>">
+				</div>
+			</div>
+			<div class="region region-right">
+				<h2><%= e.name %></h2>
+				<p><%= e.body %></p>
+				<a href="<%= e.link.href %>"><%= e.link.title %></a>
+			</div>
+		</div>
+	</div>
+	<% }) %>
+</div>
+
 <div class="top-content">
 	<div class='featured-products lowercase'>
 		<h2 class='header-title'>Featured Products</h2>
