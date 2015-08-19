@@ -3,9 +3,11 @@
 
 $screen-width: 1220px;
 $slideshow-height: 280px;
-$slideshow-height-outer: 340px; //Slideshow height + 60px;
+$slideshow-padding-top: 20px;
+$slideshow-padding-bottom: 40px;
+$slideshow-height-outer: $slideshow-height + $slideshow-padding-top + $slideshow-padding-bottom; //Slideshow height + 60px;
 
-@include keyframes(#{$nameSpace}-slide-up) {
+@include keyframes(slideshow-slide-up) {
 	100% {
 		top: -$slideshow-height-outer;
 	}
@@ -43,7 +45,7 @@ $slideshow-height-outer: 340px; //Slideshow height + 60px;
   .slide {
     float: left;
     width: 100%;
-    padding: 20px 0 40px;
+    padding: $slideshow-padding-top 0 $slideshow-padding-bottom;
     h2 {
       color: #fff;
       font-size: 40pt;
@@ -108,6 +110,6 @@ $slideshow-height-outer: 340px; //Slideshow height + 60px;
     display: block;
   }
   .shifted-slide {
-    @include prefixed(animation-name, #{$nameSpace}-slide-up);
+    @include prefixed(animation-name, slideshow-slide-up);
   }
 }

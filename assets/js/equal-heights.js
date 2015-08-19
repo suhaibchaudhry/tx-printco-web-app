@@ -13,6 +13,7 @@
 			next_slide.addClass('active-slide');
 			current_slide.addClass('shifted-slide');
 			next_slide.addClass('shifted-slide');
+			//Use events and Mordernizr later
 			setTimeout(function() {
 				current_slide.removeClass('active-slide').removeClass('shifted-slide');
 				next_slide.removeClass('shifted-slide');
