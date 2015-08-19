@@ -117,3 +117,6 @@ nbproject
 .idea
 .node_history
 .sass-cache
+
+### Ignore Sprites ####
+assets/images/sprites
