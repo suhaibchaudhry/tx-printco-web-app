@@ -9,8 +9,8 @@ $slideshow-padding-top: 20px;
 $slideshow-padding-bottom: 40px;
 $slideshow-height-outer: $slideshow-height + $slideshow-padding-top + $slideshow-padding-bottom; //Slideshow height + 60px;
 
-$slideshow-slide-left-region-width: 35%;
-$slideshow-slide-right-region-width: 65%;
+$slideshow-slide-left-region-width: 50%;
+$slideshow-slide-right-region-width: 50%;
 
 $slideshow-slide-heading-color: #FFF;
 $slideshow-slide-paragraph-color: #FFCF5D;
@@ -71,7 +71,7 @@ $slideshow-slide-paragraph-color: #FFCF5D;
         overflow: hidden;
       }
       .region-left {
-        width: 35%;
+        width: 50%;
         display: table;
         .slide-image {
           text-align: center;
@@ -81,7 +81,7 @@ $slideshow-slide-paragraph-color: #FFCF5D;
       }
       .region-right {
         position: relative;
-        width: 65%;
+        width: 50%;
 
         a {
           position: absolute;
