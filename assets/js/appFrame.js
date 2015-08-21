@@ -11,9 +11,7 @@
       this.$slideshow = this.$('.slideshow');
     },
     delegateAnimationEnd: function(next_slide, current_slide) {
-      this.callback = _.debounce(
-                        _.bind(this.slideChanged, this, next_slide, current_slide)
-                      , 300, true);
+      this.callback = _.bind(this.slideChanged, this, next_slide, current_slide);
       next_slide.bind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", this.callback);
     },
     changeSlide: function(e) {
@@ -31,9 +29,12 @@
         } else {
           this.slideChanged(next_slide, current_slide);
         }
+      } else if(current_slide.length > 1) {
+        
       }
     },
     slideChanged: function(next_slide, current_slide, e) {
+      console.log("Animation Ended");
       if (Modernizr.cssanimations) {
         next_slide.unbind("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", this.callback);
       }
