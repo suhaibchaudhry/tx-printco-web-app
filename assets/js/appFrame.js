@@ -32,7 +32,7 @@
       var current_slide = this.$slideshow.find('.active-slide');
       if(!next_slide.hasClass('active-slide') && current_slide.length == 1) {
         this.switchSlide(next_slide, current_slide);
-      } else if(!next_slide.hasClass('active-slide') && current_slide.length > 1) {
+      } else if(current_slide.length > 1) {
         this.queuedSlide = next_slide;
       }
     },
