@@ -112,7 +112,6 @@ $slideshow-slide-paragraph-color: #FFCF5D;
     background: #198899;
     position: relative;
     @include prefixed(animation-duration, 1s);
-		@include prefixed(animation-timing-function, ease);
     top: 0;
   }
   .active-slide {
