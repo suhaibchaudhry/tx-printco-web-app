@@ -6,7 +6,7 @@
 $screen-width: 1220px;
 $slideshow-height: 300px;
 $slideshow-padding-top: 20px;
-$slideshow-padding-bottom: 40px;
+$slideshow-padding-bottom: 60px;
 $slideshow-height-outer: $slideshow-height + $slideshow-padding-top + $slideshow-padding-bottom; //Slideshow height + 60px;
 
 $slideshow-slide-left-region-width: 50%;
@@ -129,5 +129,23 @@ $slideshow-slide-paragraph-color: #FFCF5D;
   }
 	.slide-2 {
 		@include background-image(linear-gradient(to right, #7c0d4c 0%, #9d1e62 50%, #7c0d4c 100%));
+	}
+	.slide-3 {
+		@include background-image(linear-gradient(to right, #5e1011 0%,#ad1f21 50%,#5e1011 100%));
+	}
+	.slide-4 {
+		@include background-image(linear-gradient(to right, #f7960f 0%,#f4ab4b 50%,#f7960f 100%));
+	}
+	.slide-5 {
+		@include background-image(linear-gradient(to right, #74af15 0%,#92db5e 50%,#72af0f 100%));
+	}
+	.slide-6 {
+		@include background-image(linear-gradient(to right, #282364 0%,#3d4daa 50%,#282364 100%));
+	}
+	.slide-7 {
+		@include background-image(linear-gradient(to right, #ed1572 0%,#f925c1 50%,#ed1572 100%));
+	}
+	.slide-8 {
+		@include background-image(linear-gradient(to right, #17599b 0%,#1e9cce 50%,#17599b 100%));
 	}
 }
