@@ -3,7 +3,7 @@ read -p "Would you like to install MySQL? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-   sudo brew install mysql
+   brew install mysql
    sudo chown -R _mysql:_mysql /usr/local/var/mysql
 
    #Reset Password
