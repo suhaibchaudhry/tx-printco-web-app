@@ -4,12 +4,23 @@
       selectParamsExtract: function(element) {
         var data = {};
         element.each(function(i, e) {
-          if(e.value != "0") {
+          if(e.value == "0") {
+            data[e.name] = false;
+          } else {
             data[e.name] = e.value;
           }
         });
 
         return data;
+      },
+      testCollectionValues: function(obj) {
+        for (var i in obj) {
+            if (obj[i] !== false) {
+                return false;
+            }
+        }
+
+        return true;
       },
       makeRequest: function(resource, requestType, contextObj, data, successCB, errorCB) {
         var request = {

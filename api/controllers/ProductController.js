@@ -63,15 +63,41 @@ module.exports = {
 		if(_.has(req.body, 'category') && _.has(req.body, 'filters') && _.isObject(req.body.filters)) {
 			var filter_keys = _.keys(req.body.filters);
 			if(filter_keys.length > 0) {
-				var filterKeys = [];
+				var query_dsl = {
+											    "query": {
+											        "filtered": {
+											          "filter": { "and": [] }
+											        }
+											     },
+											    "aggs": {}
+				};
+
 				_.each(filter_keys, function(key) {
-					filterKeys.push([req.body.category,key,req.body.filters[key]]);
+					var value = req.body.filters[key];
+					query_dsl["aggs"][key] = {
+						"terms": {
+							"field": key
+						}
+					};
+
+					if(value !== false) {
+						var item = {"terms": {}};
+						var values = [];
+						values.push(value);
+						item["terms"][key] = values;
+						query_dsl["query"]["filtered"]["filter"]["and"].push(item);
+				  }
 				});
 
-				txprintcoData.makeDataRequest('filters-product-map',
-												{keys: filterKeys},
-												_.bind(this.getFilteredProducts, this, req, res),
-												_.bind(this.serverNotFoundResponse, this, req, res));
+				// var filterKeys = [];
+				// _.each(filter_keys, function(key) {
+				// 	filterKeys.push([req.body.category,key,req.body.filters[key]]);
+				// });
+				//
+				// txprintcoData.makeDataRequest('filters-product-map',
+				// 								{keys: filterKeys},
+				// 								_.bind(this.getFilteredProducts, this, req, res),
+				// 								_.bind(this.serverNotFoundResponse, this, req, res));
 			} else {
 				res.notFound();
 			}
@@ -171,7 +197,7 @@ module.exports = {
 		_.each(data, function(option) {
 			var vocab = {
 				name: option['key'][4],
-				machine_name: option['key'][4].toLowerCase().replace(/[_\W]+/g, '-'), 
+				machine_name: option['key'][4].toLowerCase().replace(/[_\W]+/g, '-'),
 				values: option['value']
 			};
 

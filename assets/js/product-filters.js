@@ -38,8 +38,9 @@
     productFilterChange: function(e) {
       var $filters = this.$('.product-filters');
       var filters = App.selectParamsExtract($filters.find('select'));
+      console.log(filters);
 
-      if(_.isEmpty(filters)) {
+      if(App.testCollectionValues(filters)) {
         this.$('.product-data').html('Please select an option');
       } else {
         App.makeRequest('rpc/product/filter',
@@ -96,7 +97,8 @@
       this.$('.product-form .subtotal span.value').text(subtotal.toFixed(2));
     },
     productFilterSuccess: function(res, status, xhr) {
-      this.activeResult = res;
+      console.log(res);
+      /*this.activeResult = res;
 
       this.$('.product-data').html(
         this.productSummaryTemplate(
@@ -107,7 +109,7 @@
       if(res.status && res.products.length == 1) {
         this.activeProduct.clear({silent: true});
         this.activeProduct.set(res.products[0]);
-      }
+      }*/
       //console.log('%c Product Filtered', 'font-size: 20px; color: red');
       //console.log(res);
     },
