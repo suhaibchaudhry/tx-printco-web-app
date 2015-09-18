@@ -80,7 +80,7 @@ module.exports = {
 						}
 					};
 
-					if(value !== false) {
+					if(value != "false") {
 						var item = {"terms": {}};
 						var values = [];
 						values.push(value);
@@ -88,6 +88,10 @@ module.exports = {
 						query_dsl["query"]["filtered"]["filter"]["and"].push(item);
 				  }
 				});
+
+				
+
+				res.json(query_dsl);
 
 				// var filterKeys = [];
 				// _.each(filter_keys, function(key) {
