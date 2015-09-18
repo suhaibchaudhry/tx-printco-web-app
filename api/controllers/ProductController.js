@@ -89,9 +89,10 @@ module.exports = {
 				  }
 				});
 
-				
-
-				res.json(query_dsl);
+				sails.config.txprintco.elastic_client.search('product', req.body.category, query_dsl)
+				.on('data', function(data) {
+           res.json(JSON.parse(data));
+        }).exec();
 
 				// var filterKeys = [];
 				// _.each(filter_keys, function(key) {
