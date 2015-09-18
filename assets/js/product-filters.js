@@ -50,7 +50,7 @@
                           category: $filters.data('category-id'),
                           filters: filters
                         },
-                        this.productFilterSuccess);
+                        _.bind(this.productFilterSuccess, this, e));
       }
     },
     selectProduct: function(e) {
@@ -96,8 +96,30 @@
       subtotal = parseFloat(product.get("subtotal"))+parseFloat(product.get("opttotal"));
       this.$('.product-form .subtotal span.value').text(subtotal.toFixed(2));
     },
-    productFilterSuccess: function(res, status, xhr) {
+    productFilterSuccess: function(e, res, status, xhr) {
       console.log(res);
+      console.log(e);
+      //e.currentTarget.name;
+
+      this.$(".product-filters select").each(function(i, ele) {
+        var $ele = $(ele);
+        var name = $ele.attr("name");
+        console.log(ele.name);
+
+        if(name != e.currentTarget.name) {
+          if(_.has(res["aggregations"], name)) {
+            if(_.has(res.aggregations[name], "buckets")) {
+              $ele.find('option[value!="0"]').remove();
+              var opts = "";
+              _.each(res.aggregations[name]["buckets"], function(o, i){
+                opts += '<option value="'+o.key+'">'+o.key+'</option>';
+              });
+
+              $ele.append(opts);
+            }
+          } 
+        }
+      });
       /*this.activeResult = res;
 
       this.$('.product-data').html(
