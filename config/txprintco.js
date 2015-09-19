@@ -7,8 +7,12 @@ var nano = require("nano")('http://'+host+':'+port);
 var db = nano.db.use(dbname);
 
 var elasticSearchClient = new ElasticSearchClient({
-    host: 'localhost',
-    port: 9200
+    host: 'office.uitoux.com',
+    port: 9200,
+    auth: {
+      username: "digerpaji",
+      password: "xyz786"
+    }
 });
 
 module.exports.txprintco = {
