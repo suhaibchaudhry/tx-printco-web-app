@@ -35,22 +35,29 @@
         runsizes: product.get('runsizes')
       }));
     },
+    emptyResultMessage: function() {
+      this.$('.product-data').html('Please select an option');
+    },
     productFilterChange: function(e) {
-      var $filters = this.$('.product-filters');
-      var filters = App.selectParamsExtract($filters.find('select'));
-      console.log(filters);
+      if(e) {
+        var $filters = this.$('.product-filters');
+        var filters = App.selectParamsExtract($filters.find('select'));
+        console.log(filters);
 
-      if(App.testCollectionValues(filters)) {
-        this.$('.product-data').html('Please select an option');
+        if(App.testCollectionValues(filters)) {
+          this.emptyResultMessage();
+        } else {
+          App.makeRequest('rpc/product/filter',
+                          'POST',
+                          this,
+                          {
+                            category: $filters.data('category-id'),
+                            filters: filters
+                          },
+                          _.bind(this.productFilterSuccess, this, e));
+        }
       } else {
-        App.makeRequest('rpc/product/filter',
-                        'POST',
-                        this,
-                        {
-                          category: $filters.data('category-id'),
-                          filters: filters
-                        },
-                        _.bind(this.productFilterSuccess, this, e));
+        this.emptyResultMessage();
       }
     },
     selectProduct: function(e) {
