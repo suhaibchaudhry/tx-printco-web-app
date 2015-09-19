@@ -148,10 +148,12 @@
               if(i > act) {
                 var count = $ele.find('option').length;
                 if(count == 1) {
-                  $ele.find("option:eq(0)").text('N/A');
                   $ele.attr("disabled", true);
+                  $ele.prev().hide();
+                  $ele.hide();
                 } else {
-                  $ele.find("option:eq(0)").text('-- Any --');
+                  $ele.prev().show();
+                  $ele.show();
                   if(count == 2) {
                     if(e.currentTarget.selectedIndex != "0" && res.aggregations[name]["buckets"][0].doc_count == res.aggregations[e.currentTarget.name]["buckets"][0].doc_count) {
                       $ele.find('option:eq(1)').attr('selected', 'selected');
