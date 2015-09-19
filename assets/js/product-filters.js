@@ -27,7 +27,7 @@
     },
     render: function() {
       console.log("Rendered");
-      //Takes too long
+      this.$(".product-filters select:gt(0)").attr("disabled", true);
       this.productFilterChange(false);
     },
     productChange: function(product, value, options) {
@@ -109,6 +109,7 @@
       //e.currentTarget.name;
 
       var after_flag = false;
+      var act = 0;
       this.$(".product-filters select").each(function(i, ele) {
         var $ele = $(ele);
         var name = $ele.attr("name");
@@ -124,12 +125,16 @@
               });
 
               $ele.append(opts);
+              if(i == act+1) {
+                $ele.attr("disabled", false);
+              }
             }
           }
         }
 
         if(name == e.currentTarget.name) {
           after_flag = true;
+          act = i;
         }
       });
       /*this.activeResult = res;
