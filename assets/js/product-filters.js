@@ -150,8 +150,10 @@
                 if(count == 1) {
                   $ele.attr("disabled", true);
                 } else if(count == 2) {
-                  $ele.find('option:eq(1)').attr('selected', 'selected');
-                  $ele.change().attr("disabled", true);
+                  if(res.aggregations[name]["buckets"][0].doc_count == res.aggregations[e.currentTarget.name]["buckets"][0].doc_count) {
+                    $ele.find('option:eq(1)').attr('selected', 'selected');
+                    $ele.change().attr("disabled", true);
+                  }
                 }
               }
             }
