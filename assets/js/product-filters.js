@@ -101,12 +101,13 @@
       console.log(e);
       //e.currentTarget.name;
 
+      var after_flag = false;
       this.$(".product-filters select").each(function(i, ele) {
         var $ele = $(ele);
         var name = $ele.attr("name");
         console.log(ele.name);
 
-        if(name != e.currentTarget.name) {
+        if(after_flag) {
           if(_.has(res["aggregations"], name)) {
             if(_.has(res.aggregations[name], "buckets")) {
               $ele.find('option[value!="0"]').remove();
@@ -117,7 +118,11 @@
 
               $ele.append(opts);
             }
-          } 
+          }
+        }
+
+        if(name == e.currentTarget.name) {
+          after_flag = true;
         }
       });
       /*this.activeResult = res;
