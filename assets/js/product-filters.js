@@ -41,7 +41,20 @@
     productFilterChange: function(e) {
       if(e) {
         var $filters = this.$('.product-filters');
-        var filters = App.selectParamsExtract($filters.find('select'));
+        var $select = $filters.find('select');
+
+        var after_flag = false;
+        var act = 0;
+        $select.each(function(i, ele) {
+          var $ele = $(ele);
+          if(after_flag) {
+            $ele.val("0");
+          }
+          if($ele.attr("name") == e.currentTarget.name) {
+            after_flag = true;
+          }
+        });
+        var filters = App.selectParamsExtract($select);
         console.log(filters);
 
         if(App.testCollectionValues(filters)) {
@@ -127,6 +140,18 @@
               $ele.append(opts);
               if(i == act+1) {
                 $ele.attr("disabled", false);
+              } else if(i > act+1) {
+                $ele.attr("disabled", true);
+              }
+
+              if(i > act) {
+                var count = $ele.find('option').length;
+                if(count == 1) {
+                  $ele.attr("disabled", true);
+                } else if(count == 2) {
+                  $ele.find('option:eq(1)').attr('selected', 'selected');
+                  $ele.change().attr("disabled", true);
+                }
               }
             }
           }
