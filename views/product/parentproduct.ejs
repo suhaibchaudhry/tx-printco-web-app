@@ -4,6 +4,7 @@
     <%= __(error) %>
   <% }) %>
 <% } %>
+<% var term_en = ''; %>
 <h1 class="title product-title" id="<%= category %>"><%= category_en %></h1>
 <div class="product-filters" data-category-id="<%= category %>">
 <% vocabularies.forEach(function(vocabulary) { %>
@@ -11,7 +12,8 @@
   <select id="<%= vocabulary.vocabulary_machine_name %>" name="<%= vocabulary.vocabulary_machine_name %>">
   	  <option value="0">-- Any --</option>
     <% vocabulary.terms.forEach(function(term) { %>
-      <option value="<%= term %>"><%= term %></option>
+     <% term_en = _.escape(term); %>
+      <option value="<%= term_en %>"><%= term_en %></option>
     <% }); %>
   </select>
 <% }); %>

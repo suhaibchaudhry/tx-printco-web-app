@@ -133,8 +133,9 @@
             if(_.has(res.aggregations[name], "buckets")) {
               $ele.find('option[value!="0"]').remove();
               var opts = "";
-              _.each(res.aggregations[name]["buckets"], function(o, i){
-                opts += '<option value="'+o.key+'">'+o.key+'</option>';
+              _.each(res.aggregations[name]["buckets"], function(o, i) {
+                var escapedKey = _.escape(o.key);
+                opts += '<option value="'+escapedKey+'">'+escapedKey+'</option>';
               });
 
               $ele.append(opts);
