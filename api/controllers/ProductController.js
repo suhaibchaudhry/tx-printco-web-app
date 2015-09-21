@@ -93,16 +93,6 @@ module.exports = {
 				.on('data', function(data) {
            res.json(JSON.parse(data));
         }).exec();
-
-				// var filterKeys = [];
-				// _.each(filter_keys, function(key) {
-				// 	filterKeys.push([req.body.category,key,req.body.filters[key]]);
-				// });
-				//
-				// txprintcoData.makeDataRequest('filters-product-map',
-				// 								{keys: filterKeys},
-				// 								_.bind(this.getFilteredProducts, this, req, res),
-				// 								_.bind(this.serverNotFoundResponse, this, req, res));
 			} else {
 				res.notFound();
 			}

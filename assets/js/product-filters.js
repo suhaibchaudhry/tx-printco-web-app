@@ -163,8 +163,6 @@
       }
     },
     productFilterSuccess: function(e, res, status, xhr) {
-      console.log(res);
-      console.log(e);
       //e.currentTarget.name;
       var that = this;
       var after_flag = false;
@@ -181,20 +179,6 @@
           act = i;
         }
       });
-      /*this.activeResult = res;
-
-      this.$('.product-data').html(
-        this.productSummaryTemplate(
-          this.activeResult
-          )
-        );
-
-      if(res.status && res.products.length == 1) {
-        this.activeProduct.clear({silent: true});
-        this.activeProduct.set(res.products[0]);
-      }*/
-      //console.log('%c Product Filtered', 'font-size: 20px; color: red');
-      //console.log(res);
     },
     productColorsLoaded: function(product, colors, options) {
         //console.log(colors);
