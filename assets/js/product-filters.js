@@ -181,7 +181,7 @@
       });
 
       //Populate products the old way for now.
-      if(_.has(res, 'hits.hits')) {
+      if(_.has(res, 'hits') && _.has(res.hits, 'hits') && _.has(res.hits.hits, 'status')) {
         this.activeResult = res.hits.hits;
 
         this.$('.product-data').html(
@@ -194,6 +194,8 @@
           this.activeProduct.clear({silent: true});
           this.activeProduct.set(res.hits.hits.products[0]);
         }
+      } else {
+        this.$('.product-data').html('Please select an option');
       }
     },
     productColorsLoaded: function(product, colors, options) {
