@@ -65,6 +65,8 @@ module.exports = {
 			if(filter_keys.length > 0) {
 				var that = this;
 				var query_dsl = {
+													//'size': 1,
+													//'from': 0,
 											    "query": {
 											        "filtered": {
 											          "filter": { "and": [] }
