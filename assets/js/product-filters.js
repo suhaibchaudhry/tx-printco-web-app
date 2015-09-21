@@ -120,6 +120,7 @@
       //$ele is the select being visiting
       var count = $ele.find('option').length;
       if(count == 1) {
+        this.forceEnableNextSelect = true;
         $ele.attr("disabled", true);
         $ele.prev().hide();
         $ele.hide();
@@ -128,8 +129,9 @@
         $ele.show();
         if(count == 2) {
           if(currentTarget.selectedIndex != "0" && res.aggregations[name]["buckets"][0].doc_count == res.aggregations[currentTarget.name]["buckets"][0].doc_count) {
+            this.forceEnableNextSelect = true;
             $ele.find('option:eq(1)').attr('selected', 'selected');
-            $ele.change().attr("disabled", true);
+            $ele.attr("disabled", true);
           }
         }
       }
@@ -146,8 +148,9 @@
             });
 
             $ele.append(opts);
-            if(i == act+1) {
+            if(this.forceEnableNextSelect || i == act+1) {
               $ele.attr("disabled", false);
+              this.forceEnableNextSelect = false;
             } else if(i > act+1) {
               $ele.attr("disabled", true);
             }
@@ -166,6 +169,7 @@
       var that = this;
       var after_flag = false;
       var act = 0;
+      this.forceEnableNextSelect = false;
       this.$(".product-filters select").each(function(i, ele) {
         var $ele = $(ele);
         var name = $ele.attr("name");
