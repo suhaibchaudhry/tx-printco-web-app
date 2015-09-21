@@ -116,55 +116,61 @@
       subtotal = parseFloat(product.get("subtotal"))+parseFloat(product.get("opttotal"));
       this.$('.product-form .subtotal span.value').text(subtotal.toFixed(2));
     },
+    visitFilterToTheRight: function($ele, name, currentTarget, res) {
+      //$ele is the select being visiting
+      var count = $ele.find('option').length;
+      if(count == 1) {
+        $ele.attr("disabled", true);
+        $ele.prev().hide();
+        $ele.hide();
+      } else {
+        $ele.prev().show();
+        $ele.show();
+        if(count == 2) {
+          if(currentTarget.selectedIndex != "0" && res.aggregations[name]["buckets"][0].doc_count == res.aggregations[currentTarget.name]["buckets"][0].doc_count) {
+            $ele.find('option:eq(1)').attr('selected', 'selected');
+            $ele.change().attr("disabled", true);
+          }
+        }
+      }
+    },
+    populateFiltersToTheRight: function(act, after_flag, $ele, name, currentTarget, res) {
+      if(after_flag) {
+        if(_.has(res["aggregations"], name)) {
+          if(_.has(res.aggregations[name], "buckets")) {
+            $ele.find('option[value!="0"]').remove();
+            var opts = "";
+            _.each(res.aggregations[name]["buckets"], function(o, i) {
+              var escapedKey = _.escape(o.key);
+              opts += '<option value="'+escapedKey+'">'+escapedKey+'</option>';
+            });
+
+            $ele.append(opts);
+            if(i == act+1) {
+              $ele.attr("disabled", false);
+            } else if(i > act+1) {
+              $ele.attr("disabled", true);
+            }
+
+            if(i > act) {
+              this.visitFilterToTheRight($ele, name, currentTarget, res);
+            }
+          }
+        }
+      }
+    },
     productFilterSuccess: function(e, res, status, xhr) {
       console.log(res);
       console.log(e);
       //e.currentTarget.name;
-
+      var that = this;
       var after_flag = false;
       var act = 0;
       this.$(".product-filters select").each(function(i, ele) {
         var $ele = $(ele);
         var name = $ele.attr("name");
         console.log(ele.name);
-
-        if(after_flag) {
-          if(_.has(res["aggregations"], name)) {
-            if(_.has(res.aggregations[name], "buckets")) {
-              $ele.find('option[value!="0"]').remove();
-              var opts = "";
-              _.each(res.aggregations[name]["buckets"], function(o, i) {
-                var escapedKey = _.escape(o.key);
-                opts += '<option value="'+escapedKey+'">'+escapedKey+'</option>';
-              });
-
-              $ele.append(opts);
-              if(i == act+1) {
-                $ele.attr("disabled", false);
-              } else if(i > act+1) {
-                $ele.attr("disabled", true);
-              }
-
-              if(i > act) {
-                var count = $ele.find('option').length;
-                if(count == 1) {
-                  $ele.attr("disabled", true);
-                  $ele.prev().hide();
-                  $ele.hide();
-                } else {
-                  $ele.prev().show();
-                  $ele.show();
-                  if(count == 2) {
-                    if(e.currentTarget.selectedIndex != "0" && res.aggregations[name]["buckets"][0].doc_count == res.aggregations[e.currentTarget.name]["buckets"][0].doc_count) {
-                      $ele.find('option:eq(1)').attr('selected', 'selected');
-                      $ele.change().attr("disabled", true);
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+        that.populateFiltersToTheRight(act, after_flag, $ele, name, e.currentTarget, res);
 
         if(name == e.currentTarget.name) {
           after_flag = true;
