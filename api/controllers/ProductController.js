@@ -103,7 +103,7 @@ module.exports = {
 	},
 	getFilteredProducts: function(req, res, data) {
 		var uniq = [];
-		var resultValid = _.has(data, 'hits.hits');
+		var resultValid = _.has(data, 'hits') && _.has(data.hits, 'hits') && _.isArray(data.hits.hits);
 		if(resultValid) {
 			_.each(data.hits.hits, function(product) {
 				uniq.push(product._source.product_id);
