@@ -63,6 +63,7 @@ module.exports = {
 		if(_.has(req.body, 'category') && _.has(req.body, 'filters') && _.isObject(req.body.filters)) {
 			var filter_keys = _.keys(req.body.filters);
 			if(filter_keys.length > 0) {
+				var that = this;
 				var query_dsl = {
 											    "query": {
 											        "filtered": {
@@ -91,7 +92,7 @@ module.exports = {
 
 				sails.config.txprintco.elastic_client.search('product', req.body.category, query_dsl)
 				.on('data', function(data) {
-           res.json(JSON.parse(data));
+           that.getFilteredProducts(req, res, JSON.parse(data));
         }).exec();
 			} else {
 				res.notFound();
@@ -100,19 +101,18 @@ module.exports = {
 			res.notFound();
 		}
 	},
-	getFilteredProducts: function(req, res, err, data) {
-		var uniq = data[0]["value"];
-
-		_.each(data, function(row) {
-			uniq = _.intersection(uniq, row["value"]);
+	getFilteredProducts: function(req, res, data) {
+		var uniq = [];
+		_.each(data.hits.hits, function(product) {
+			uniq.push(product._source.product_id);
 		});
 
 		txprintcoData.makeDataRequest('vendor_product_id_map',
 										{keys: uniq},
-										_.bind(this.getProductsByVendorID, this, req, res, uniq),
+										_.bind(this.getProductsByVendorID, this, req, res, uniq, data),
 										_.bind(this.JSONNotFoundResponse, this, req, res));
 	},
-	getProductsByVendorID: function(req, res, uniq, err, data) {
+	getProductsByVendorID: function(req, res, uniq, es_data, err, data) {
 		//Remove duplicates by selecting first, later crawl description for each ?idc flag and figure out something to do with it.
 		var products_marked = [];
 		var products = [];
@@ -123,11 +123,12 @@ module.exports = {
 			}
 		});
 
-		res.json({
+		es_data.hits.hits = {
 			status: true,
-			products: products,
-			uniq: uniq
-		});
+			products: products
+		};
+
+		res.json(es_data);
 	},
 	getColorsForQty: function(req, res) {
 		if(_.has(req.body, 'product_id') && _.has(req.body, 'runsize')) {
