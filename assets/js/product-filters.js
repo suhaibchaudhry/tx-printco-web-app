@@ -136,7 +136,7 @@
         }
       }
     },
-    populateFiltersToTheRight: function(act, after_flag, $ele, name, currentTarget, res) {
+    populateFiltersToTheRight: function(i, act, after_flag, $ele, name, currentTarget, res) {
       if(after_flag) {
         if(_.has(res["aggregations"], name)) {
           if(_.has(res.aggregations[name], "buckets")) {
@@ -174,7 +174,7 @@
         var $ele = $(ele);
         var name = $ele.attr("name");
         console.log(ele.name);
-        that.populateFiltersToTheRight(act, after_flag, $ele, name, e.currentTarget, res);
+        that.populateFiltersToTheRight(i, act, after_flag, $ele, name, e.currentTarget, res);
 
         if(name == e.currentTarget.name) {
           after_flag = true;
