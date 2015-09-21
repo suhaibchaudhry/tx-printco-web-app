@@ -181,17 +181,19 @@
       });
 
       //Populate products the old way for now.
-      this.activeResult = res.hits.hits;
+      if(_.has(res, 'hits.hits')) {
+        this.activeResult = res.hits.hits;
 
-      this.$('.product-data').html(
-        this.productSummaryTemplate(
-          this.activeResult
-          )
-        );
+        this.$('.product-data').html(
+          this.productSummaryTemplate(
+            this.activeResult
+            )
+          );
 
-      if(res.hits.hits.status && res.hits.hits.products.length == 1) {
-        this.activeProduct.clear({silent: true});
-        this.activeProduct.set(res.hits.hits.products[0]);
+        if(res.hits.hits.status && res.hits.hits.products.length == 1) {
+          this.activeProduct.clear({silent: true});
+          this.activeProduct.set(res.hits.hits.products[0]);
+        }
       }
     },
     productColorsLoaded: function(product, colors, options) {

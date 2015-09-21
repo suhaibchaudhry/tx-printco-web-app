@@ -103,14 +103,21 @@ module.exports = {
 	},
 	getFilteredProducts: function(req, res, data) {
 		var uniq = [];
-		_.each(data.hits.hits, function(product) {
-			uniq.push(product._source.product_id);
-		});
+		var resultValid = _.has(data, 'hits.hits');
+		if(resultValid) {
+			_.each(data.hits.hits, function(product) {
+				uniq.push(product._source.product_id);
+			});
+		}
 
-		txprintcoData.makeDataRequest('vendor_product_id_map',
-										{keys: uniq},
-										_.bind(this.getProductsByVendorID, this, req, res, uniq, data),
-										_.bind(this.JSONNotFoundResponse, this, req, res));
+		if(!_.isEmpty(uniq) && resultValid) {
+			txprintcoData.makeDataRequest('vendor_product_id_map',
+											{keys: uniq},
+											_.bind(this.getProductsByVendorID, this, req, res, uniq, data),
+											_.bind(this.JSONNotFoundResponse, this, req, res));
+		} else {
+			this.JSONNotFoundResponse(req, res);
+		}
 	},
 	getProductsByVendorID: function(req, res, uniq, es_data, err, data) {
 		//Remove duplicates by selecting first, later crawl description for each ?idc flag and figure out something to do with it.
