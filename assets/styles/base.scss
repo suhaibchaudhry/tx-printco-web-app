@@ -11,11 +11,6 @@ $misc-layout: smart;
 @import "misc/*.png";
 @import "contact/*.png";
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300|Open+Sans:400,600);
-.product-data .multipleResultChild {
-  color: #002ffd;
-  cursor: pointer;
-}
-
 .phone-contact {
   @include contact-sprite(phone,true);
   float:left;
