@@ -89,6 +89,7 @@
       this.activeProduct.set(this.activeResult.products[e.currentTarget.dataset.productIndex]);
     },
     selectRunsize: function(e) {
+      this.$('.order-pane').hide();
       if(e.currentTarget.value == "0") {
         this.activeProduct.set({tat: false, color: false}, {silent: true});
         this.activeProduct.set({runsize: false, colors: false});
@@ -98,6 +99,7 @@
       }
     },
     selectColor: function(e) {
+      this.$('.order-pane').hide();
       if(e.currentTarget.value == "0") {
         this.activeProduct.set('tat', false, {silent: true});
         this.activeProduct.set({color: false, tats: false});
@@ -108,8 +110,10 @@
     },
     selectTAT: function(e) {
       if(e.currentTarget.value == "0") {
+        this.$('.order-pane').hide();
         this.activeProduct.set({tat: false, vocabularies: false});
       } else {
+        this.$('.order-pane').show();
         this.activeProduct.set('tat', false, {silent: true});
         this.activeProduct.set('tat', e.currentTarget.value);
       }
@@ -117,7 +121,7 @@
     selectOption: function(e) {
       //To be made cross browser
       var total = 0;
-      this.$('.order-pane').show();
+      //this.$('.order-pane').show();
       this.$(".product-options > select > option:selected").each(function(i, e) {
         total += parseFloat(e.dataset.optionFee);
       });
@@ -238,7 +242,6 @@
           vocabularies: vocabularies
         }));
       } else {
-        this.$('.order-pane').show();
         this.$('.product-opt-choose').empty();
       }
     }
