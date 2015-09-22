@@ -59,6 +59,13 @@
 
         if(App.testCollectionValues(filters)) {
           this.emptyResultMessage();
+          $select.each(function(i, ele) {
+            if(i == 0) {
+              $ele.attr("disabled", false);
+            } else {
+              $ele.attr("disabled", true);
+            }
+          });
         } else {
           App.makeRequest('rpc/product/filter',
                           'POST',
