@@ -19,6 +19,9 @@ $slideshow-slide-paragraph-color: #FFCF5D;
 	100% {
 		top: -$slideshow-height-outer;
 	}
+	0% {
+		top: 0;
+	}
 }
 
 .slideshow {
