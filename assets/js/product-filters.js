@@ -131,8 +131,10 @@
       //$ele is the select being visiting
       var count = $ele.find('option').length;
       if(count == 1) {
-        this.forceEnableNextSelect = true;
-        $ele.attr("disabled", true);
+        if(!$ele.is(':disabled')) {
+          this.forceEnableNextSelect = true;
+        }
+        $ele.attr("disabled"), true);
         $ele.prev().hide();
         $ele.hide();
       } else {
@@ -140,7 +142,9 @@
         $ele.show();
         if(count == 2) {
           if(currentTarget.selectedIndex != "0" && res.aggregations[name]["buckets"][0].doc_count == res.aggregations[currentTarget.name]["buckets"][0].doc_count) {
-            this.forceEnableNextSelect = true;
+            if(!$ele.is(':disabled')) {
+              this.forceEnableNextSelect = true;
+            }
             $ele.find('option:eq(1)').attr('selected', 'selected');
             $ele.attr("disabled", true);
           }
