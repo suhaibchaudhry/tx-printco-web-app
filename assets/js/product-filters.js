@@ -134,7 +134,7 @@
         if(!$ele.is(':disabled')) {
           this.forceEnableNextSelect = true;
         }
-        $ele.attr("disabled"), true);
+        $ele.attr("disabled", true);
         $ele.prev().hide();
         $ele.hide();
       } else {
