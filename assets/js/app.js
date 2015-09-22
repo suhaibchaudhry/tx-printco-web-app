@@ -1,6 +1,28 @@
 (function($) {
   App = {
       basePath: '/',
+      preloaderSemaphore: 0,
+      startPreloader: function() {
+        console.log("Start Preloader");
+      },
+      endPreloader: function() {
+        console.log("End Preloader");
+      },
+      evaluatePreloader: function() {
+        if(this.preloaderSemaphore > 0) {
+          this.startPreloader();
+        } else {
+          this.endPreloader();
+        }
+      },
+      triggerPreloader: function(status) {
+        if(status) {
+          this.preloaderSemaphore++;
+        } else {
+          this.preloaderSemaphore--;
+        }
+        this.evaluatePreloader();
+      },
       selectParamsExtract: function(element) {
         var data = {};
         element.each(function(i, e) {
@@ -23,6 +45,7 @@
         return true;
       },
       makeRequest: function(resource, requestType, contextObj, data, successCB, errorCB) {
+        this.triggerPreloader(true);
         var request = {
           type: requestType,
           url: this.basePath+resource
@@ -35,6 +58,10 @@
             console.log(res);
           }, contextObj);
         }
+
+        request['complete'] = _.bind(function(jqXHR, textStatus) {
+          this.triggerPreloader(false);
+        }, this);
 
         if(_.isFunction(errorCB)) {
           request['error'] =  _.bind(errorCB, contextObj);
