@@ -1,27 +1,27 @@
 <div class="product-view">
-<% if (errors) {%>
-  <% errors.forEach(function (error) { %>
-    <%= __(error) %>
-  <% }) %>
-<% } %>
-<% var term_en = ''; %>
-<h1 class="title product-title" id="<%= category %>"><%= category_en %></h1>
-<div class="product-filters" data-category-id="<%= category %>">
-<% vocabularies.forEach(function(vocabulary) { %>
-  <label for="<%= vocabulary.vocabulary_machine_name %>"><%= vocabulary.vocabulary_en_name %></label>
-  <select id="<%= vocabulary.vocabulary_machine_name %>" name="<%= vocabulary.vocabulary_machine_name %>">
-  	  <option value="0">-- Any --</option>
-    <% vocabulary.terms.forEach(function(term) { %>
-     <% term_en = _.escape(term); %>
-      <option value="<%= term_en %>"><%= term_en %></option>
-    <% }); %>
-  </select>
-<% }); %>
-</div>
-<div class="product-data"></div>
-</div>
-<div class="order-pane">
-  <div class="order-button">
-    <a class="order-now" href="#">Order Now</a>
+  <% if (errors) {%>
+    <% errors.forEach(function (error) { %>
+      <%= __(error) %>
+    <% }) %>
+  <% } %>
+  <% var term_en = ''; %>
+  <h1 class="title product-title" id="<%= category %>"><%= category_en %></h1>
+  <div class="product-filters" data-category-id="<%= category %>">
+  <% vocabularies.forEach(function(vocabulary) { %>
+    <label for="<%= vocabulary.vocabulary_machine_name %>"><%= vocabulary.vocabulary_en_name %></label>
+    <select id="<%= vocabulary.vocabulary_machine_name %>" name="<%= vocabulary.vocabulary_machine_name %>">
+    	  <option value="0">-- Any --</option>
+      <% vocabulary.terms.forEach(function(term) { %>
+       <% term_en = _.escape(term); %>
+        <option value="<%= term_en %>"><%= term_en %></option>
+      <% }); %>
+    </select>
+  <% }); %>
+  </div>
+  <div class="product-data"></div>
+  <div class="order-pane">
+    <div class="order-button">
+      <a class="order-now" href="#">Order Now</a>
+    </div>
   </div>
 </div>
