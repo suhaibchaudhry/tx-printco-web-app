@@ -31,7 +31,6 @@
       this.productFilterChange(false);
     },
     productChange: function(product, value, options) {
-      console.log('product switched');
       this.$('.order-pane').hide();
       this.$('.product-options').html(this.productNewFormTemplate({
         runsizes: product.get('runsizes')
@@ -118,7 +117,6 @@
     selectOption: function(e) {
       //To be made cross browser
       var total = 0;
-      console.log('options selected');
       this.$('.order-pane').show();
       this.$(".product-options > select > option:selected").each(function(i, e) {
         total += parseFloat(e.dataset.optionFee);
@@ -240,7 +238,6 @@
           vocabularies: vocabularies
         }));
       } else {
-        console.log('options empty');
         this.$('.order-pane').show();
         this.$('.product-opt-choose').empty();
       }
