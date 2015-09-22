@@ -59,7 +59,9 @@
 
         if(App.testCollectionValues(filters)) {
           this.emptyResultMessage();
+
           $select.each(function(i, ele) {
+            var $ele = $(ele);
             if(i == 0) {
               $ele.attr("disabled", false);
             } else {
