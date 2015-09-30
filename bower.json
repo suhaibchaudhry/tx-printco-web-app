@@ -13,7 +13,8 @@
 	"jquery.equalheights": "1.x.x",
 	"big.js": "3.x.x",
 	"Hover": "2.x.x",
-	"accounting.js": "0.x.x"
+	"accounting.js": "0.x.x",
+	"foundation": "https://github.com/zurb/bower-foundation.git"
   },
   "name": "txprintco-app",
   "version": "0.0.1",
