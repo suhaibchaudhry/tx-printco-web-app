@@ -3,7 +3,7 @@ read -p "Would you like to install MySQL? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-   sudo brew install mysql
+   brew install mysql
    sudo chown -R _mysql:_mysql /usr/local/var/mysql
 
    #Reset Password
@@ -20,7 +20,7 @@ echo "CREATE DATABASE IF NOT EXISTS \`txprintco-sails\`" | mysql -uroot -p123456
 echo "GRANT ALL ON \`txprintco-sails\`.* to 'txprintco-sails'@'localhost' identified by 'xyz786';" | mysql -uroot -p123456
 
 #Install Ruby
-sudo brew install ruby
+brew install ruby
 sudo gem install compass
 
 sudo npm -g install bower
