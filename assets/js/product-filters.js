@@ -203,7 +203,9 @@
       if(e.currentTarget.name != nextPrompted.name) {
         var e = document.createEvent("MouseEvents");
         e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-        nextPrompted.dispatchEvent(e);
+        setTimeout(function () {
+          nextPrompted.dispatchEvent(e);
+        }, 1000);
       }
 
       //Populate products the old way for now.
