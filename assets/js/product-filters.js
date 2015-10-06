@@ -202,7 +202,7 @@
       var nextPrompted = this.$('.product-filters select:not(:disabled)').last().get(0);
       if(e.currentTarget.name != nextPrompted.name) {
         var e = document.createEvent("MouseEvents");
-        e.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        e.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, true, false, false, true, 0, null);
         nextPrompted.dispatchEvent(e);
       }
 
