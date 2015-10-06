@@ -30,6 +30,12 @@ var jsFilesToInject = [
   'js/dependencies/underscore-min.js',
   'js/dependencies/backbone-min.js',
   // Dependencies like jQuery, or Angular are brought in here
+  'js/dependencies/jquery.equalheights.min.js',
+  'js/dependencies/jquery.cookie.js',
+  'js/dependencies/fastclick.js',
+  'js/dependencies/placeholder.js',
+  'js/dependencies/modernizr.js',
+  'js/dependencies/foundation.js',
   'js/dependencies/**/*.js',
   'js/app.js',
   'js/models/**/*.js',
