@@ -192,6 +192,7 @@ module.exports = {
 			_.each(data[0]["value"], function(option) {
 				keys.push(_.flatten([baseKey, option]));
 			});
+
 			txprintcoData.makeDataRequest('options-object',
 											{keys: keys},
 											_.bind(this.productAdditionalOptions, this, req, res),
@@ -202,14 +203,18 @@ module.exports = {
 	},
 	productAdditionalOptions: function(req, res, err, data) {
 		var options = [];
+		var visited = [];
 		_.each(data, function(option) {
-			var vocab = {
-				name: option['key'][4],
-				machine_name: option['key'][4].toLowerCase().replace(/[_\W]+/g, '-'),
-				values: option['value']
-			};
-
-			options.push(vocab);
+			var machine_name = option['key'][4].toLowerCase().replace(/[_\W]+/g, '-');
+			if(!_.contains(visited, machine_name)) {
+				var vocab = {
+					name: option['key'][4],
+					machine_name: machine_name,
+					values: option['value']
+				};
+				visited.push(machine_name);
+				options.push(vocab);
+			}
 		});
 
 		this.getProductPrice(req, res, options);
