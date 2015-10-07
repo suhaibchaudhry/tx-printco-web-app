@@ -199,11 +199,6 @@
         }
       });
 
-      var nextPrompted = this.$('.product-filters select:not(:disabled)').last().get(0);
-      if(e.currentTarget.name != nextPrompted.name) {
-        App.autoOpenSelect(nextPrompted);
-      }
-
       //Populate products the old way for now.
       if(_.has(res, 'hits') && _.has(res.hits, 'hits') && _.has(res.hits.hits, 'status')) {
         this.activeResult = res.hits.hits;
@@ -220,6 +215,14 @@
         }
       } else {
         this.$('.product-data').html('Please select an option');
+      }
+
+      //Auto open next option (Not designed for every browser.)
+      var nextPrompted = this.$('.product-filters select:not(:disabled)').last().get(0);
+      if(e.currentTarget.name == nextPrompted.name) {
+        App.autoOpenSelect(this.$('.product-runsizes select').get(0));
+      } else {
+        App.autoOpenSelect(nextPrompted);
       }
     },
     productColorsLoaded: function(product, colors, options) {
