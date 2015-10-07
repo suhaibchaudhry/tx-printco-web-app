@@ -35,6 +35,11 @@
 
         return data;
       },
+      autoOpenSelect: function(domEle) {
+        var e = document.createEvent("MouseEvents");
+        e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        domEle.dispatchEvent(e);
+      },
       testCollectionValues: function(obj) {
         for (var i in obj) {
             if (obj[i] !== false) {

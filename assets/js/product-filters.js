@@ -201,9 +201,7 @@
 
       var nextPrompted = this.$('.product-filters select:not(:disabled)').last().get(0);
       if(e.currentTarget.name != nextPrompted.name) {
-        var e = document.createEvent("MouseEvents");
-        e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-        nextPrompted.dispatchEvent(e);
+        App.autoOpenSelect(nextPrompted);
       }
 
       //Populate products the old way for now.
