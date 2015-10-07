@@ -38,7 +38,10 @@
       autoOpenSelect: function(domEle) {
         var e = document.createEvent("MouseEvents");
         e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-        domEle.dispatchEvent(e);
+        //Right now dispatching has to wait for new elements to be created. Develop an os specific strategy for the future.
+        setTimeout(function() {
+          domEle.dispatchEvent(e);
+        }, 250);
       },
       testCollectionValues: function(obj) {
         for (var i in obj) {

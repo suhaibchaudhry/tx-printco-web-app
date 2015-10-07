@@ -231,6 +231,7 @@
           this.$('.product-colors-choose').html(this.productColorTemplate({
               colors: colors
           }));
+          App.autoOpenSelect(this.$('.product-colors select').get(0));
         } else {
           this.$('.product-colors-choose').empty();
         }
@@ -240,6 +241,7 @@
         this.$('.product-tat-choose').html(this.productTATTemplate({
           tats: tats
         }));
+        App.autoOpenSelect(this.$('.product-tats select').get(0));
       } else {
         this.$('.product-tat-choose').empty();
       }
