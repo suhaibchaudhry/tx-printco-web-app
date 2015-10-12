@@ -67,5 +67,7 @@ module.exports.routes = {
   'post /rpc/product/tats': 'ProductController.getTATForColors',
   'post /rpc/product/options': 'ProductController.getOptionsForTAT',
   'post /rpc/product/best-price': 'ProductController.getProductBestPrice',
-  'post /rpc/product/price': 'ProductController.getProductPrice'
+  'post /rpc/product/price': 'ProductController.getProductPrice',
+
+  'get /rpc/customer/details': 'ProfileController.customerProfileData'
 };

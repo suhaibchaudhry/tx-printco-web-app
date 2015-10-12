@@ -14,7 +14,8 @@
       "change .product-colors select": 'selectColor',
       "change .product-tats select": 'selectTAT',
       "change .product-options select": 'selectOption',
-      "click .product-data .multipleResultChild": 'selectProduct'
+      "click .product-data .multipleResultChild": 'selectProduct',
+      
     },
     initialize: function() {
       console.log("Initialized");
