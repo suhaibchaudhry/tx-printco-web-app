@@ -10,10 +10,5 @@ module.exports = {
     res.view({
       errors: req.flash('error')
     });
-  },
-  customerProfileData: function(req, res) {
-    res.json({
-      status: true
-    });
   }
 };

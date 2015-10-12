@@ -6,6 +6,9 @@
  */
 
 module.exports = {
-	
+	orderProfileData: function(req, res) {
+    res.json({
+      authenticated: req.session.authenticated
+    });
+  }
 };
-

@@ -69,5 +69,5 @@ module.exports.routes = {
   'post /rpc/product/best-price': 'ProductController.getProductBestPrice',
   'post /rpc/product/price': 'ProductController.getProductPrice',
 
-  'get /rpc/customer/details': 'ProfileController.customerProfileData'
+  'get /rpc/customer/details': 'OrderController.orderProfileData'
 };
