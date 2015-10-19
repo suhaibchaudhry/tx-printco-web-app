@@ -6,8 +6,8 @@
 */
 
 module.exports = {
+  schema: true,
   attributes: {
-    schema: true,
     email: {
       type: 'string',
       email: 'true'

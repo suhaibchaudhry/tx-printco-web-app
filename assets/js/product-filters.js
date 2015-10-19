@@ -15,7 +15,8 @@
       "change .product-tats select": 'selectTAT',
       "change .product-options select": 'selectOption',
       "click .product-data .multipleResultChild": 'selectProduct',
-      "click .order-now": 'initiateOrderProcess'
+      "click .order-now": 'initiateOrderProcess',
+      "click .order-submit": 'submitOrder'
     },
     initialize: function() {
       console.log("Initialized");
@@ -263,6 +264,9 @@
       this.$('.order-form .email').focus();
       this.$('.order-button').hide();
       this.$('.product-filters select, .product-runsizes select, .product-colors-choose select').attr("disabled", "disabled");
+    },
+    submitOrder: function(e) {
+      console.log(e);
     }
   });
 
