@@ -34,44 +34,44 @@
         <div class="contact-info row">
           <div class="large-12 columns">
             <label>E-mail Address
-              <input type="text" class="email" placeholder="yourname@example.com" />
+              <input type="text" name="email" class="email" placeholder="yourname@example.com" />
             </label>
           </div>
         </div>
         <div class="identity-info row">
           <div class="large-4 columns">
             <label>First Name
-              <input type="text" placeholder="Your First Name" />
+              <input type="text" name="firstName" class="firstName" placeholder="Your First Name" />
             </label>
           </div>
           <div class="large-4 columns">
             <label>Middle Name
-              <input type="text" placeholder="Your Middle Name" />
+              <input type="text" name="middleName" class="middleName" placeholder="Your Middle Name" />
             </label>
           </div>
           <div class="large-4 columns">
             <label>Last Name
-              <input type="text" placeholder="Your Last Name" />
+              <input type="text" name="lastName" class="lastName" placeholder="Your Last Name" />
             </label>
           </div>
         </div>
         <div class="address-info row">
           <div class="large-12 columns">
             <label>Street Address
-              <input type="text" placeholder="Your Street Address" />
-              <input type="text" placeholder="Street Address cont." />
+              <input type="text" name="streetNameLine1" class="streetNameLine1" placeholder="Your Street Address" />
+              <input type="text" name="streetNameLine2" class="streetNameLine2" placeholder="Street Address cont." />
             </label>
           </div>
         </div>
         <div class="row">
           <div class="large-4 columns">
             <label>City
-              <input type="text" placeholder="City" />
+              <input type="text" name="city" class="city" placeholder="City" />
             </label>
           </div>
           <div class="large-4 columns">
             <label>State
-              <select name="state">
+              <select name="state" name="state" class="state">
                 <option value="AL">Alabama</option>
               	<option value="AK">Alaska</option>
               	<option value="AZ">Arizona</option>
@@ -128,26 +128,26 @@
           </div>
           <div class="large-4 columns">
             <label>Zip Code
-              <input type="text" placeholder="5-digit Zip Code" />
+              <input type="text" name="zip" class="zip" placeholder="5-digit Zip Code" />
             </label>
           </div>
         </div>
         <div class="payment-info row">
           <div class="large-4 columns">
             <label>Card Number
-              <input type="text" placeholder="Please provide card number without dashes or spaces." />
+              <input type="text" name="ccNum" class="ccNum" placeholder="Please provide card number without dashes or spaces." />
             </label>
           </div>
           <div class="large-3 columns">
             <label>Expiration Month
-              <select name="state">
+              <select name="state" name="expMonth" class="expMonth">
                 <option value="1" selected="selected">01 - January</option><option value="2">02 - February</option><option value="3">03 - March</option><option value="4">04 - April</option><option value="5">05 - May</option><option value="6">06 - June</option><option value="7">07 - July</option><option value="8">08 - August</option><option value="9">09 - September</option><option value="10">10 - October</option><option value="11">11 - November</option><option value="12">12 - December</option>
               </select>
             </label>
           </div>
           <div class="large-3 columns">
             <label>Expiration Year
-              <select name="state">
+              <select name="state" name="expYear" class="expYear">
                 <%
                   var year = (new Date()).getFullYear();
                   _.each(_.range(year, year+5), function(e, i) {
@@ -161,11 +161,11 @@
           </div>
           <div class="large-2 columns">
             <label>CVV
-              <input type="text" placeholder="CVV Security Code" />
+              <input type="text" name="ccCvv" class="ccCvv" placeholder="CVV Security Code" />
             </label>
           </div>
           <div class="order-complete">
-            <a class="order-now button round expand success" href="#">Submit Order</a>
+            <a class="order-submit button round expand success" href="#">Submit Order</a>
           </div>
         </div>
       </form>
