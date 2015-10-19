@@ -261,6 +261,8 @@
       e.stopPropagation();
       this.$('.order-form').show();
       this.$('.order-form .field-email').focus();
+      this.$('.order-button').hide();
+      this.$('.product-filters select, .product-runsizes select, .product-colors-choose select').attr("disabled", "disabled");
     }
   });
 
