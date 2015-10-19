@@ -32,14 +32,14 @@
   </div>
   <div class="order-form">
     <form>
-      <div class="row">
+      <div class="contact-info row">
         <div class="large-12 columns">
           <label>E-mail Address
             <input type="text" placeholder="yourname@example.com" />
           </label>
         </div>
       </div>
-      <div class="row">
+      <div class="identity-info row">
         <div class="large-4 columns">
           <label>First Name
             <input type="text" placeholder="Your First Name" />
@@ -56,7 +56,7 @@
           </label>
         </div>
       </div>
-      <div class="row">
+      <div class="address-info row">
         <div class="large-12 columns">
           <label>Street Address
             <input type="text" placeholder="Your Street Address" />
@@ -139,10 +139,36 @@
           </label>
         </div>
       </div>
-      <div class="row">
-        <div class="large-12 columns">
-          <label>Textarea Label
-            <textarea placeholder="small-12.columns"></textarea>
+      <div class="payment-info row">
+        <div class="large-4 columns">
+          <label>Card Number
+            <input type="text" placeholder="Please provide card number without dashes or spaces." />
+          </label>
+        </div>
+        <div class="large-3 columns">
+          <label>Expiration Month
+            <select name="state">
+              <option value="1" selected="selected">01 - January</option><option value="2">02 - February</option><option value="3">03 - March</option><option value="4">04 - April</option><option value="5">05 - May</option><option value="6">06 - June</option><option value="7">07 - July</option><option value="8">08 - August</option><option value="9">09 - September</option><option value="10">10 - October</option><option value="11">11 - November</option><option value="12">12 - December</option>
+            </select>
+          </label>
+        </div>
+        <div class="large-3 columns">
+          <label>Expiration Year
+            <select name="state">
+              <%
+                var year = (new Date()).getFullYear();
+                _.each(_.range(year, year+5), function(e, i) {
+                  %>
+                  <option value="<%= e %>"><%= e %></option>
+                  <%
+                });
+              %>
+            </select>
+          </label>
+        </div>
+        <div class="large-2 columns">
+          <label>CVV
+            <input type="text" placeholder="CVV Security Code" />
           </label>
         </div>
       </div>
