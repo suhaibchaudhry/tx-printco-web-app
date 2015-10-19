@@ -266,7 +266,10 @@
       this.$('.product-filters select, .product-runsizes select, .product-colors-choose select').attr("disabled", "disabled");
     },
     submitOrder: function(e) {
-      console.log(e);
+      e.preventDefault();
+      e.stopPropagation();
+      var reqData = this.$('.order-form form').serialize();
+      console.log(reqData);
     }
   });
 
