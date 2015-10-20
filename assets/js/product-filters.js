@@ -16,7 +16,9 @@
       "change .product-options select": 'selectOption',
       "click .product-data .multipleResultChild": 'selectProduct',
       "click .order-now": 'initiateOrderProcess',
-      "click .order-submit": 'submitOrder'
+      "click .order-submit": 'submitOrder',
+      "submit .order-form form": 'submitOrderForm',
+      "keypress .order-form form": 'submitOrderFormKeypress'
     },
     initialize: function() {
       console.log("Initialized");
@@ -268,8 +270,18 @@
     submitOrder: function(e) {
       e.preventDefault();
       e.stopPropagation();
+      this.$('.order-form form').trigger('submit');
+    },
+    submitOrderForm: function(e) {
+      e.preventDefault();
+      e.stopPropagation();
       var reqData = this.$('.order-form form').serialize();
       console.log(reqData);
+    },
+    submitOrderFormKeypress: function(e) {
+      if(e.keyCode=='13') {
+        this.$('.order-form form').submit();
+      }
     }
   });
 
