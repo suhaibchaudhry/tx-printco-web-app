@@ -16,7 +16,7 @@
       "change .product-options select": 'selectOption',
       "click .product-data .multipleResultChild": 'selectProduct',
       "click .order-now": 'initiateOrderProcess',
-      "click .order-submit": 'submitOrder',
+      "click .order-submit": 'submitOrderButton',
       "submit .order-form form": 'submitOrderForm',
       "keypress .order-form form": 'submitOrderFormKeypress'
     },
@@ -267,7 +267,7 @@
       this.$('.order-button').hide();
       this.$('.product-filters select, .product-runsizes select, .product-colors-choose select').attr("disabled", "disabled");
     },
-    submitOrder: function(e) {
+    submitOrderButton: function(e) {
       e.preventDefault();
       e.stopPropagation();
       this.$('.order-form form').trigger('submit');
