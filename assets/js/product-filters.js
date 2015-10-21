@@ -277,8 +277,8 @@
       e.stopPropagation();
       var $form = this.$('.order-form form');
       $form.find('label.error').removeClass('error');
+      $form.find('small.error').remove();
       var reqData = $form.serialize();
-      console.log(reqData);
       App.makeRequest('order/submitorder',
                       'POST',
                       this,
@@ -291,17 +291,14 @@
       }
     },
     submitOrderResponse: function(res, status, xhr) {
-      console.log(res);
       if (res.status) {
 
       } else {
-        console.log (res.error);
         _.each(res.error.invalidAttributes, _.bind(this.highlightField, this));
       }
     },
     highlightField: function(val, key) {
-      console.log(key);
-      this.$('input[name="'+key+'"]').parent().addClass("error");
+      this.$('input[name="'+key+'"]').parent().addClass("error").after('<small class="error">Invalid entry</small>');
     }
   });
 
