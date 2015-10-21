@@ -77,7 +77,7 @@
           }, contextObj);
         }
 
-        if(_.isObject(data)) {
+        if(_.isObject(data) || _.isString(data) || _.isArray(data)) {
           request['data'] = data;
         }
 
