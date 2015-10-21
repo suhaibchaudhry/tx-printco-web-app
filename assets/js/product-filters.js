@@ -275,7 +275,9 @@
     submitOrderForm: function(e) {
       e.preventDefault();
       e.stopPropagation();
-      var reqData = this.$('.order-form form').serialize();
+      var $form = this.$('.order-form form');
+      $form.find('label.error').removeClass('error');
+      var reqData = $form.serialize();
       console.log(reqData);
       App.makeRequest('order/submitorder',
                       'POST',
@@ -299,6 +301,7 @@
     },
     highlightField: function(val, key) {
       console.log(key);
+      this.$('input[name="'+key+'"]').parent().addClass("error");
     }
   });
 

@@ -10,47 +10,58 @@ module.exports = {
   attributes: {
     email: {
       type: 'string',
-      email: 'true',
-      unique: 'true'
+      email: true,
+      required: true
     },
     username: {
       type: 'string'
     },
     firstName: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
     middleName: {
       type: 'string',
     },
     lastName: {
       type: 'string',
+      required: true
     },
     streetNameLine1: {
       type: 'string',
+      required: true
     },
     streetNameLine2: {
-      type: 'string',
+      type: 'string'
     },
     city: {
       type: 'string',
+      required: true
     },
     state: {
       type: 'string',
+      required: true
     },
     zip: {
       type: 'string',
+      required: true
     },
     ccNum: {
       type: 'string',
+      required: true,
+      creditcard: true
     },
     expMonth: {
       type: 'string',
+      required: true
     },
     expYear: {
       type: 'string',
+      required: true
     },
     ccCvv: {
       type: 'string',
+      required: true
     }
   }
 };
