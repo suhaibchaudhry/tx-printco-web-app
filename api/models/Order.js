@@ -8,6 +8,11 @@
 module.exports = {
   schema: true,
   attributes: {
+    orderId: {
+      type: 'integer',
+      autoIncrement: true,
+      primaryKey: true
+    },
     email: {
       type: 'string',
       email: true,
