@@ -276,14 +276,28 @@
       e.preventDefault();
       e.stopPropagation();
       var $form = this.$('.order-form form');
+      var orderedProduct = this.compileOrderedProduct();
       $form.find('label.error').removeClass('error');
       $form.find('small.error').remove();
+
       var reqData = $form.serialize();
       App.makeRequest('order/submitorder',
                       'POST',
                       this,
                       reqData,
                       this.submitOrderResponse);
+    },
+    compileOrderedProduct: function() {
+        var options = {};
+        this.$('.product-fields select').each(function() {
+          var $this = $(this);
+          options[$this.attr('name')] = {
+            field_name: $this.prev('label').text(),
+            field_selection: $this.find('option:selected').text()
+          };
+        });
+
+        return options;
     },
     submitOrderFormKeypress: function(e) {
       if(e.keyCode=='13') {

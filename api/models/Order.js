@@ -62,6 +62,10 @@ module.exports = {
     ccCvv: {
       type: 'string',
       required: true
+    },
+    productOrdered: {
+      type: 'json',
+      required: true
     }
   }
 };
