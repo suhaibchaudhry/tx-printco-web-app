@@ -277,11 +277,23 @@
       e.stopPropagation();
       var reqData = this.$('.order-form form').serialize();
       console.log(reqData);
+      App.makeRequest('order/submitorder',
+                      'POST',
+                      this,
+                      reqData,
+                      this.submitOrderResponse,
+                      this.submitOrderError);
     },
     submitOrderFormKeypress: function(e) {
       if(e.keyCode=='13') {
-        this.$('.order-form form').submit();
+        this.$('.order-form form').trigger('submit');
       }
+    },
+    submitOrderResponse: function(res, status, xhr) {
+
+    },
+    submitOrderError: function(xhr, errorType, error) {
+      
     }
   });
 

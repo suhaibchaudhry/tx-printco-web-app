@@ -7,8 +7,14 @@
 
  module.exports = {
  	orderProfileData: function(req, res) {
-     res.json({
-       authenticated: Boolean(req.session.authenticated)
-     });
-   }
+    res.json({
+     	authenticated: Boolean(req.session.authenticated)
+   	});
+  },
+  submitOrder: function(req, res) {
+		console.log(req.body);
+		res.json({
+     	status: true
+   	});
+	}
  };
