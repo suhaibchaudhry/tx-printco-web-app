@@ -276,11 +276,13 @@
       e.preventDefault();
       e.stopPropagation();
       var $form = this.$('.order-form form');
-      var orderedProduct = this.compileOrderedProduct();
+      var productOrdered = this.compileOrderedProduct();
       $form.find('label.error').removeClass('error');
       $form.find('small.error').remove();
 
-      var reqData = $form.serialize();
+      var reqData = $form.serializeObject();
+      reqData['productOrdered'] = productOrdered;
+
       App.makeRequest('order/submitorder',
                       'POST',
                       this,
