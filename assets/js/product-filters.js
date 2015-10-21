@@ -281,8 +281,7 @@
                       'POST',
                       this,
                       reqData,
-                      this.submitOrderResponse,
-                      this.submitOrderError);
+                      this.submitOrderResponse);
     },
     submitOrderFormKeypress: function(e) {
       if(e.keyCode=='13') {
@@ -290,10 +289,16 @@
       }
     },
     submitOrderResponse: function(res, status, xhr) {
+      console.log(res);
+      if (res.status) {
 
+      } else {
+        console.log (res.error);
+        _.each(res.error.invalidAttributes, _.bind(this.highlightField, this));
+      }
     },
-    submitOrderError: function(xhr, errorType, error) {
-      
+    highlightField: function(val, key) {
+      console.log(key);
     }
   });
 

@@ -10,7 +10,8 @@ module.exports = {
   attributes: {
     email: {
       type: 'string',
-      email: 'true'
+      email: 'true',
+      unique: 'true'
     },
     username: {
       type: 'string'

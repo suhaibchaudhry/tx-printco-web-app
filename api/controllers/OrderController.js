@@ -12,9 +12,17 @@
    	});
   },
   submitOrder: function(req, res) {
-		console.log(req.body);
-		res.json({
-     	status: true
-   	});
+		Order.create(req.body).exec(function(err, data){
+			if (err){
+				res.json({
+		     	status: false,
+					error: err
+		   	});
+			} else {
+				res.json({
+		     	status: true
+		   	});
+			}
+		});
 	}
  };
