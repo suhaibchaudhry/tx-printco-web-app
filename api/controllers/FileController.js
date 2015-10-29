@@ -21,7 +21,7 @@ module.exports = {
     // Node defaults to 2 minutes.
     res.setTimeout(0);
 
-    req.file('design_file')
+    req.file('file')
     .upload({
 
       // You can apply a file upload limit (in bytes)
