@@ -69,5 +69,8 @@ module.exports.routes = {
   'post /rpc/product/best-price': 'ProductController.getProductBestPrice',
   'post /rpc/product/price': 'ProductController.getProductPrice',
 
-  'get /rpc/customer/details': 'OrderController.orderProfileData'
+  'get /rpc/customer/details': 'OrderController.orderProfileData',
+  'get /upload': {
+    view: 'uploader'
+  }
 };
