@@ -6,9 +6,6 @@
  */
 
 module.exports = {
-
-
-
   /**
    * `FileController.upload()`
    *
@@ -24,7 +21,7 @@ module.exports = {
     // Node defaults to 2 minutes.
     res.setTimeout(0);
 
-    req.file('avatar')
+    req.file('design_file')
     .upload({
 
       // You can apply a file upload limit (in bytes)
