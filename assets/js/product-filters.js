@@ -45,8 +45,8 @@
     },
     productFilterChange: function(e) {
       if(e) {
-        this.$filters = this.$('.product-filters');
-        var $select = this.$filters.find('select');
+        var $filters = this.$('.product-filters');
+        var $select = $filters.find('select');
 
         var after_flag = false;
         var act = 0;
@@ -60,7 +60,6 @@
           }
         });
         var filters = App.selectParamsExtract($select);
-        console.log(filters);
 
         if(App.testCollectionValues(filters)) {
           this.emptyResultMessage();
@@ -78,7 +77,7 @@
                           'POST',
                           this,
                           {
-                            category: this.$filters.data('category-id'),
+                            category: $filters.data('category-id'),
                             filters: filters
                           },
                           _.bind(this.productFilterSuccess, this, e));

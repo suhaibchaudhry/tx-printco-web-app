@@ -28,6 +28,7 @@
 	                      'POST',
 	                      this,
 	                      {
+													category: $('.product-filters').data('category-id'),
 	                        product_id: this.get("product_id"),
 	                        runsize: this.get('runsize'),
 													color: color
@@ -44,10 +45,11 @@
 	                      'POST',
 	                      this,
 	                      {
+													category: $('.product-filters').data('category-id'),
 	                        product_id: this.get("product_id"),
 	                        runsize: this.get('runsize'),
-							color: this.get('color'),
-							tat: tat
+													color: this.get('color'),
+													tat: tat
 	                      },
 												this.productOptionsLoaded);
 			} else {
@@ -72,6 +74,7 @@
 	                      'POST',
 	                      this,
 	                      {
+													category: $('.product-filters').data('category-id'),
 	                        product_id: this.get("product_id"),
 	                        runsize: this.get('runsize'),
 													color: color
@@ -91,6 +94,7 @@
 	              'POST',
 	              this,
 	              {
+									category: $('.product-filters').data('category-id'),
 	                product_id: this.get("product_id"),
 	                runsize: this.get('runsize'),
 					color: this.get('color'),
