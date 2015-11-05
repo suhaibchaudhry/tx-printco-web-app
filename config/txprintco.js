@@ -16,7 +16,8 @@ var elasticSearchClient = new ElasticSearchClient({
 });
 
 var priceMarkupMap = {
-  'business-cards': 30
+  'business-cards': 30,
+  'edge-cards': 50
 };
 
 module.exports.txprintco = {
