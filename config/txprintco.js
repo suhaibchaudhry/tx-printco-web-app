@@ -15,6 +15,10 @@ var elasticSearchClient = new ElasticSearchClient({
     }
 });
 
+var priceMarkupMap = {
+  'business-cards': 30
+};
+
 module.exports.txprintco = {
     host: host,
     port: port,
@@ -22,5 +26,6 @@ module.exports.txprintco = {
     client: nano,
     elastic_client: elasticSearchClient,
     db: db,
-    design_doc: 'txprintco'
+    design_doc: 'txprintco',
+    markup: priceMarkupMap
 };

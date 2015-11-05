@@ -128,8 +128,10 @@ module.exports = {
 		//Remove duplicates by selecting first, later crawl description for each ?idc flag and figure out something to do with it.
 		var products_marked = [];
 		var products = [];
+		var that = this;
 		_.each(data, function(row) {
 			if(_.indexOf(products_marked, row["key"]) == -1) {
+				row["value"]["base_price"] = that.applyPriceMarkup(req.body.category, sails.config.txprintco.markup, row["value"]["base_price"]);
 				products.push(row["value"]);
 				products_marked.push(row["key"]);
 			}
@@ -236,7 +238,7 @@ module.exports = {
 	productBestPrice: function(req, res, tat_data, err, data) {
 		var response = {
 			status: true,
-			price: data[0]["value"]
+			price: this.applyPriceMarkup(req.body.category, sails.config.txprintco.markup, data[0]["value"])
 		};
 
 		if(_.isArray(tat_data)) {
@@ -258,7 +260,7 @@ module.exports = {
 	productPrice: function(req, res, opt_data, err, data) {
 		var response = {
 			status: true,
-			price: data[0]["value"]["base_price"]
+			price: this.applyPriceMarkup(req.body.category, sails.config.txprintco.markup, data[0]["value"]["base_price"])
 		};
 
 		if(_.isArray(opt_data)) {
@@ -266,5 +268,14 @@ module.exports = {
 		}
 
 		res.json(response);
+	},
+	applyPriceMarkup: function(category, markupMap, price) {
+		if(!_.isEmpty(category) && _.has(markupMap, category)) {
+			var numPrice = Number(price);
+			price = (numPrice+(numPrice*(markupMap[category]/100)));
+			return price.toFixed(2);
+		}
+
+		return price;
 	}
 };
