@@ -50,6 +50,10 @@ $slideshow-slide-paragraph-color: #FFCF5D;
 				font-size: 13pt;
         border-bottom: 2px solid #fff;
         padding: 4px 10px;
+
+				&:hover {
+					color: #eaeaea;
+				}
 			}
 
       li:last-child {
