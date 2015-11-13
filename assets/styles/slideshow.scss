@@ -38,7 +38,6 @@ $slideshow-slide-paragraph-color: #FFCF5D;
     ul {
       position: absolute;
       bottom: 11px;
-      color: #fff;
 
       li {
         float: left;
@@ -50,10 +49,7 @@ $slideshow-slide-paragraph-color: #FFCF5D;
 				font-size: 13pt;
         border-bottom: 2px solid #fff;
         padding: 4px 10px;
-
-				&:hover {
-					color: #eaeaea;
-				}
+				color: #fff;
 			}
 
       li:last-child {
@@ -156,3 +152,14 @@ $slideshow-slide-paragraph-color: #FFCF5D;
 		@include background-image(linear-gradient(to right, #17599b 0%,#1e9cce 50%,#17599b 100%));
 	}
 }
+
+//Border Colors
+.slideshow {
+	ul li {
+		a.slide-button-1 {
+			&:hover {
+					border-color: #1fbfd3;
+				}
+			}
+	  }
+  }
