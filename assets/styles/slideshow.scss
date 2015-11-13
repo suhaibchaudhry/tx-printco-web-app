@@ -156,10 +156,40 @@ $slideshow-slide-paragraph-color: #FFCF5D;
 //Border Colors
 .slideshow {
 	ul li {
+		a {
+			&:hover {
+					border-color: #1fbfd3;
+				}
+		}
+
 		a.slide-button-1 {
 			&:hover {
 					border-color: #1fbfd3;
 				}
-			}
-	  }
-  }
+		}
+
+		a.slide-button-2 {
+			&:hover {
+					border-color: #f7961f;
+				}
+		}
+
+		a.slide-button-3 {
+			&:hover {
+					border-color: #7cb138;
+				}
+		}
+
+		a.slide-button-4 {
+			&:hover {
+					border-color: #1e9cce;
+				}
+		}
+
+		a.slide-button-5 {
+			&:hover {
+					border-color: #7d0e4d;
+				}
+		}
+	}
+}
