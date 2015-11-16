@@ -110,16 +110,16 @@ a {
 .header {
   width: 100%;
   .bottom-header {
-    width: 1220px;
-    margin: 0 auto;
-    height: 110px;
-    .bottom-header-one {
-      float: left;
-    }
+    //width: 1220px;
+    //margin: 0 auto;
+    //height: 110px;
+    //.bottom-header-one {
+    //  float: left;
+    //}
     .bottom-header-two {
-      width: auto;
-      float: right;
-      margin: 30px 0;
+      //width: auto;
+      //float: right;
+      //margin: 30px 0;
       .main-menu {
         ul li {
           float: left;
@@ -129,11 +129,11 @@ a {
     }
   }
   .top-header {
-    width: 1220px;
-    margin: 10px auto;
-    height: 27px;
-    border-bottom: 1px solid #f05247;
-    padding: 0 0 35px;
+    //width: 1220px;
+    //margin: 10px auto;
+    //height: 27px;
+    //border-bottom: 1px solid #f05247;
+    //padding: 0 0 35px;
     .call-us {
       float: left;
       margin: 0 10px;
@@ -145,7 +145,9 @@ a {
       }
     }
     .top-header-two {
-      float: right;
+      .customer-account-icons {
+        float: right;
+      }
       ul li {
         float: left;
         margin: 0 0 0 10px;
