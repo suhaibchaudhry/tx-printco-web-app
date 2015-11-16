@@ -1,3 +1,10 @@
 label.error input {
   border-color: $alert-color;
 }
+
+@media #{$small-only}, #{$medium-only}  {
+  .footer .menus .menu {
+    text-align: center;
+    height: auto !important;
+  }
+}
