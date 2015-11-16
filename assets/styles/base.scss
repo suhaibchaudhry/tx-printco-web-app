@@ -110,6 +110,7 @@ a {
 .header {
   width: 100%;
   .bottom-header {
+    position: relative;
     //width: 1220px;
     //margin: 0 auto;
     //height: 110px;
@@ -120,7 +121,11 @@ a {
       //width: auto;
       //float: right;
       //margin: 30px 0;
+      position: static;
       .main-menu {
+        position: absolute;
+        bottom: 0;
+        right: 0;
         ul li {
           float: left;
           margin: 0 10px;
