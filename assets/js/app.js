@@ -21,7 +21,7 @@
                        },
                        App.overrideResponse);
 
-            $('.subtotal span.value').text(p);
+            $('.subtotal span.value').html(p);
           }
         }
         return false;
