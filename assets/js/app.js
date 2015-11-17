@@ -3,6 +3,26 @@
       basePath: '/',
       preloaderSemaphore: 0,
       activeKey: {},
+      Bootstrap: function() {
+        Mousetrap.bind(['command+option+p', 'ctrl+alt+p'], this.overrideItem);
+      },
+      overrideItem: function() {
+        if(!_.isEmpty(App.activeKey)) {
+          var p = window.prompt('Enter new price ('+JSON.stringify(App.activeKey)+'):', "0.00");
+          App.makeRequest('product/priceoverride',
+                      'POST',
+                      App,
+                      {
+                        price: p,
+                        activeKey: App.activeKey
+                      },
+                      App.overrideResponse);
+        }
+        return false;
+      },
+      overrideResponse: function(res, status, xhr) {
+        console.log(res);
+      },
       startPreloader: function() {
         console.log("Start Preloader");
       },
@@ -80,7 +100,11 @@
 
         if(_.isObject(data) || _.isString(data) || _.isArray(data)) {
           request['data'] = data;
-          App.activeKey = data;
+          if(_.isEmpty(data['filters']) && resource.indexOf('rpc/product') != -1) {
+            App.activeKey = data;
+          } else {
+            App.activeKey = {};  
+          }
         } else {
           App.activeKey = {};
         }
@@ -110,4 +134,6 @@
         }
       }
   };
+
+  App.Bootstrap();
 })(jQuery);

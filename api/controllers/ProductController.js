@@ -6,6 +6,13 @@
  */
 
 module.exports = {
+	priceOverride: function(req, res) {
+		txprintcoData.createPriceOverride(req.body);
+		res.json({
+			status: true,
+			message: 'Override saved.'
+		});
+	},
 	//Resource URI: /product
 	productList: function (req, res) {
 		txprintcoData.makeDataRequest('categories_ordered',

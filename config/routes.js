@@ -49,8 +49,8 @@ module.exports.routes = {
 
   'get /profile':  'ProfileController.profile',
 
-  'get /product': 'ProductController.productList',
-  'get /product/*': 'ProductController.parentProduct',
+  'get /products': 'ProductController.productList',
+  'get /products/*': 'ProductController.parentProduct',
 
   /***************************************************************************
   *                                                                          *
