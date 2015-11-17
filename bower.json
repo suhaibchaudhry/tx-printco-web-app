@@ -8,15 +8,16 @@
   ],
   "dependencies": {
   	"jquery": "1.x.x",
-    	"underscore": "1.x.x",
+  	"underscore": "1.x.x",
   	"backbone": "1.x.x",
   	"jquery.equalheights": "1.x.x",
   	"big.js": "3.x.x",
   	"Hover": "2.x.x",
   	"accounting.js": "0.x.x",
   	"foundation": "https://github.com/zurb/bower-foundation.git",
-    	"jQuery.serializeObject": "2.x.x",
-    	"dropzone": "https://github.com/enyo/dropzone.git"
+  	"jQuery.serializeObject": "2.x.x",
+  	"dropzone": "https://github.com/enyo/dropzone.git"
+    "moustrap": "https://github.com/ccampbell/mousetrap.git"
   },
   "name": "txprintco-app",
   "version": "0.0.1",
