@@ -9,14 +9,35 @@ var txprintcoData = {
 	},
 	makeDataRequest: function(view, params, successCB, errorCB) {
 		var that = this;
-		this.db.view(this.design_doc, view, params, _.bind(this.handleCouchResponse, this, successCB, errorCB));
+		this.db.view(this.design_doc, view, params, _.bind(this.handleCouchResponse, this, params, successCB, errorCB));
 	},
-	handleCouchResponse: function(successCB, errorCB, err, data) {
+	handleCouchResponse: function(params, successCB, errorCB, err, data) {
 		if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
-			successCB(err, data["rows"]);
+			if(_.isArray(params.key)) {
+				this.pdb.view('txprintco_pricing', 'pricemap', params, _.bind(this.priceOverrideCheck, this, data["rows"], successCB, errorCB));
+			} else {
+				successCB(err, data["rows"]);
+			}
 		} else {
 			errorCB();
 		}
+	},
+	priceOverrideCheck: function(product, successCB, errorCB, err, data) {
+		//console.log(product);
+		if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
+			if(_.isString(data["rows"][0]["value"]) && !_.isEmpty(data["rows"][0]["value"])) {
+				_.each(product, function(row) {
+						if(_.isString(row["value"]) && !_.isEmpty(row["value"])) {
+							row["value"] = data["rows"][0]["value"];
+						} else if(_.isString(row["value"]["base_price"]) && !_.isEmpty(row["value"]["base_price"])) {
+							row["value"]["base_price"] = data["rows"][0]["value"];
+						}
+						row["overridden"] = true;
+				});
+			}
+		}
+
+		successCB(err, product);
 	}
 };
 

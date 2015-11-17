@@ -138,7 +138,7 @@ module.exports = {
 		var that = this;
 		_.each(data, function(row) {
 			if(_.indexOf(products_marked, row["key"]) == -1) {
-				row["value"]["base_price"] = that.applyPriceMarkup(req.body.category, sails.config.txprintco.markup, row["value"]["base_price"]);
+				row["value"]["base_price"] = that.applyPriceMarkup(req.body.category, sails.config.txprintco.markup, row["value"]["base_price"], row["overridden"]);
 				products.push(row["value"]);
 				products_marked.push(row["key"]);
 			}
@@ -245,7 +245,7 @@ module.exports = {
 	productBestPrice: function(req, res, tat_data, err, data) {
 		var response = {
 			status: true,
-			price: this.applyPriceMarkup(req.body.category, sails.config.txprintco.markup, data[0]["value"])
+			price: this.applyPriceMarkup(req.body.category, sails.config.txprintco.markup, data[0]["value"], data[0]["overridden"])
 		};
 
 		if(_.isArray(tat_data)) {
@@ -267,7 +267,7 @@ module.exports = {
 	productPrice: function(req, res, opt_data, err, data) {
 		var response = {
 			status: true,
-			price: this.applyPriceMarkup(req.body.category, sails.config.txprintco.markup, data[0]["value"]["base_price"])
+			price: this.applyPriceMarkup(req.body.category, sails.config.txprintco.markup, data[0]["value"]["base_price"], data[0]["overridden"])
 		};
 
 		if(_.isArray(opt_data)) {
@@ -276,11 +276,15 @@ module.exports = {
 
 		res.json(response);
 	},
-	applyPriceMarkup: function(category, markupMap, price) {
-		if(!_.isEmpty(category) && _.has(markupMap, category)) {
-			var numPrice = Number(price);
-			price = (numPrice+(numPrice*(markupMap[category]/100)));
-			return price.toFixed(2);
+	applyPriceMarkup: function(category, markupMap, price, overrideFlag) {
+		if(overrideFlag) {
+			return price;
+		} else {
+			if(!_.isEmpty(category) && _.has(markupMap, category)) {
+				var numPrice = Number(price);
+				price = (numPrice+(numPrice*(markupMap[category]/100)));
+				return price.toFixed(2);
+			}
 		}
 
 		return price;
