@@ -2,6 +2,7 @@
   App = {
       basePath: '/',
       preloaderSemaphore: 0,
+      activeKey: {},
       startPreloader: function() {
         console.log("Start Preloader");
       },
@@ -79,6 +80,9 @@
 
         if(_.isObject(data) || _.isString(data) || _.isArray(data)) {
           request['data'] = data;
+          App.activeKey = data;
+        } else {
+          App.activeKey = {};
         }
 
         $.ajax(request);
