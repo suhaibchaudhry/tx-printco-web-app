@@ -9,14 +9,20 @@
       overrideItem: function() {
         if(!_.isEmpty(App.activeKey)) {
           var p = window.prompt('Enter new price ('+JSON.stringify(App.activeKey)+'):', "0.00");
-          App.makeRequest('product/priceoverride',
-                      'POST',
-                      App,
-                      {
-                        price: p,
-                        activeKey: App.activeKey
-                      },
-                      App.overrideResponse);
+          if(_.isEmpty(p)) {
+            alert("Please input a valid number.");
+          } else {
+            App.makeRequest('product/priceoverride',
+                        'POST',
+                       App,
+                       {
+                         price: p,
+                         activeKey: App.activeKey
+                       },
+                       App.overrideResponse);
+
+            $('.subtotal span.value').text(p);
+          }
         }
         return false;
       },
