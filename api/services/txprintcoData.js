@@ -14,6 +14,8 @@ var txprintcoData = {
 	handleCouchResponse: function(params, successCB, errorCB, err, data) {
 		if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
 			if(_.isArray(params.key)) {
+				params["descending"] = true;
+				params["limit"] = 1;
 				this.pdb.view('txprintco_pricing', 'pricemap', params, _.bind(this.priceOverrideCheck, this, data["rows"], successCB, errorCB));
 			} else {
 				successCB(err, data["rows"]);
