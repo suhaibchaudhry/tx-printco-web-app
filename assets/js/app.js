@@ -9,7 +9,7 @@
       overrideItem: function() {
         if(!_.isEmpty(App.activeKey)) {
           var p = window.prompt('Enter new price ('+JSON.stringify(App.activeKey)+'):', "0.00");
-          if(_.isEmpty(p)) {
+          if(_.isEmpty(p) || isNaN(p)) {
             alert("Please input a valid number.");
           } else {
             App.makeRequest('product/priceoverride',
@@ -109,7 +109,7 @@
           if(_.isEmpty(data['filters']) && resource.indexOf('rpc/product') != -1) {
             App.activeKey = data;
           } else {
-            App.activeKey = {};  
+            App.activeKey = {};
           }
         } else {
           App.activeKey = {};
