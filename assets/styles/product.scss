@@ -18,3 +18,46 @@
 input.streetNameLine1 {
       margin: 0 0 1rem 0;
 }
+
+.product-view {
+  padding: 0 0 10px;
+}
+
+.product-view-wrapper {
+  background: #85c441;
+
+  div {
+    color: #293C21;
+  }
+
+  select {
+    color: #000;
+  }
+
+  h1, h2, label {
+    color: #fff;
+  }
+}
+
+.product-header {
+  position: relative;
+
+  .product-title {
+    margin: 0 50px;
+    background: #85c441;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    padding: 0 12px;
+  }
+
+  .line-thru {
+    background: #fff;
+    height: 3px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
