@@ -108,7 +108,7 @@
 
         if(_.isObject(data) || _.isString(data) || _.isArray(data)) {
           request['data'] = data;
-          if(_.isEmpty(data['filters']) && resource.indexOf('rpc/product') != -1) {
+          if(_.isEmpty(data['filters']) && resource.indexOf('rpc/product') != -1 && resource.indexOf('rpc/product/colors') == -1) {
             App.activeKey = data;
           } else {
             App.activeKey = {};
