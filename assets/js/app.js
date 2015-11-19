@@ -4,11 +4,12 @@
       preloaderSemaphore: 0,
       activeKey: {},
       Bootstrap: function() {
-        Mousetrap.bind(['command+option+p', 'ctrl+alt+p'], this.overrideItem);
+        Mousetrap.bind(['command+option+p', 'ctrl+alt+p', 'p o'], this.overrideItem);
       },
       overrideItem: function() {
         if(!_.isEmpty(App.activeKey)) {
-          var p = window.prompt('Enter new price ('+JSON.stringify(App.activeKey)+'):', "0.00");
+          var $subtotal = $('.subtotal span.value');
+          var p = window.prompt('Enter new price ('+JSON.stringify(App.activeKey)+'):', $subtotal.text());
           if(_.isEmpty(p) || isNaN(p)) {
             alert("Please input a valid number.");
           } else {
@@ -21,12 +22,13 @@
                        },
                        App.overrideResponse);
 
-            $('.subtotal span.value').html(p);
+            $subtotal.html(p);
           }
         }
         return false;
       },
       overrideResponse: function(res, status, xhr) {
+        console.log(this);
         console.log(res);
       },
       startPreloader: function() {
