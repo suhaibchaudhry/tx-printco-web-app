@@ -14,7 +14,7 @@
       "change .product-colors select": 'selectColor',
       "change .product-tats select": 'selectTAT',
       "change .product-options select": 'selectOption',
-      "click .product-data .multipleResultChild": 'selectProduct',
+      "click .multipleResultChild": 'selectProduct',
       "click .order-now": 'initiateOrderProcess',
       "click .order-submit": 'submitOrderButton',
       "submit .order-form form": 'submitOrderForm',
@@ -132,7 +132,7 @@
     },
     subtotalChanged: function(product, subtotal, options) {
       subtotal = parseFloat(product.get("subtotal"))+parseFloat(product.get("opttotal"));
-      this.$('.product-form .subtotal span.value').text(subtotal.toFixed(2));
+      this.$('.subtotal span.value').text(subtotal.toFixed(2));
     },
     visitFilterToTheRight: function($ele, name, currentTarget, res) {
       //$ele is the select being visiting
@@ -211,6 +211,8 @@
             this.activeResult
             )
           );
+
+        this.$('.purchase-summary').empty().append(this.$('.product-selection'));
 
         if(res.hits.hits.status && res.hits.hits.products.length == 1) {
           this.activeProduct.clear({silent: true});

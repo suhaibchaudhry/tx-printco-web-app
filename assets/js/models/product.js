@@ -16,7 +16,7 @@
 	                        runsize: runsize
 	                      },
 												this.productColorsLoaded);
-				this.set("subtotal", this.get("base_price"));
+				this.set("subtotal", "0.00");
 			} else {
 				this.set("subtotal", "0.00");
 			}
