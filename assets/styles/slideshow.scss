@@ -1,12 +1,15 @@
+//Import Foundation functions
+@import 'foundation/foundation/functions';
+
 @import "../../bower_components/Hover/scss/options";
 @import "../../bower_components/Hover/scss/mixins";
 
 @import "compass/css3/images";
 
-$screen-width: 1220px;
-$slideshow-height: 300px;
-$slideshow-padding-top: 20px;
-$slideshow-padding-bottom: 60px;
+$screen-width: rem-calc(1220);
+$slideshow-height: rem-calc(300);
+$slideshow-padding-top: rem-calc(20);
+$slideshow-padding-bottom: rem-calc(60);
 $slideshow-height-outer: $slideshow-height + $slideshow-padding-top + $slideshow-padding-bottom; //Slideshow height + 60px;
 
 $slideshow-slide-left-region-width: 50%;
@@ -30,25 +33,25 @@ $slideshow-slide-paragraph-color: #FFCF5D;
   width: 100%;
   height: $slideshow-height-outer;
   overflow: hidden;
-	margin: 0 0 25px;
+	margin: 0 0 rem-calc(25);
   .menu {
     width: $screen-width;
     margin: 0 auto;
 
     ul {
       position: absolute;
-      bottom: 11px;
+      bottom: rem-calc(11);
 
       li {
         float: left;
-        margin-right: 20px;
+        margin-right: rem-calc(20);
       }
 
 			li a {
 				display: block;
 				font-size: 13pt;
-        border-bottom: 2px solid #fff;
-        padding: 4px 10px;
+        border-bottom: rem-calc(2) solid #fff;
+        padding: rem-calc(4) rem-calc(10);
 				color: #fff;
 			}
 
@@ -93,12 +96,12 @@ $slideshow-slide-paragraph-color: #FFCF5D;
 
         a {
           position: absolute;
-          bottom: 25px;
+          bottom: rem-calc(25);
           color: #fff;
           font-size: 35pt;
           background: #f7941d;
-          padding: 12px 90px;
-          border-radius: 10px;
+          padding: rem-calc(12) rem-calc(90);
+          border-radius: rem-calc(10);
         }
       }
     }
