@@ -18,22 +18,22 @@ $misc-layout: smart;
 .phone-contact {
   @include contact-sprite(phone,true);
   float:left;
-  padding: 16px 78px;
+  padding: rem-calc(16) rem-calc(78);
 }
 .fax-contact {
   @include contact-sprite(fax,true);
   float:left;
-  padding: 18px 86px;
+  padding: rem-calc(18) rem-calc(86);
 }
 .email-contact {
   @include contact-sprite(email,true);
   float:left;
-  padding: 16px 85px;
+  padding: rem-calc(16) rem-calc(85);
 }
 .address-contact {
   @include contact-sprite(address,true);
   float:left;
-  padding: 14px 88px;
+  padding: rem-calc(14) rem-calc(88);
 }
 .blank-text-box {
   text-indent: -9999px;
@@ -41,27 +41,27 @@ $misc-layout: smart;
 }
 .call-us-icon {
   @include misc-sprite(call-icon, true);
-  margin: 0 11px 0 0;
+  margin: 0 rem-calc(11) 0 0;
 }
 .discover {
   @include misc-sprite(discovercard, true);
-  margin: 0 4px 0 0;
+  margin: 0 rem-calc(4) 0 0;
 }
 .visa {
   @include misc-sprite(visa, true);
-  margin: 0 4px 0 0;
+  margin: 0 rem-calc(4) 0 0;
 }
 .american-express {
   @include misc-sprite(american-express, true);
-  margin: 0 4px 0 0;
+  margin: 0 rem-calc(4) 0 0;
 }
 .mastercard {
   @include misc-sprite(mastercard, true);
-  margin: 0 4px 0 0;
+  margin: 0 rem-calc(4) 0 0;
 }
 .paypal {
   @include misc-sprite(paypal, true);
-  margin: 0 4px 0 0;
+  margin: 0 rem-calc(4) 0 0;
 }
 .logo a {
   display: block;
@@ -85,14 +85,14 @@ h5 {
   line-height: normal;
 }
 h1 {
-  font-size: 48px;
+  font-size: rem-calc(48);
 }
 h2 {
-  font-size: 35px;
-  margin-bottom: 30px;
+  font-size: rem-calc(35);
+  margin-bottom: rem-calc(30);
 }
 h3 {
-  font-size: 27px;
+  font-size: rem-calc(27);
 }
 a {
   color: inherit;
@@ -100,7 +100,7 @@ a {
 }
 
 .view-wrapper {
-  padding: 30px 0 10px;
+  padding: rem-calc(30) 0 rem-calc(10);
 }
 
 .bottom-header .main-menu a:hover,
@@ -111,16 +111,16 @@ a {
   width: 100%;
   .bottom-header {
     position: relative;
-    //width: 1220px;
+    //width: rem-calc(1220);
     //margin: 0 auto;
-    //height: 110px;
+    //height: rem-calc(110);
     //.bottom-header-one {
     //  float: left;
     //}
     .bottom-header-two {
       //width: auto;
       //float: right;
-      //margin: 30px 0;
+      //margin: rem-calc(30) 0;
       position: static;
       .main-menu {
         position: absolute;
@@ -128,25 +128,25 @@ a {
         right: 0;
         ul li {
           float: left;
-          margin: 0 10px;
+          margin: 0 rem-calc(10);
         }
       }
     }
   }
   .top-header {
-    //width: 1220px;
-    //margin: 10px auto;
-    //height: 27px;
-    //border-bottom: 1px solid #f05247;
-    //padding: 0 0 35px;
+    //width: rem-calc(1220);
+    //margin: rem-calc(10) auto;
+    //height: rem-calc(27);
+    //border-bottom: rem-calc(1) solid #f05247;
+    //padding: 0 0 rem-calc(35);
     .call-us {
       float: left;
-      margin: 0 10px;
+      margin: 0 rem-calc(10);
     }
     .top-menu {
       ul li {
         float: left;
-        margin: 0 5px 0 0;
+        margin: 0 rem-calc(5) 0 0;
       }
     }
     .top-header-two {
@@ -155,7 +155,7 @@ a {
       }
       ul li {
         float: left;
-        margin: 0 0 0 10px;
+        margin: 0 0 0 rem-calc(10);
       }
     }
   }
@@ -167,14 +167,14 @@ a {
       &:before {
 
         //Smooth out circle by pushing in border 1px, to avoid edge cracks.
-        top: 1px;
-        left: 1px;
-        bottom: 1px;
-        right: 1px;
+        top: rem-calc(1);
+        left: rem-calc(1);
+        bottom: rem-calc(1);
+        right: rem-calc(1);
 
         //Use cross browser mixin later.
         border-radius: 50%;
-        border-width: 2px;
+        border-width: rem-calc(2);
       }
     }
     .item-1 {
@@ -196,7 +196,7 @@ a {
         //Start Gradient
         background: #f7961f;
         @include background-image(radial-gradient(ellipse at center, #fec247 0%,#f7961f 100%)); //End Gradient
-        padding: 39px 0;
+        padding: rem-calc(39) 0;
 
         //End Gradient
         &:before {
@@ -212,7 +212,7 @@ a {
         @include background-image(radial-gradient(ellipse at center, #8cc53f 0%,#7cb138 100%));
 
         //End Gradient
-        padding: 45px 0;
+        padding: rem-calc(45) 0;
         &:before {
           border-color: #7cb138;
         }
@@ -226,7 +226,7 @@ a {
         @include background-image(radial-gradient(ellipse at center, #00aeee 0%,#1e9cce 100%));
 
         //End Gradient
-        padding: 16px 0;
+        padding: rem-calc(16) 0;
         &:before {
           border-color: #1e9cce;
         }
@@ -240,7 +240,7 @@ a {
         @include background-image(radial-gradient(ellipse at center, #9f1f63 0%,#7d0e4d 100%));
 
         //End Gradient
-        padding: 19px 0;
+        padding: rem-calc(19) 0;
         &:before {
           border-color: #7d0e4d;
         }
@@ -254,7 +254,7 @@ a {
         @include background-image(radial-gradient(ellipse at center, #f5ed32 0%,#f3cf36 100%));
 
         //End Gradient
-        padding: 75px 0;
+        padding: rem-calc(75) 0;
         &:before {
           border-color: #f3cf36;
         }
@@ -268,7 +268,7 @@ a {
         @include background-image(radial-gradient(ellipse at center, #642d8f 0%,#282364 100%));
 
         //End Gradient
-        padding: 16px 0;
+        padding: rem-calc(16) 0;
         &:before {
           border-color: #282364;
         }
@@ -282,7 +282,7 @@ a {
         @include background-image(radial-gradient(ellipse at center, #d8565d 0%,#b71319 100%));
 
         //End Gradient
-        padding: 60px 39px;
+        padding: rem-calc(60) rem-calc(39);
         &:before {
           border-color: #b71319;
         }
@@ -293,7 +293,7 @@ a {
 .top-content {
   width: 100%;
   .featured-products {
-    width: 1220px;
+    width: rem-calc(1220);
     margin: 0 auto;
     h2 {
       text-align: center;
@@ -306,14 +306,14 @@ a {
       .product-image {
         display: inline-block;
         border-radius: 50%;
-        padding: 55px 0;
-        width: 220px;
+        padding: rem-calc(55) 0;
+        width: rem-calc(220);
         margin: 0 auto;
-        height: 220px;
+        height: rem-calc(220);
       }
       .product-name {
-        margin: 17px 0;
-        font-size: 20px;
+        margin: rem-calc(17) 0;
+        font-size: rem-calc(20);
       }
       &:hover .product-image:before,
       &:hover .product-image:before,
@@ -325,7 +325,7 @@ a {
 }
 
 .content-body {
-    margin: 10px 0 0;
+    margin: rem-calc(10) 0 0;
 }
 
 .middle-content {
@@ -337,13 +337,13 @@ a {
   //End Gradient
   width: 100%;
   float: left;
-  padding: 7px 0;
+  padding: rem-calc(7) 0;
   .middle-content-container {
-    width: 960px;
+    width: rem-calc(960);
     margin: 0 auto;
-    padding: 10px;
+    padding: rem-calc(10);
     ul {
-      margin: 12px 90px;
+      margin: rem-calc(12) rem-calc(90);
     }
     ul li {
       list-style: disc inside none;
@@ -355,18 +355,18 @@ a {
       text-align: center;
     }
     .middle-content-one {
-      border-right: 1px solid #fff;
+      border-right: rem-calc(1) solid #fff;
       .sub-header {
         text-align: center;
         color: #ed3293;
-        font-size: 20px;
+        font-size: rem-calc(20);
       }
     }
     .block {
       float: left;
       width: 50%;
-      padding: 0 25px 80px;
-      margin: 25px 0;
+      padding: 0 rem-calc(25) rem-calc(80);
+      margin: rem-calc(25) 0;
       position: relative;
       .flat-button {
         position: absolute;
@@ -375,10 +375,10 @@ a {
         left: 0;
         background: #fff;
         color: #ec008c;
-        padding: 10px;
+        padding: rem-calc(10);
         text-align: center;
-        border-radius: 3px;
-        margin: 0 90px;
+        border-radius: rem-calc(3);
+        margin: 0 rem-calc(90);
       }
     }
   }
@@ -393,17 +393,17 @@ a {
   .menu {
     //float: left;
     //width: 25%;
-    padding: 10px;
-    border-right: 1px solid #eaeaea;
-    margin: 10px 0 20px;
+    padding: rem-calc(10);
+    border-right: rem-calc(1) solid #eaeaea;
+    margin: rem-calc(10) 0 rem-calc(20);
     ul li {
       color: #dcdcdc;
-      font-size: 14px;
+      font-size: rem-calc(14);
     }
   }
   h5 {
-    font-size: 22px;
-    margin: 0 0 10px;
+    font-size: rem-calc(22);
+    margin: 0 0 rem-calc(10);
   }
   .footer-one {
     h5 {
@@ -432,14 +432,14 @@ a {
   width: 100%;
   color: #fff;
   float: left;
-  padding: 10px 0;
+  padding: rem-calc(10) 0;
   .footer-one {
     float: left;
     width: 50%;
-    margin: 17px 0;
+    margin: rem-calc(17) 0;
     .footer-message {
-      font-size: 12px;
-      padding: 0 10px;
+      font-size: rem-calc(12);
+      padding: 0 rem-calc(10);
     }
   }
   .footer-two {
@@ -447,7 +447,7 @@ a {
     width: 50%;
     .payment-options {
       float: right;
-      margin: 0 5px;
+      margin: 0 rem-calc(5);
       li {
         float: left;
       }
@@ -460,37 +460,37 @@ a {
     width: 100%;
     background: #000;
     .header-title {
-      width: 1220px;
+      width: rem-calc(1220);
       margin: 0 auto;
-      padding: 20px 0;
+      padding: rem-calc(20) 0;
       color: #fff;
     }
   }
   .contact-info-wrapper {
     background: #75BA46;
-    height: 100px;
-    padding: 18px 0;
+    height: rem-calc(100);
+    padding: rem-calc(18) 0;
     .contact-info {
-      width: 1220px;
+      width: rem-calc(1220);
       margin: 0 auto;
       ul li {
         float: left;
         width: 25%;
         color: #fff;
-        font-size: 20px;
+        font-size: rem-calc(20);
         font-family: 'Roboto', sans-serif;
         font-weight: 100;
         text-transform: lowercase;
       }
       .address-contact {
-        font-size: 14px;
+        font-size: rem-calc(14);
       }
     }
   }
   .form-header {
     text-align: center;
-    font-size: 40px;
-    margin: 25px 0 10px;
+    font-size: rem-calc(40);
+    margin: rem-calc(25) 0 rem-calc(10);
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
   }
@@ -498,14 +498,14 @@ a {
 
 
 .contact-forms {
-  width: 1220px;
+  width: rem-calc(1220);
   margin: 0 auto;
   input {
   width: 50%;
   display: block;
-  margin: 12px auto;
-  padding: 14px;
-  border-radius: 4px;
+  margin: rem-calc(12) auto;
+  padding: rem-calc(14);
+  border-radius: rem-calc(4);
   background: #eaeaea;
   border: none;
   }
@@ -514,24 +514,24 @@ a {
     width: 52%;
     margin: 0 auto;
     background: #ee237c;
-    padding: 13px;
-    border-radius: 3px;
+    padding: rem-calc(13);
+    border-radius: rem-calc(3);
     color: #fff;
   }
   .contact-form-buttons {
     text-align: center;
     p {
         display: inline-block;
-        font-size: 35px;
+        font-size: rem-calc(35);
       }
     .get-in-touch, .order-issue {
       display: inline-block;
       background: #2d2d2d;
-      padding: 16px 54px;
+      padding: rem-calc(16) rem-calc(54);
       color: #fff;
-      border-radius: 3px;
-      margin: 10px;
-      font-size: 25px;
+      border-radius: rem-calc(3);
+      margin: rem-calc(10);
+      font-size: rem-calc(25);
     }
   }
 }
