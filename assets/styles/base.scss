@@ -13,7 +13,7 @@
 $misc-layout: smart;
 @import "misc/*.png";
 @import "contact/*.png";
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,300|Open+Sans:400,600);
+@import url("//fonts.googleapis.com/css?family=Roboto:400,300|Open+Sans:400,600");
 
 .phone-contact {
   @include contact-sprite(phone,true);
