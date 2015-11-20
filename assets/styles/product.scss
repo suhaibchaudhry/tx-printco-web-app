@@ -4,11 +4,16 @@
 }
 
 .order-pane {
-  display: none;
+  display: block;
 }
 
 .order-now {
-  margin: 20px 0
+  display: block;
+  margin: 20px 0;
+}
+
+.order-slide {
+  display: none;
 }
 
 .order-form {

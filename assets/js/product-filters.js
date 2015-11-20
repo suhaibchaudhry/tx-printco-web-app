@@ -35,7 +35,7 @@
       this.productFilterChange(false);
     },
     productChange: function(product, value, options) {
-      this.$('.order-pane').hide();
+      this.$('.order-slide').hide();
       this.$('.product-options').html(this.productNewFormTemplate({
         runsizes: product.get('runsizes')
       }));
@@ -92,7 +92,7 @@
       this.activeProduct.set(this.activeResult.products[e.currentTarget.dataset.productIndex]);
     },
     selectRunsize: function(e) {
-      this.$('.order-pane').hide();
+      this.$('.order-slide').hide();
       if(e.currentTarget.value == "0") {
         this.activeProduct.set({tat: false, color: false}, {silent: true});
         this.activeProduct.set({runsize: false, colors: false});
@@ -102,7 +102,7 @@
       }
     },
     selectColor: function(e) {
-      this.$('.order-pane').hide();
+      this.$('.order-slide').hide();
       if(e.currentTarget.value == "0") {
         this.activeProduct.set('tat', false, {silent: true});
         this.activeProduct.set({color: false, tats: false});
@@ -113,10 +113,10 @@
     },
     selectTAT: function(e) {
       if(e.currentTarget.value == "0") {
-        this.$('.order-pane').hide();
+        this.$('.order-slide').hide();
         this.activeProduct.set({tat: false, vocabularies: false});
       } else {
-        this.$('.order-pane').show();
+        this.$('.order-slide').show();
         this.activeProduct.set('tat', false, {silent: true});
         this.activeProduct.set('tat', e.currentTarget.value);
       }
@@ -124,7 +124,7 @@
     selectOption: function(e) {
       //To be made cross browser
       var total = 0;
-      //this.$('.order-pane').show();
+      //this.$('.order-slide').show();
       this.$(".product-options > select > option:selected").each(function(i, e) {
         total += parseFloat(e.dataset.optionFee);
       });
