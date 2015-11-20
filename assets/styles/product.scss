@@ -9,7 +9,7 @@
 
 .order-now {
   display: block;
-  margin: 20px 0;
+  margin: rem-calc(20) 0;
 }
 
 .order-slide {
@@ -44,17 +44,17 @@ input.streetNameLine1 {
   position: relative;
 
   .product-title {
-    margin: 0 50px;
+    margin: 0 rem-calc(50);
     background: #85c441;
     position: relative;
     z-index: 2;
     display: inline-block;
-    padding: 0 12px;
+    padding: 0 rem-calc(12);
   }
 
   .line-thru {
     background: #fff;
-    height: 3px;
+    height: rem-calc(3);
     position: absolute;
     top: 50%;
     left: 0;
