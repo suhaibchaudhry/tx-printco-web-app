@@ -35,45 +35,36 @@ $misc-layout: smart;
   float:left;
   padding: 14px 88px;
 }
-.call-us-icon {
-  @include misc-sprite(call-icon, true);
+.blank-text-box {
   text-indent: -9999px;
   float: left;
+}
+.call-us-icon {
+  @include misc-sprite(call-icon, true);
   margin: 0 11px 0 0;
 }
 .discover {
   @include misc-sprite(discovercard, true);
-  text-indent: -9999px;
-  float: left;
   margin: 0 4px 0 0;
 }
 .visa {
   @include misc-sprite(visa, true);
-  text-indent: -9999px;
-  float: left;
   margin: 0 4px 0 0;
 }
 .american-express {
   @include misc-sprite(american-express, true);
-  text-indent: -9999px;
-  float: left;
   margin: 0 4px 0 0;
 }
 .mastercard {
   @include misc-sprite(mastercard, true);
-  text-indent: -9999px;
-  float: left;
   margin: 0 4px 0 0;
 }
 .paypal {
   @include misc-sprite(paypal, true);
-  text-indent: -9999px;
-  float: left;
   margin: 0 4px 0 0;
 }
 .logo a {
   display: block;
-  text-indent: -9999px;
   @include misc-sprite(logo, true);
 }
 .lowercase {
