@@ -12,10 +12,6 @@ $misc-layout: smart;
 @import "contact/*.png";
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300|Open+Sans:400,600);
 
-.row {
-    max-width: 1220px;
-}
-
 .phone-contact {
   @include contact-sprite(phone,true);
   float:left;
