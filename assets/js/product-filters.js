@@ -202,7 +202,7 @@
         }
       });
 
-      //Populate products the old way for now.
+      //Populate products the old way (Done by client without transforming upstream payload) for now.
       if(_.has(res, 'hits') && _.has(res.hits, 'hits') && _.has(res.hits.hits, 'status')) {
         this.activeResult = res.hits.hits;
 
