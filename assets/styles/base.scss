@@ -536,6 +536,21 @@ a {
   }
 }
 
+//Template page
+a.template-link {
+  display: block;
+  background: #535fa6;
+  color: #fff;
+  padding: 10px;
+  margin: 0 0 5px;
+  border-radius: 5px;
+
+  &:hover {
+    background: #FFC047;
+    color: #3A3120;
+  }
+}
+
 .clear-fix {
   clear: both;
 }

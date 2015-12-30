@@ -7,11 +7,22 @@ var txprintcoData = {
 	createPriceOverride: function(overrideMap) {
 		this.pdb.insert(overrideMap);
 	},
-	makeDataRequest: function(view, params, successCB, errorCB) {
+	makeDataRequest: function(view, params, successCB, errorCB, db, design_doc) {
 		var that = this;
-		this.db.view(this.design_doc, view, params, _.bind(this.handleCouchResponse, this, params, successCB, errorCB));
+		if(_.isObject(db) && _.isString(design_doc)) {
+			db.view(design_doc, view, params, _.bind(this.handleCouchResponse, this, params, successCB, errorCB));
+		} else {
+			this.db.view(this.design_doc, view, params, _.bind(this.handleCouchResponseOverride, this, params, successCB, errorCB));
+		}
 	},
 	handleCouchResponse: function(params, successCB, errorCB, err, data) {
+		if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
+			successCB(err, data["rows"]);
+		} else {
+			errorCB();
+		}
+	},
+	handleCouchResponseOverride: function(params, successCB, errorCB, err, data) {
 		if(!err && _.isArray(data["rows"]) && data["rows"].length > 0) {
 			if(_.isArray(params.key)) {
 				params["descending"] = true;

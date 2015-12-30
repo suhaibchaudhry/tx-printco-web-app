@@ -52,6 +52,9 @@ module.exports.routes = {
   'get /products': 'ProductController.productList',
   'get /products/*': 'ProductController.parentProduct',
 
+  'get /templates': 'ProductController.templateList',
+  'get /templates/*': 'ProductController.parentTemplate',
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

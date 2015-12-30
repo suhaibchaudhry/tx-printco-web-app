@@ -6,6 +6,34 @@
  */
 
 module.exports = {
+	templateList: function(req, res) {
+		txprintcoData.makeDataRequest('templates_list',
+										{},
+										_.bind(this.drawTemplateTree, this, req, res),
+										_.bind(this.serverErrorResponse, this, req, res),
+										sails.config.txprintco.tdb, 'txprintco_templates');
+	},
+	parentTemplate: function(req, res) {
+		var category = req._parsedUrl.pathname.split('/')[2];
+
+		txprintcoData.makeDataRequest('templates_details',
+										{key: category},
+										_.bind(this.templateDetails, this, req, res, category),
+										_.bind(this.serverNotFoundResponse, this, req, res),
+									sails.config.txprintco.tdb, 'txprintco_templates');
+	},
+	templateDetails: function(req, res, category, err, data) {
+		res.json({
+			status: true,
+			data: data
+		});
+	},
+	drawTemplateTree: function(req, res, err, data) {
+		res.view({
+		    errors: req.flash('error'),
+				data: data
+		});
+	},
 	priceOverride: function(req, res) {
 		txprintcoData.createPriceOverride(req.body);
 		res.json({

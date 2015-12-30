@@ -2,11 +2,13 @@ var host = 'root:xyz786@office.uitoux.com';
 var port = '5988';
 var dbname = 'txprintco_dev_stage16';
 var pricedb = 'txprintco_price_maps';
+var templatedb = 'txprintco_template_maps';
 
 var ElasticSearchClient = require('elasticsearchclient');
 var nano = require("nano")('http://'+host+':'+port);
 var db = nano.db.use(dbname);
 var pdb = nano.db.use(pricedb);
+var tdb = nano.db.use(templatedb);
 
 var elasticSearchClient = new ElasticSearchClient({
     host: 'office.uitoux.com',
@@ -29,6 +31,7 @@ module.exports.txprintco = {
     elastic_client: elasticSearchClient,
     db: db,
     pdb: pdb,
+    tdb: tdb,
     design_doc: 'txprintco',
     markup: priceMarkupMap
 };
