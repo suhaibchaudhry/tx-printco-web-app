@@ -1,0 +1,13 @@
+<div class="template-list-view row">
+<h1>Template List</h1>
+<div class="row">
+  <div class="large-4 columns template-list">
+    <% data.forEach(function(template) { %>
+      <a class="template-link" href="products/<%= template['key'] %>"><%= template['value'] %></a>
+    <% }); %>
+  </div>
+  <div class="large-8 columns template-details">
+    <p>Please select a template type from the left.</p>
+  </div>
+</div>
+</div>
