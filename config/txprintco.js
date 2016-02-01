@@ -1,6 +1,6 @@
 var host = 'root:xyz786@office.uitoux.com';
 var port = '5988';
-var dbname = 'txprintco_dev_stage16';
+var dbname = 'txprintco_dev_stage17';
 var pricedb = 'txprintco_price_maps';
 var templatedb = 'txprintco_template_maps';
 
